@@ -136,8 +136,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
         'max' => 40,
         'step' => 1,
         'selectors' => [
-          '{{WRAPPER}} .se-product-grid' => 'grid-column-gap: {{VALUE}}px',
-          '{{WRAPPER}} .se-product-grid' => 'grid-row-gap: {{VALUE}}px',
+          '{{WRAPPER}} .se-product-grid' => 'grid-column-gap: {{VALUE}}px; grid-row-gap: {{VALUE}}px;',
         ],
       ]
     );
