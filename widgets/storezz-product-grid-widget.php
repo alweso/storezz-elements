@@ -39,6 +39,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
         'label' => __('Choose Categories', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT2,
         'default' => '',
+        'label_block' => true,
         'multiple' => true,
         'options'   => storezz_elements_get_woo_categories_list(),
       ]
@@ -249,16 +250,19 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       'order'          => $order,
       'meta_query'     => array(),
       'tax_query'      => array(
-        array(
-            'taxonomy'      => 'product_cat',
-            'field' => 'term_id', //This is optional, as it defaults to 'term_id'
-            'terms'         => $categories,
-            'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
-        ),
         'relation' => 'AND',
       ),
     ); // WPCS: slow query ok.
-
+    if ( !empty($categories) ) {
+      $query_args['tax_query'][] = array(
+        array(
+            'taxonomy'      => 'product_cat',
+            'field'         => 'term_id', //This is optional, as it defaults to 'term_id'
+            'terms'         => $categories,
+            'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+        ),
+      );
+    };
     if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
       $query_args['tax_query'][] = array(
         array(
