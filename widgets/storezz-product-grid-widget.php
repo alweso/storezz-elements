@@ -46,30 +46,9 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     // featured product - // todDo
 
-    $this->add_control(
-      'featured',
-      [
-        'label' => esc_html__('Show featured only', 'digiqole'),
-        'type' => \Elementor\Controls_Manager::SWITCHER,
-        'featured' => esc_html__('featured', 'digiqole'),
-        'visible' => esc_html__('visible', 'digiqole'),
-        'default' => 'visible',
-      ]
-    );
 
     $this->add_control(
-      'is_on_sale',
-      [
-        'label' => esc_html__('Show on sale products only', 'digiqole'),
-        'type' => \Elementor\Controls_Manager::SWITCHER,
-        'featured' => esc_html__('featured', 'digiqole'),
-        'visible' => esc_html__('visible', 'digiqole'),
-        'default' => 'visible',
-      ]
-    );
-
-    $this->add_control(
-      'order_by', [
+      'orderby', [
         'label' => __('Order Products By', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => 'title',
@@ -95,9 +74,24 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
           'ASC'      =>esc_html__( 'Ascending', 'menheer-plugin' ),
           'DESC'      =>esc_html__( 'Descending', 'menheer-plugin' ),
         ],
-        'condition' => [ 'order_by' => ['date', 'id', 'menu_order', 'title', 'rand', ''] ]
       ]
     );
+
+    $this->add_control(
+      'show', [
+        'label' => __('Show', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => '',
+        'options' => [
+          ''         => __( 'All products', 'woocommerce' ),
+          'featured' => __( 'Featured products', 'woocommerce' ),
+          'onsale'   => __( 'On-sale products', 'woocommerce' ),
+        ],
+      ]
+    );
+
+
+
 
     $this->add_control(
       'number_of_products',
@@ -229,115 +223,95 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->end_controls_section();
   }
 
-  public function get_products( $args ) {
-		$number                      = ! empty( $instance['number'] ) ? absint( $instance['number'] ) : $this->settings['number']['std'];
-		$show                        = ! empty( $instance['show'] ) ? sanitize_title( $instance['show'] ) : $this->settings['show']['std'];
-		$orderby                     = ! empty( $instance['orderby'] ) ? sanitize_title( $instance['orderby'] ) : $this->settings['orderby']['std'];
-		$order                       = ! empty( $instance['order'] ) ? sanitize_title( $instance['order'] ) : $this->settings['order']['std'];
-		$product_visibility_term_ids = wc_get_product_visibility_term_ids();
-
-		$query_args = array(
-			'posts_per_page' => $number,
-			'post_status'    => 'publish',
-			'post_type'      => 'product',
-			'no_found_rows'  => 1,
-			'order'          => $order,
-			'meta_query'     => array(),
-			'tax_query'      => array(
-				'relation' => 'AND',
-			),
-		); // WPCS: slow query ok.
-
-		if ( empty( $instance['show_hidden'] ) ) {
-			$query_args['tax_query'][] = array(
-				'taxonomy' => 'product_visibility',
-				'field'    => 'term_taxonomy_id',
-				'terms'    => is_search() ? $product_visibility_term_ids['exclude-from-search'] : $product_visibility_term_ids['exclude-from-catalog'],
-				'operator' => 'NOT IN',
-			);
-			$query_args['post_parent'] = 0;
-		}
-
-		if ( ! empty( $instance['hide_free'] ) ) {
-			$query_args['meta_query'][] = array(
-				'key'     => '_price',
-				'value'   => 0,
-				'compare' => '>',
-				'type'    => 'DECIMAL',
-			);
-		}
-
-		if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
-			$query_args['tax_query'][] = array(
-				array(
-					'taxonomy' => 'product_visibility',
-					'field'    => 'term_taxonomy_id',
-					'terms'    => $product_visibility_term_ids['outofstock'],
-					'operator' => 'NOT IN',
-				),
-			); // WPCS: slow query ok.
-		}
-
-		switch ( $show ) {
-			case 'featured':
-				$query_args['tax_query'][] = array(
-					'taxonomy' => 'product_visibility',
-					'field'    => 'term_taxonomy_id',
-					'terms'    => $product_visibility_term_ids['featured'],
-				);
-				break;
-			case 'onsale':
-				$product_ids_on_sale    = wc_get_product_ids_on_sale();
-				$product_ids_on_sale[]  = 0;
-				$query_args['post__in'] = $product_ids_on_sale;
-				break;
-		}
-
-		switch ( $orderby ) {
-			case 'price':
-				$query_args['meta_key'] = '_price'; // WPCS: slow query ok.
-				$query_args['orderby']  = 'meta_value_num';
-				break;
-			case 'rand':
-				$query_args['orderby'] = 'rand';
-				break;
-			case 'sales':
-				$query_args['meta_key'] = 'total_sales'; // WPCS: slow query ok.
-				$query_args['orderby']  = 'meta_value_num';
-				break;
-			default:
-				$query_args['orderby'] = 'date';
-		}
-
-		return new WP_Query( apply_filters( 'woocommerce_products_widget_query_args', $query_args ) );
-	}
 
   /** Render Layout */
   protected function render() {
     $settings = $this->get_settings_for_display();
-    $products = $this->get_products( $args, $instance ); ////// ??????????
-    echo wp_kses_post( apply_filters( 'woocommerce_before_widget_product_list', '<ul class="product_list_widget">' ) );
+    $number_of_products          = $settings['number_of_products'];
+    $show                        = $settings['show'];
+    $orderby                     = $settings['orderby'];
+    $order                       = $settings['order'];
+    $categories                     = $settings['choose_categories'];
+    $product_visibility_term_ids = wc_get_product_visibility_term_ids();
+    $query_args = array(
+      'posts_per_page' => $number_of_products,
+      'post_status'    => 'publish',
+      'post_type'      => 'product',
+      'no_found_rows'  => 1,
+      'order'          => $order,
+      'meta_query'     => array(),
+      'tax_query'      => array(
+        array(
+            'taxonomy'      => 'product_cat',
+            'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+            'terms'         => $categories,
+            'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+        ),
+        'relation' => 'AND',
+      ),
+    ); // WPCS: slow query ok.
 
-    $template_args = array(
-      'show_rating' => true,
-      'posts_per_page' => 3,
-			'post_status'    => 'publish',
-			'post_type'      => 'product',
-			// 'no_found_rows'  => 1,
-			// 'order'          => $order,
-			// 'meta_query'     => array(),
-			// 'tax_query'      => array(
-			// 	'relation' => 'AND',
-			// ),
-    );
-
-    while ( $products->have_posts() ) {
-      $products->the_post();?>
-      <h1>fds</h1><?php
-      wc_get_template( 'content-widget-product.php', $template_args );
+    if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
+      $query_args['tax_query'][] = array(
+        array(
+          'taxonomy' => 'product_visibility',
+          'field'    => 'term_taxonomy_id',
+          'terms'    => $product_visibility_term_ids['outofstock'],
+          'operator' => 'NOT IN',
+        ),
+      ); // WPCS: slow query ok.
     }
 
-    echo wp_kses_post( apply_filters( 'woocommerce_after_widget_product_list', '</ul>' ) );
+    switch ( $show ) {
+      case 'featured':
+      $query_args['tax_query'][] = array(
+        'taxonomy' => 'product_visibility',
+        'field'    => 'term_taxonomy_id',
+        'terms'    => $product_visibility_term_ids['featured'],
+      );
+      break;
+      case 'onsale':
+      $product_ids_on_sale    = wc_get_product_ids_on_sale();
+      $product_ids_on_sale[]  = 0;
+      $query_args['post__in'] = $product_ids_on_sale;
+      break;
+    }
 
-     }
+    switch ( $orderby ) {
+      case 'price':
+      $query_args['meta_key'] = '_price'; // WPCS: slow query ok.
+      $query_args['orderby']  = 'meta_value_num';
+      break;
+      case 'rand':
+      $query_args['orderby'] = 'rand';
+      break;
+      case 'sales':
+      $query_args['meta_key'] = 'total_sales'; // WPCS: slow query ok.
+      $query_args['orderby']  = 'meta_value_num';
+      break;
+      default:
+      $query_args['orderby'] = 'date';
+    }
+    ob_start();
+
+    $products =  new WP_Query( $query_args);
+    if ( $products && $products->have_posts() ) { ?>
+      <ul style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr">
+        <?php
+        $template_args = array(
+          'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
+          'show_rating' => true,
+        );
+
+        while ( $products->have_posts() ) {
+          $products->the_post();
+          wc_get_template( 'content-widget-product.php', $template_args );
+        }?>
+
+      </ul><?php
+    }
+
+    wp_reset_postdata();
+
+  }
 }?>
