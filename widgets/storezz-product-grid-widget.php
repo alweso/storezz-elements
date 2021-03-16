@@ -109,14 +109,18 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       [
         'label' => __( 'Number of columns', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => '4',
+        'default' => '1fr 1fr 1fr 1fr',
         'options'   => [
-          '1'      =>esc_html__( '1', 'menheer-plugin' ),
-          '2'      =>esc_html__( '2', 'menheer-plugin' ),
-          '3'      =>esc_html__( '3', 'menheer-plugin' ),
-          '4'      =>esc_html__( '4', 'menheer-plugin' ),
-          '5'      =>esc_html__( '5', 'menheer-plugin' ),
-          '6'      =>esc_html__( '6', 'menheer-plugin' ),
+          '1fr'      =>esc_html__( '1', 'menheer-plugin' ),
+          '1fr 1fr'      =>esc_html__( '2', 'menheer-plugin' ),
+          '1fr 1fr 1fr'      =>esc_html__( '3', 'menheer-plugin' ),
+          '1fr 1fr 1fr 1fr'      =>esc_html__( '4', 'menheer-plugin' ),
+          '1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '5', 'menheer-plugin' ),
+          '1fr 1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '6', 'menheer-plugin' ),
+        ],
+        'devices' => [ 'desktop', 'tablet', 'mobile' ],
+        'selectors' => [
+          '{{WRAPPER}} .se-product-grid' => 'grid-template-columns: {{VALUE}}',
         ],
       ]
     );
@@ -127,10 +131,14 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       [
         'label' => __( 'Column Gap', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 4, 'menheer-plugin' ),
+        'default' => __( 15, 'menheer-plugin' ),
         'min' => 0,
         'max' => 40,
         'step' => 1,
+        'selectors' => [
+          '{{WRAPPER}} .se-product-grid' => 'grid-column-gap: {{VALUE}}px',
+          '{{WRAPPER}} .se-product-grid' => 'grid-row-gap: {{VALUE}}px',
+        ],
       ]
     );
 
@@ -206,7 +214,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
           'value' => \Elementor\Scheme_Color::COLOR_1,
         ],
         'selectors' => [
-          '{{WRAPPER}} .storezz-product-category-block1 .cat-btn' => 'color: {{VALUE}}',
+          '{{WRAPPER}} .storezz-product-grid' => 'color: {{VALUE}}',
         ],
       ]
     );
@@ -228,6 +236,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
   protected function render() {
     $settings = $this->get_settings_for_display();
     $number_of_products          = $settings['number_of_products'];
+    $number_of_columns          = $settings['number_of_columns'];
     $show                        = $settings['show'];
     $orderby                     = $settings['orderby'];
     $order                       = $settings['order'];
@@ -296,7 +305,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $products =  new WP_Query( $query_args);
     if ( $products && $products->have_posts() ) { ?>
-      <ul style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr">
+      <ul class="se-product-grid" style="display:grid;">
         <?php
         $template_args = array(
           'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
