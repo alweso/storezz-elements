@@ -61,6 +61,19 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     );
 
     $this->add_control(
+      'show', [
+        'label' => __('Show', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => '',
+        'options' => [
+          ''         => __( 'All products', 'woocommerce' ),
+          'featured' => __( 'Featured products', 'woocommerce' ),
+          'onsale'   => __( 'On-sale products', 'woocommerce' ),
+        ],
+      ]
+    );
+
+    $this->add_control(
       'dot_nav_show',
       [
         'label' => esc_html__( 'Show Dot Navigation', 'menheer-plugin' ),
@@ -377,7 +390,9 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $settings = $this->get_settings_for_display();
     // $product_type = isset( $settings['product_type'] ) ? $settings['product_type'] : 'latest';
     $image_size = $settings['image_size'];
+    $show                        = $settings['show'];
     $categories                  = $settings['choose_categories'];
+    $product_visibility_term_ids = wc_get_product_visibility_term_ids();
 
     $args = array(
       'posts_per_page' => $number_of_products,
@@ -403,6 +418,21 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       );
     };
 
+    switch ( $show ) {
+      case 'featured':
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_visibility',
+        'field'    => 'term_taxonomy_id',
+        'terms'    => $product_visibility_term_ids['featured'],
+      );
+      break;
+      case 'onsale':
+      $product_ids_on_sale    = wc_get_product_ids_on_sale();
+      $product_ids_on_sale[]  = 0;
+      $args['post__in'] = $product_ids_on_sale;
+      break;
+    }
+
 
     $products = new WP_Query( $args );
     ?>
@@ -410,6 +440,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       <ul data-carousel-options='{"autoplay":"true","items":"3","loop":"true","nav":"true"}'class="se-product-slider owl-carousel">
         <?php
         $template_args = array(
+          'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
           'show_rating' => true,
           'image_size'  => $image_size,
         );
