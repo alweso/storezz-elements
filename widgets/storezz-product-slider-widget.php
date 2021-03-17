@@ -50,9 +50,20 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     );
 
     $this->add_control(
+      'choose_categories', [
+        'label' => __('Choose Categories', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SELECT2,
+        'default' => '',
+        'label_block' => true,
+        'multiple' => true,
+        'options'   => storezz_elements_get_woo_categories_list(),
+      ]
+    );
+
+    $this->add_control(
       'dot_nav_show',
       [
-        'label' => esc_html__( 'Dot Nav', 'menheer-plugin' ),
+        'label' => esc_html__( 'Show Dot Navigation', 'menheer-plugin' ),
         'type' => \Elementor\Controls_Manager::SWITCHER,
         'label_on' => esc_html__( 'Yes', 'menheer-plugin' ),
         'label_off' => esc_html__( 'No', 'menheer-plugin' ),
@@ -128,6 +139,19 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       ]
     );
 
+    $this->add_control(
+      'image_size',
+      [
+        'label' => __( 'Image size', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => 'woocommerce_thumbnail',
+        'options' => [
+          'woocommerce_thumbnail' => __( 'woocommerce thumbnail', 'storezz-elements' ),
+          'landscape-post-image' => __( 'another', 'storezz-elements' ),
+        ],
+      ]
+    );
+
     $this->end_controls_section();
 
     $this->start_controls_section(
@@ -136,38 +160,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       ]
     );
 
-    $this->add_group_control(
-      \Elementor\Group_Control_Image_Size::get_type(),
-      [
-        'name' => 'image_size',
-        'exclude' => [ 'custom' ],
-        'include' => [],
-        'default' => 'large',
-      ]
-    );
-
-    $this->add_control(
-      'image_height',
-      [
-        'label' => __( 'Image Height', 'plugin-domain' ),
-        'type' => \Elementor\Controls_Manager::SLIDER,
-        'size_units' => [ 'px' ],
-        'range' => [
-          'px' => [
-            'min' => 50,
-            'max' => 1000,
-            'step' => 1,
-          ],
-        ],
-        'default' => [
-          'unit' => 'px',
-          'size' => 120,
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .product-list li .product-image' => 'height: {{SIZE}}{{UNIT}};',
-        ],
-      ]
-    );
 
     $this->add_control(
       'color_scheme',
@@ -384,7 +376,8 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
   protected function render() {
     $settings = $this->get_settings_for_display();
     // $product_type = isset( $settings['product_type'] ) ? $settings['product_type'] : 'latest';
-    $image_size = $settings['image_size_size'] ? $settings['image_size_size'] : 'large';
+    $image_size = $settings['image_size'];
+    $categories                  = $settings['choose_categories'];
 
     $args = array(
       'posts_per_page' => $number_of_products,
@@ -399,14 +392,26 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       ),
     );
 
+    if (!empty($categories) ) {
+      $args['tax_query'][] = array(
+        array(
+            'taxonomy'      => 'product_cat',
+            'field'         => 'term_id', //This is optional, as it defaults to 'term_id'
+            'terms'         => $categories,
+            'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+        ),
+      );
+    };
+
 
     $products = new WP_Query( $args );
     ?>
     <?php if( $products->have_posts() ) : ?>
-      <ul data-carousel-options='{"autoplay":"true","items":"4","loop":"true","nav":"true"}'class="se-product-slider owl-carousel">
+      <ul data-carousel-options='{"autoplay":"true","items":"3","loop":"true","nav":"true"}'class="se-product-slider owl-carousel">
         <?php
         $template_args = array(
           'show_rating' => true,
+          'image_size'  => $image_size,
         );
 
         while ( $products->have_posts() ) {
