@@ -37,14 +37,13 @@
       },
 
       ProductSlider: function ( $scope ) {
-        var productSliders = $scope.find(".storezz-product-slider");
+        var productSliders = $scope.find(".se-product-slider");
         if (productSliders.length > 0) {
           productSliders.each(function () {
             var productSlider = $(this);
             var items_no = productSlider.data('slides');
             var autoplay = productSlider.data('autoplay');
             var carouselOptions = productSlider.data('carousel-options');
-            console.log(carouselOptions);
             productSlider.owlCarousel(carouselOptions);
 
           });
