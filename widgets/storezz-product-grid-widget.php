@@ -49,19 +49,19 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
 
     $this->add_control(
-      'orderby', [
+      'order_by', [
         'label' => __('Order Products By', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => 'title',
         'options'   => [
-          ''      =>esc_html__( '', 'menheer-plugin' ),
-          'date'      =>esc_html__( 'Date', 'menheer-plugin' ),
-          'id'      =>esc_html__( 'ID', 'menheer-plugin' ),
-          'menu_order'      =>esc_html__( 'Menu Order', 'menheer-plugin' ),
-          'popularity'      =>esc_html__( 'Best selling', 'menheer-plugin' ),
-          'rating'      =>esc_html__( 'Rating', 'menheer-plugin' ),
-          'title'      =>esc_html__( 'Name', 'menheer-plugin' ),
-          'rand'      =>esc_html__( 'Random', 'menheer-plugin' ),
+          ''      =>esc_html__( '', 'storezz-elements' ),
+          'date'      =>esc_html__( 'Date', 'storezz-elements' ),
+          'id'      =>esc_html__( 'ID', 'storezz-elements' ),
+          'menu_order'      =>esc_html__( 'Menu Order', 'storezz-elements' ),
+          'popularity'      =>esc_html__( 'Best selling', 'storezz-elements' ),
+          'rating'      =>esc_html__( 'Rating', 'storezz-elements' ),
+          'title'      =>esc_html__( 'Name', 'storezz-elements' ),
+          'rand'      =>esc_html__( 'Random', 'storezz-elements' ),
         ],
       ]
     );
@@ -70,10 +70,10 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       'order', [
         'label' => __('Order (ASC/DESC)', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => '',
+        'default' => 'ASC',
         'options'   => [
-          'ASC'      =>esc_html__( 'Ascending', 'menheer-plugin' ),
-          'DESC'      =>esc_html__( 'Descending', 'menheer-plugin' ),
+          'ASC'      =>esc_html__( 'Ascending', 'storezz-elements' ),
+          'DESC'      =>esc_html__( 'Descending', 'storezz-elements' ),
         ],
       ]
     );
@@ -97,9 +97,9 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'number_of_products',
       [
-        'label' => __( 'Number of products', 'menheer-plugin' ),
+        'label' => __( 'Number of products', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 4, 'menheer-plugin' ),
+        'default' => __( 4, 'storezz-elements' ),
         'min' => 1,
         'step' => 1,
       ]
@@ -108,16 +108,16 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'number_of_columns',
       [
-        'label' => __( 'Number of columns', 'menheer-plugin' ),
+        'label' => __( 'Number of columns', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '1fr 1fr 1fr 1fr',
         'options'   => [
-          '1fr'      =>esc_html__( '1', 'menheer-plugin' ),
-          '1fr 1fr'      =>esc_html__( '2', 'menheer-plugin' ),
-          '1fr 1fr 1fr'      =>esc_html__( '3', 'menheer-plugin' ),
-          '1fr 1fr 1fr 1fr'      =>esc_html__( '4', 'menheer-plugin' ),
-          '1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '5', 'menheer-plugin' ),
-          '1fr 1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '6', 'menheer-plugin' ),
+          '1fr'      =>esc_html__( '1', 'storezz-elements' ),
+          '1fr 1fr'      =>esc_html__( '2', 'storezz-elements' ),
+          '1fr 1fr 1fr'      =>esc_html__( '3', 'storezz-elements' ),
+          '1fr 1fr 1fr 1fr'      =>esc_html__( '4', 'storezz-elements' ),
+          '1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '5', 'storezz-elements' ),
+          '1fr 1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '6', 'storezz-elements' ),
         ],
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'selectors' => [
@@ -132,7 +132,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       [
         'label' => __( 'Column Gap', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 15, 'menheer-plugin' ),
+        'default' => __( 15, 'storezz-elements' ),
         'min' => 0,
         'max' => 40,
         'step' => 1,
@@ -236,24 +236,26 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
   protected function render() {
     $settings = $this->get_settings_for_display();
     $number_of_products          = $settings['number_of_products'];
-    $number_of_columns          = $settings['number_of_columns'];
+    $number_of_columns           = $settings['number_of_columns'];
     $show                        = $settings['show'];
-    $orderby                     = $settings['orderby'];
+    $orderby                     = $settings['order_by'];
     $order                       = $settings['order'];
-    $categories                     = $settings['choose_categories'];
+    $categories                  = $settings['choose_categories'];
     $product_visibility_term_ids = wc_get_product_visibility_term_ids();
     $query_args = array(
       'posts_per_page' => $number_of_products,
       'post_status'    => 'publish',
       'post_type'      => 'product',
       'no_found_rows'  => 1,
+      'orderby'        => $orderby,
       'order'          => $order,
       'meta_query'     => array(),
       'tax_query'      => array(
         'relation' => 'AND',
       ),
-    ); // WPCS: slow query ok.
-    if ( !empty($categories) ) {
+    );
+
+    if (!empty($categories) ) {
       $query_args['tax_query'][] = array(
         array(
             'taxonomy'      => 'product_cat',
@@ -263,6 +265,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
         ),
       );
     };
+    
     if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
       $query_args['tax_query'][] = array(
         array(
@@ -290,16 +293,25 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     }
 
     switch ( $orderby ) {
-      case 'price':
-      $query_args['meta_key'] = '_price'; // WPCS: slow query ok.
-      $query_args['orderby']  = 'meta_value_num';
-      break;
+      // case 'price':
+      // $query_args['meta_key'] = '_price'; // WPCS: slow query ok.
+      // $query_args['orderby']  = 'meta_value_num';
+      // break;
       case 'rand':
       $query_args['orderby'] = 'rand';
       break;
-      case 'sales':
+      case 'popularity':
       $query_args['meta_key'] = 'total_sales'; // WPCS: slow query ok.
       $query_args['orderby']  = 'meta_value_num';
+      break;
+      case 'title':
+      $query_args['orderby'] = 'title'; // WPCS: slow query ok.
+      break;
+      case 'id':
+      $query_args['orderby'] = 'id'; // WPCS: slow query ok.
+      break;
+      case 'rating':
+      $query_args['orderby'] = 'rating'; // WPCS: slow query ok.
       break;
       default:
       $query_args['orderby'] = 'date';
