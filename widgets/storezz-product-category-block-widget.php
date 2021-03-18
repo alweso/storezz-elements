@@ -628,7 +628,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
         $image = wp_get_attachment_image_src($thumbnail_id, $image_size);
         ?>
-        <div style="background-image: url(<?php echo esc_url($image[0]); ?>); "></div>
+        <div class="se-cat-bg" style="background-image: url(<?php echo esc_url($image[0]); ?>); "></div>
         <a href="<?php echo esc_url(get_term_link($category)); ?>" class="se-cat-link">
             <span class="se-cat-name" ><?php echo esc_html($category->name); ?></span>
             <span class="se-cat-count">(<?php echo esc_html($category->count); ?>)</span>

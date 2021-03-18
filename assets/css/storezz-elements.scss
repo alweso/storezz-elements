@@ -12,7 +12,7 @@
         object-position: center;
     }
     .se-product-cat {
-      div {
+      .se-cat-bg {
         height: 100%;
         width: 100%;
         background-size: cover;
@@ -66,11 +66,14 @@
       }
 
       &.animation3 {
-        &:hover:before {
-          transform: scaleX(0) skewX(145deg);
-          background: white;
-          opacity: 0.5;
+        &:hover {
+          &:before {
+              transform: scaleX(0) skewX(145deg);
+              background: white;
+              opacity: 0.25;
+            }
         }
+
         &:before {
           content: "";
           display: block;

@@ -11,7 +11,7 @@
   object-fit: cover;
   object-position: center;
 }
-.se-category-block .se-product-cat div {
+.se-category-block .se-product-cat .se-cat-bg {
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -60,7 +60,7 @@
 .se-category-block .se-product-cat.animation3:hover:before {
   transform: scaleX(0) skewX(145deg);
   background: white;
-  opacity: 0.5;
+  opacity: 0.25;
 }
 .se-category-block .se-product-cat.animation3:before {
   content: "";
