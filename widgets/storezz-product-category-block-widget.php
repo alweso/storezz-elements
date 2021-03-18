@@ -48,6 +48,44 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
                 ]
         );
 
+        $this->add_control(
+            'animation_style', [
+            'label' => __('Layout type', 'storezz-elements'),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'animation2',
+            'options' => [
+              ''      =>esc_html__( 'None', 'storezz-elements' ),
+              'animation1'      =>esc_html__( 'Style 1', 'storezz-elements' ),
+              'animation2'      =>esc_html__( 'Style 2', 'storezz-elements' ),
+              'animation3'      =>esc_html__( 'Style 3', 'storezz-elements' ),
+              'animation4'      =>esc_html__( 'Style 4', 'storezz-elements' ),
+            ],
+                ]
+        );
+
+        $this->add_control(
+          'container_height',
+          [
+            'label' => __( 'Container height', 'storezz-elements' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ 'px'],
+            'range' => [
+              'px' => [
+                'min' => 300,
+                'max' => 1000,
+                'step' => 10,
+              ],
+            ],
+            'default' => [
+              'unit' => 'px',
+              'size' => 500,
+            ],
+            'selectors' => [
+              '{{WRAPPER}} .se-category-block' => 'height: {{SIZE}}{{UNIT}};',
+            ],
+          ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -61,9 +99,18 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
             'product_category1', [
             'label' => __('Category 1', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 0,
+            'default' =>  15,
             'options' => Storezz_elements_get_woo_categories_list(),
                 ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_1',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
         );
 
         $this->add_control(
@@ -123,12 +170,21 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
-                'product_category2', [
+            'product_category2', [
             'label' => __('Category 2', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 0,
+            'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
                 ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_2',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
         );
 
         $this->add_control(
@@ -188,12 +244,21 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
-                'product_category3', [
+            'product_category3', [
             'label' => __('Category 3', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 0,
+            'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
                 ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_3',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
         );
 
         $this->add_control(
@@ -253,12 +318,21 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
-                'product_category4', [
+            'product_category4', [
             'label' => __('Category 4', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 0,
+            'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
                 ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_4',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
         );
 
         $this->add_control(
@@ -322,9 +396,18 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
             'product_category5', [
             'label' => __('Category 5', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 0,
+            'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
                 ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_5',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
         );
 
         $this->add_control(
@@ -496,6 +579,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $layout_type =  $settings['layout_type'];
+        $animation_style =  $settings['animation_style'];
         $category1 = $settings['product_category1'] ? get_term($settings['product_category1']) : 0;
         $category2 = $settings['product_category2'] ? get_term($settings['product_category2']) : 0;
         $category3 = $settings['product_category3'] ? get_term($settings['product_category3']) : 0;
@@ -503,54 +587,34 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $category5 = $settings['product_category5'] ? get_term($settings['product_category5']) : 0;
         ?>
 
-        <?php
-        switch ( $layout_type ) {
-          case 'block1':
-          $category_image_1 = 'storezz-large-square';
-          $category_image_2 = $category_image_3 = $category_image_4 = $category_image_5  = 'storezz-medium-square';
-          break;
-          case 'block2':
-          $category_image_5 = 'storezz-large-square';
-          $category_image_2 = $category_image_3 = $category_image_4 = $category_image_1  = 'storezz-medium-square';
-          break;
-          case 'block3':
-          $category_image_1 = 'storezz-large-square';
-          $category_image_2 = 'storezz-large-double-horizontal';
-          $category_image_3 = $category_image_4  = 'storezz-medium-square';
-          break;
-          case 'block4':
-          $category_image_1 = 'storezz-large-square';
-          $category_image_4 = 'storezz-large-double-horizontal';
-          $category_image_2 = $category_image_3  = 'storezz-medium-square';
-          break;
-        } ?>
+
         <div class="se-category-block se-category-<?php echo $layout_type?>" id="storezz-product-category-block2-<?php echo esc_attr($this->get_id()); ?>" >
             <?php if ($category1) : ?>
-                <div class="se-product-cat se-product-cat1">
-                    <?php $this->get_product_category_content($category1, $category_image_1 ); ?>
+                <div class="se-product-cat se-product-cat1 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category1, $settings['image_size_1_size'] ); ?>
                 </div>
             <?php endif; ?>
             <?php if ($category2) : ?>
-                <div class="se-product-cat se-product-cat2">
-                    <?php $this->get_product_category_content($category2, $category_image_2); ?>
+                <div class="se-product-cat se-product-cat2 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category2, $settings['image_size_2_size']); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category3) : ?>
-                <div class="se-product-cat se-product-cat3">
-                    <?php $this->get_product_category_content($category3, $category_image_3); ?>
+                <div class="se-product-cat se-product-cat3 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category3, $settings['image_size_3_size']); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category4) : ?>
-                <div class="se-product-cat se-product-cat4">
-                    <?php $this->get_product_category_content($category4, $category_image_4); ?>
+                <div class="se-product-cat se-product-cat4 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category4, $settings['image_size_4_size']); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category5) : ?>
-                <div class="se-product-cat se-product-cat5">
-                    <?php $this->get_product_category_content($category5, $category_image_5); ?>
+                <div class="se-product-cat se-product-cat5 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category5, $settings['image_size_5_size']); ?>
                 </div>
             <?php endif; ?>
 
@@ -565,9 +629,9 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $image = wp_get_attachment_image_src($thumbnail_id, $image_size);
         ?>
         <div style="background-image: url(<?php echo esc_url($image[0]); ?>); "></div>
-        <a href="<?php echo esc_url(get_term_link($category)); ?>" class="cat-btn">
-            <span class="ct-name" ><?php echo esc_html($category->name); ?></span>
-            <span class="ct-pcount"><?php echo esc_html($category->count); ?> <?php echo esc_html__('Products Inside', 'storezz-elements'); ?></span>
+        <a href="<?php echo esc_url(get_term_link($category)); ?>" class="se-cat-link">
+            <span class="se-cat-name" ><?php echo esc_html($category->name); ?></span>
+            <span class="se-cat-count">(<?php echo esc_html($category->count); ?>)</span>
         </a>
         <?php
     }
