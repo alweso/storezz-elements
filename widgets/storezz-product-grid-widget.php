@@ -241,6 +241,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $orderby                     = $settings['order_by'];
     $order                       = $settings['order'];
     $categories                  = $settings['choose_categories'];
+    $image_size                  = $settings['image_size_size'];
     $product_visibility_term_ids = wc_get_product_visibility_term_ids();
     $query_args = array(
       'posts_per_page' => $number_of_products,
@@ -265,7 +266,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
         ),
       );
     };
-    
+
     if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
       $query_args['tax_query'][] = array(
         array(
@@ -325,6 +326,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
         $template_args = array(
           'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
           'show_rating' => true,
+          'image_size' => $image_size,
         );
 
         while ( $products->have_posts() ) {

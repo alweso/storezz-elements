@@ -925,14 +925,15 @@
 }
 
 .storezz-cta.hover1:before {
-    left: 50%;
-    top: 0;
-    height: 100%;
-    width: 0px;
-    background: rgb(255 255 255 / 0.2);
-    transform: translateX(-50%) rotate(45deg);
-    transition: all 0.4s ease;
-    transform-origin: center;
+  left: 50%;
+  height: 200%;
+  width: 0px;
+  background: rgb(255 255 255 / 0.2);
+  transform: translateX(-50%) rotate(
+  45deg
+  );
+  transition: all 0.4s ease;
+  transform-origin: center;
 }
 
 .storezz-cta.hover2:before {

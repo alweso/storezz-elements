@@ -66,319 +66,85 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '',
         'options' => [
-          ''         => __( 'All products', 'woocommerce' ),
-          'featured' => __( 'Featured products', 'woocommerce' ),
-          'onsale'   => __( 'On-sale products', 'woocommerce' ),
+          ''         => __( 'All products', 'storezz-elements' ),
+          'featured' => __( 'Featured products', 'storezz-elements' ),
+          'onsale'   => __( 'On-sale products', 'storezz-elements' ),
         ],
       ]
     );
 
     $this->add_control(
-      'dot_nav_show',
+      'nav',
       [
-        'label' => esc_html__( 'Show Dot Navigation', 'menheer-plugin' ),
+        'label' => esc_html__( 'Show Arrow Navigation', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => esc_html__( 'Yes', 'menheer-plugin' ),
-        'label_off' => esc_html__( 'No', 'menheer-plugin' ),
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
         'return_value' => 'yes',
         'default' => 'yes'
       ]
     );
 
     $this->add_control(
-      'product_type',
+      'dot_nav_show',
       [
-        'label' => __( 'Product Type', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => 'latest',
-        'options' => [
-          'latest'  => __( 'Latest', 'storezz-elements' ),
-          'featured'  => __( 'Featured', 'storezz-elements' ),
-          'best-selling' => __( 'Best Selling', 'storezz-elements' ),
-          'sale' => __( 'Sale', 'storezz-elements' ),
-          'top-rated' => __( 'Top Rated', 'storezz-elements' ),
-        ],
+        'label' => esc_html__( 'Show Dot Navigation', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
+        'return_value' => 'yes',
+        'default' => 'yes'
       ]
     );
 
     $this->add_control(
-      'no_of_products',
+      'autoplay',
       [
-        'label' => __( 'No. of products', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::SLIDER,
-        'size_units' => [ 'no' ],
-        'range' => [
-          'no' => [
-            'min' => 1,
-            'max' => 10,
-            'step' => 1,
-          ],
-        ],
-        'default' => [
-          'unit' => 'no',
-          'size' => 3,
-        ],
+        'label' => esc_html__( 'Autoplay', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
+        'return_value' => 'yes',
+        'default' => 'yes'
       ]
     );
 
     $this->add_control(
-      'orderby',
+      'center',
       [
-        'label' => __( 'Order By', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => 'none',
-        'options' => [
-          'none' => __( 'None', 'storezz-elements' ),
-          'ID' => __( 'ID', 'storezz-elements' ),
-          'date' => __( 'Date', 'storezz-elements' ),
-          'name' => __( 'Name', 'storezz-elements' ),
-          'title' => __( 'Title', 'storezz-elements' ),
-          'rand' => __( 'Random', 'storezz-elements' ),
-          'comment_count' => __( 'Comment Count', 'storezz-elements' ),
-        ],
+        'label' => esc_html__( 'Center slides', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
+        'return_value' => 'yes',
+        'default' => 'no'
       ]
     );
 
     $this->add_control(
-      'order',
+      'number_of_products',
       [
-        'label' => __( 'Order By', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => 'DESC',
-        'options' => [
-          'ASC' => __( 'Ascending', 'storezz-elements' ),
-          'DESC' => __( 'Descending', 'storezz-elements' ),
-        ],
+        'label' => __( 'Number of products', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::NUMBER,
+        'default' => __( 4, 'storezz-elements' ),
+        'min' => 2,
+        'step' => 1,
       ]
     );
 
     $this->add_control(
-      'image_size',
-      [
-        'label' => __( 'Image size', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => 'woocommerce_thumbnail',
-        'options' => [
-          'woocommerce_thumbnail' => __( 'woocommerce thumbnail', 'storezz-elements' ),
-          'landscape-post-image' => __( 'another', 'storezz-elements' ),
-        ],
-      ]
-    );
-
-    $this->end_controls_section();
-
-    $this->start_controls_section(
-      'additional_settings', [
-        'label' => esc_html__('Additional Settings', 'storezz-elements'),
-      ]
-    );
-
-
-    $this->add_control(
-      'color_scheme',
-      [
-        'label' => __( 'Color Scheme', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'scheme' => [
-          'type' => \Elementor\Scheme_Color::get_type(),
-          'value' => \Elementor\Scheme_Color::COLOR_1,
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .storezz-header a:hover,{{WRAPPER}} .storezz-product-list .product-list .content h3 a:hover,{{WRAPPER}} .storezz-product-list .star-rating span:before,{{WRAPPER}} .storezz-product-list .product-list .content h3 a:hover' => 'color: {{VALUE}}',
-        ],
-      ]
-    );
-
-    $this->end_controls_section();
-
-    $this->start_controls_section(
-      'header_style', [
-        'label' => esc_html__('Header', 'storezz-elements'),
-        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-      ]
-    );
-
-    $this->add_control(
-      'header_color',
-      [
-        'label' => __( 'Color', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'scheme' => [
-          'type' => \Elementor\Scheme_Color::get_type(),
-          'value' => \Elementor\Scheme_Color::COLOR_1,
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .storezz-header,{{WRAPPER}} .storezz-product-list .storezz-header a' => 'color: {{VALUE}}',
-        ],
-      ]
-    );
-
-    $this->add_control(
-      'header_padding',
-      [
-        'label' => __( 'Padding', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::DIMENSIONS,
-        'size_units' => [ 'px', '%', 'em' ],
-        'allowed_dimensions' => 'vertical',
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .storezz-header' => 'padding: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-        ],
+      'image_size_label', [
+        'label' => __('Image Size', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::HEADING,
       ]
     );
 
     $this->add_group_control(
-      \Elementor\Group_Control_Typography::get_type(),
-      [
-        'name' => 'header_typography',
-        'label' => __( 'Typography', 'storezz-elements' ),
-        'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-        'selector' => '{{WRAPPER}} .storezz-product-list .storezz-header',
-      ]
-    );
-
-    $this->add_control(
-      'separator_color',
-      [
-        'label' => __( 'Separator Color', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'scheme' => [
-          'type' => \Elementor\Scheme_Color::get_type(),
-          'value' => \Elementor\Scheme_Color::COLOR_1,
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .storezz-header' => 'border-bottom-color: {{VALUE}}',
-        ],
-      ]
-    );
-
-    $this->end_controls_section();
-
-    $this->start_controls_section(
-      'rating_style', [
-        'label' => esc_html__('Rating', 'storezz-elements'),
-        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-      ]
-    );
-
-    $this->add_control(
-      'rating_color',
-      [
-        'label' => __( 'Color', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'scheme' => [
-          'type' => \Elementor\Scheme_Color::get_type(),
-          'value' => \Elementor\Scheme_Color::COLOR_1,
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .star-rating' => 'color: {{VALUE}}',
-        ],
-      ]
-    );
-
-    $this->add_control(
-      'rating_margin',
-      [
-        'label' => __( 'Margin', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::DIMENSIONS,
-        'size_units' => [ 'px', '%', 'em' ],
-        'allowed_dimensions' => 'vertical',
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .star-rating' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-        ],
-      ]
-    );
-
-    $this->end_controls_section();
-
-    $this->start_controls_section(
-      'title_style', [
-        'label' => esc_html__('Product Title', 'storezz-elements'),
-        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-      ]
-    );
-
-    $this->add_control(
-      'title_color',
-      [
-        'label' => __( 'Color', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'scheme' => [
-          'type' => \Elementor\Scheme_Color::get_type(),
-          'value' => \Elementor\Scheme_Color::COLOR_1,
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .product-list .content h3 a' => 'color: {{VALUE}}',
-        ],
-      ]
-    );
-
-    $this->add_group_control(
-      \Elementor\Group_Control_Typography::get_type(),
-      [
-        'name' => 'title_typography',
-        'label' => __( 'Typography', 'storezz-elements' ),
-        'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-        'selector' => '{{WRAPPER}} .storezz-product-list .product-list .content h3',
-      ]
-    );
-
-    $this->add_control(
-      'title_margin',
-      [
-        'label' => __( 'Margin', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::DIMENSIONS,
-        'size_units' => [ 'px', '%', 'em' ],
-        'allowed_dimensions' => 'vertical',
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .product-list .content h3' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-        ],
-      ]
-    );
-
-    $this->end_controls_section();
-
-    $this->start_controls_section(
-      'price_style', [
-        'label' => esc_html__('Price', 'storezz-elements'),
-        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-      ]
-    );
-
-    $this->add_control(
-      'price_color',
-      [
-        'label' => __( 'Color', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'scheme' => [
-          'type' => \Elementor\Scheme_Color::get_type(),
-          'value' => \Elementor\Scheme_Color::COLOR_1,
-        ],
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .product-list .price' => 'color: {{VALUE}}',
-        ],
-      ]
-    );
-
-    $this->add_group_control(
-      \Elementor\Group_Control_Typography::get_type(),
-      [
-        'name' => 'price_typography',
-        'label' => __( 'Typography', 'storezz-elements' ),
-        'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-        'selector' => '{{WRAPPER}} .storezz-product-list .product-list .price',
-      ]
-    );
-
-    $this->add_control(
-      'price_margin',
-      [
-        'label' => __( 'Margin', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::DIMENSIONS,
-        'size_units' => [ 'px', '%', 'em' ],
-        'allowed_dimensions' => 'vertical',
-        'selectors' => [
-          '{{WRAPPER}} .storezz-product-list .product-list .price' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
-        ],
+      \Elementor\Group_Control_Image_Size::get_type(), [
+        'name' => 'image_size',
+        'exclude' => ['custom'],
+        'include' => [],
+        'default' => '',
       ]
     );
 
@@ -388,10 +154,14 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
   /** Render Layout **/
   protected function render() {
     $settings = $this->get_settings_for_display();
-    // $product_type = isset( $settings['product_type'] ) ? $settings['product_type'] : 'latest';
-    $image_size = $settings['image_size'];
+    $image_size                  = $settings['image_size_size'];
     $show                        = $settings['show'];
     $categories                  = $settings['choose_categories'];
+    $number_of_products          = $settings['number_of_products'];
+    $autoplay                    = $settings['autoplay'];
+    $center                      = $settings['center'];
+    $nav                         = $settings['nav'];
+    $nav_dot                     = $settings['nav_dot'];
     $product_visibility_term_ids = wc_get_product_visibility_term_ids();
 
     $args = array(
@@ -437,7 +207,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $products = new WP_Query( $args );
     ?>
     <?php if( $products->have_posts() ) : ?>
-      <ul data-carousel-options='{"autoplay":"true","items":"3","loop":"true","nav":"true"}'class="se-product-slider owl-carousel">
+      <ul data-carousel-options='{"autoplay":"<?php echo $autoplay ?>", "center":"<?php echo $center ?>", "dots":"<?php echo $nav_dot ?>", "items":"<?php echo $number_of_products ?>","loop":"true","nav":"<?php echo $nav ?>"}' class="se-product-slider owl-carousel">
         <?php
         $template_args = array(
           'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,

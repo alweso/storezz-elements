@@ -255,7 +255,7 @@
         public function add_elementor_styles_and_scripts() {
             /** Custom Widget Styles */
             wp_enqueue_style( 'storezz-elements-style', MTSE_ASSETS_URI . 'css/mse-custom-styles.css', array(), MTSE_VERSION );
-
+            wp_enqueue_style( 'storezz-elements-style2', MTSE_ASSETS_URI . 'css/storezz-elements.css', array(), MTSE_VERSION );
             /** Vendor Scripts & Styles */
 
             /** Elegant Icons */
@@ -299,42 +299,35 @@
         public function init_widgets() {
             // Include Widget files
             require_once( __DIR__ . '/widgets/storezz-slider-widget.php' ); // Slider
-            require_once( __DIR__ . '/widgets/storezz-blog-grid1-widget.php' ); // Blog Grid 1
             require_once( __DIR__ . '/widgets/storezz-blog-grid2-widget.php' ); // Blog Grid 2
             require_once( __DIR__ . '/widgets/storezz-instagram-feed-widget.php' ); // Instagram Feeds
             require_once( __DIR__ . '/widgets/storezz-testimonial-slider-widget.php' ); // Testimonial Slider
             require_once( __DIR__ . '/widgets/storezz-cta-widget.php' ); // CTA
             require_once( __DIR__ . '/widgets/storezz-countdown-widget.php' ); // Countdown
-            require_once( __DIR__ . '/widgets/storezz-vertical-menu-widget.php' ); // Menu
 
             if( class_exists( 'woocommerce' ) ) {
                 require_once( __DIR__ . '/widgets/storezz-product-tabs-grid-widget.php' ); // Product Tabs Grid
                 require_once( __DIR__ . '/widgets/storezz-product-list-widget.php' ); // Product List
-                require_once( __DIR__ . '/widgets/storezz-product-category-block1-widget.php' ); // Product Category Block 1
+                require_once( __DIR__ . '/widgets/storezz-product-category-block-widget.php' ); // Product Category Block 2
                 require_once( __DIR__ . '/widgets/storezz-product-category-block2-widget.php' ); // Product Category Block 2
                 require_once( __DIR__ . '/widgets/storezz-product-slider-widget.php' ); // Product Slider
-                require_once( __DIR__ . '/widgets/storezz-category-grid-widget.php' ); // Category Grid
                 require_once( __DIR__ . '/widgets/storezz-product-grid-widget.php' ); // Category Grid
             }
 
             // Register widget
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Slider_Widget() ); // Slider
-            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Blog_Grid1_Widget() ); // Blog Grid 1
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Blog_Grid2_Widget() ); // Blog Grid 2
-            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Vertical_Menu_Widget() ); // Vertical Menu
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Instagram_Feeds_Widget() ); // Instagram Feeds
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Testimonial_Slider_Widget() ); // Testimonial Slider
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Cta_Widget() ); // Call To Action
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Countdown_Widget() ); // Countdown
-            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Vertical_Menu_Widget() ); // Vertical Menu
 
             if( class_exists( 'woocommerce' ) ) {
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Tabs_Grid_Widget() ); // Product Tabs Grid
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_List_Widget() ); // Product List
-                \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Category_Block1_Widget() ); // Procut Category Block 1
+                \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Category_Block_Widget() ); // Procut Category Block 2
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Category_Block2_Widget() ); // Procut Category Block 2
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Slider_Widget() ); // Procut Category Block 2
-                \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Category_Grid_Widget() ); // Procut Category Block 2
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Grid_Widget() ); // Procut Category Block 2
             }
         }

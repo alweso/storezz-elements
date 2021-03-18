@@ -43,9 +43,11 @@
             var productSlider = $(this);
             var items_no = productSlider.data('slides');
             var autoplay = productSlider.data('autoplay');
+            var nav = productSlider.data('nav');
+            var dots = productSlider.data('dots');
+            var center   = productSlider.data('center');
             var carouselOptions = productSlider.data('carousel-options');
             productSlider.owlCarousel(carouselOptions);
-
           });
         }
       },
