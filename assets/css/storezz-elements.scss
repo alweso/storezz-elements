@@ -11,6 +11,12 @@
         object-fit: cover;
         object-position: center;
     }
+    .se-product-cat {
+      &:hover > img {
+          object-position: right;
+          transform: scale(1.1);
+      }
+    }
   &.se-category-block1 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
