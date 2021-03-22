@@ -38,16 +38,29 @@
 
       ProductSlider: function ( $scope ) {
         var productSliders = $scope.find(".se-product-slider");
+
         if (productSliders.length > 0) {
           productSliders.each(function () {
             var productSlider = $(this);
-            var items_no = productSlider.data('slides');
-            var autoplay = productSlider.data('autoplay');
-            var nav = productSlider.data('nav');
-            var dots = productSlider.data('dots');
-            var center   = productSlider.data('center');
+            // var options = {
+            //   loop: productSlider.data('slides'),
+            //   autoplay: productSlider.data('autoplay'),
+            //   dots: productSlider.data('dots'),
+            //   items: productSlider.data('items'),
+            //   nav: productSlider.data('nav'),
+            //   center: productSlider.data('center'),
+            //   navText: ["<i class='nav-button owl-prev fas fa-angle-left'>‹</i>", "<i class='nav-button owl-next fas fa-angle-right'>›</i>"],
+            // }
+
+            var extraoptions = {
+              navText: ["<i class='nav-button owl-prev fas fa-angle-left'></i>", "<i class='nav-button owl-next fas fa-angle-right'></i>"],
+              nav: "true",
+            }
             var carouselOptions = productSlider.data('carousel-options');
-            productSlider.owlCarousel(carouselOptions);
+
+            var allOptions = $.extend(true, {}, carouselOptions, extraoptions);
+            console.log(allOptions);
+            productSlider.owlCarousel(allOptions);
           });
         }
       },
@@ -87,9 +100,15 @@
         if (tslider.length > 0) {
           tslider.each(function () {
             var tslider = $(this);
+            var extraoptions = {
+              navText: ["<i class='nav-button fas fa-angle-left'></i>", "<i class='nav-button fas fa-angle-right'></i>"],
+              nav: "true",
+            }
             var carouselOptions = tslider.data('carousel-options');
-            tslider.owlCarousel(carouselOptions);
 
+            var allOptions = $.extend(true, {}, carouselOptions, extraoptions);
+            console.log(allOptions);
+            tslider.owlCarousel(allOptions);
           });
         }
       },

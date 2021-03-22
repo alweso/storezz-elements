@@ -1,4 +1,88 @@
+ul {
+  padding: 0;
+}
+ul li {
+  list-style-type: none;
+}
+
 /* ------------------- Category Blocks ------------------------- */
+.animation1:hover:before {
+  transform: skewX(360deg);
+}
+.animation1:before {
+  content: "";
+  pointer-events: none;
+  display: block;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  position: absolute;
+  /* background: red; */
+  top: 15px;
+  left: 15px;
+  border: 2px solid white;
+  transition: all 0.5s ease-in-out;
+}
+
+.animation2:hover:before {
+  transform: scale(0.85);
+}
+.animation2:before {
+  content: "";
+  pointer-events: none;
+  display: block;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  position: absolute;
+  /* background: red; */
+  top: 15px;
+  left: 15px;
+  border: 2px solid white;
+  transition: all 0.2s ease-in-out;
+}
+
+.animation3 {
+  overflow: hidden;
+}
+.animation3:hover:before {
+  transform: scaleX(1) skewX(145deg);
+  background: white;
+  opacity: 0.25;
+}
+.animation3:before {
+  content: "";
+  transform: scaleX(0);
+  pointer-events: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.animation4 {
+  overflow: hidden;
+}
+.animation4:hover:before {
+  transform: scaleX(0) skewX(145deg);
+  background: white;
+  opacity: 0.25;
+}
+.animation4:before {
+  content: "";
+  pointer-events: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
 .se-category-block {
   display: grid;
   gap: 15px;
@@ -12,6 +96,7 @@
   object-position: center;
 }
 .se-category-block .se-product-cat .se-cat-bg {
+  display: block;
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -19,19 +104,42 @@
 }
 .se-category-block .se-product-cat .se-cat-link {
   position: absolute;
-  right: 15px;
-  left: auto;
   background: black;
   color: white;
   display: block;
   padding: 5px 10px;
   bottom: 15px;
 }
+.se-category-block .se-product-cat .se-cat-link.top-left {
+  top: 15px;
+  bottom: auto;
+  right: auto;
+  left: 15px;
+}
+.se-category-block .se-product-cat .se-cat-link.top-right {
+  top: 15px;
+  bottom: auto;
+  right: 15px;
+  left: auto;
+}
+.se-category-block .se-product-cat .se-cat-link.bottom-left {
+  top: auto;
+  bottom: 15px;
+  right: auto;
+  left: 15px;
+}
+.se-category-block .se-product-cat .se-cat-link.bottom-right {
+  top: auto;
+  bottom: 15px;
+  right: 15px;
+  left: auto;
+}
 .se-category-block .se-product-cat.animation1:hover:before {
   transform: skewX(360deg);
 }
 .se-category-block .se-product-cat.animation1:before {
   content: "";
+  pointer-events: none;
   display: block;
   width: calc(100% - 30px);
   height: calc(100% - 30px);
@@ -47,6 +155,7 @@
 }
 .se-category-block .se-product-cat.animation2:before {
   content: "";
+  pointer-events: none;
   display: block;
   width: calc(100% - 30px);
   height: calc(100% - 30px);
@@ -57,13 +166,18 @@
   border: 2px solid white;
   transition: all 0.2s ease-in-out;
 }
+.se-category-block .se-product-cat.animation3 {
+  overflow: hidden;
+}
 .se-category-block .se-product-cat.animation3:hover:before {
-  transform: scaleX(0) skewX(145deg);
+  transform: scaleX(1) skewX(145deg);
   background: white;
   opacity: 0.25;
 }
 .se-category-block .se-product-cat.animation3:before {
   content: "";
+  transform: scaleX(0);
+  pointer-events: none;
   display: block;
   width: 100%;
   height: 100%;
@@ -73,34 +187,25 @@
   transition: all 0.5s ease-in-out;
   opacity: 0;
 }
+.se-category-block .se-product-cat.animation4 {
+  overflow: hidden;
+}
 .se-category-block .se-product-cat.animation4:hover:before {
-  transform: scale(0);
+  transform: scaleX(0) skewX(145deg);
+  background: white;
+  opacity: 0.25;
 }
 .se-category-block .se-product-cat.animation4:before {
   content: "";
+  pointer-events: none;
   display: block;
-  width: calc(100% - 30px);
-  height: calc(100% - 30px);
+  width: 100%;
+  height: 100%;
   position: absolute;
-  /* background: red; */
-  top: 15px;
-  left: 15px;
-  border: 2px solid white;
-  transition: all 0.2s ease-in-out;
-}
-.se-category-block .se-product-cat.animation4:hover:after {
-  transform: scale(0.43);
-}
-.se-category-block .se-product-cat.animation4:after {
-  content: "";
-  display: block;
-  width: 200%;
-  height: 200%;
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  border: 2px solid white;
-  transition: all 0.3s ease-in-out;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
 }
 .se-category-block .se-cat-link {
   position: absolute;
@@ -159,6 +264,78 @@
 }
 .se-category-block.se-category-block4 .se-product-cat4 {
   grid-area: 2/3/3/5;
+}
+
+/* ------------------------------------------ TEstimonials -------------------------------------- */
+.testimonials-wrapper h2 {
+  text-align: center;
+}
+.testimonials-wrapper h3 {
+  text-align: center;
+}
+
+.testimonial {
+  padding: 0 40px;
+  display: grid;
+}
+
+.testimony .name-position {
+  text-align: center;
+  display: block;
+}
+.testimony .name-position .name {
+  display: block;
+  font-weight: bold;
+}
+.testimony .testimony-text {
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* ----------------------------- Owl Carousel --------------------------------------- */
+.owl-dots {
+  text-align: center;
+}
+
+button.owl-dot {
+  width: 10px;
+  height: 10px !important;
+  background-color: #ffffff;
+  border-radius: 100%;
+  margin-right: 4px;
+  transition: all 0.5s ease;
+}
+
+button.owl-dot:last-child {
+  margin-right: 0;
+}
+
+button.owl-dot.active {
+  width: 20px;
+  border-radius: 5px;
+}
+
+.owl-nav.disabled {
+  display: block !important;
+}
+
+button.owl-prev, button.owl-next {
+  background: black !important;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: calc(50% - 30px) !important;
+}
+button.owl-prev i, button.owl-next i {
+  color: white;
+}
+
+button.owl-prev {
+  left: 0;
+}
+
+button.owl-next {
+  right: 0;
 }
 
 /*# sourceMappingURL=storezz-elements.css.map */

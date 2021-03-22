@@ -131,7 +131,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat1 div' => 'background-position-x: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat1 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
             ],
           ]
         );
@@ -154,7 +154,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat1 div' => 'background-position-y: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat1 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
             ],
             'separator' => 'after',
           ]
@@ -205,7 +205,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat2 div' => 'background-position-x: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat2 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
             ],
           ]
         );
@@ -228,7 +228,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat2 div' => 'background-position-y: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat2 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
             ],
             'separator' => 'after',
           ]
@@ -279,7 +279,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat3 div' => 'background-position-x: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat3 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
             ],
           ]
         );
@@ -302,7 +302,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat3 div' => 'background-position-y: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat3 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
             ],
             'separator' => 'after',
           ]
@@ -353,7 +353,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat4 div' => 'background-position-x: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat4 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
             ],
           ]
         );
@@ -376,7 +376,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat4 div' => 'background-position-y: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat4 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
             ],
             'separator' => 'after',
           ]
@@ -428,7 +428,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat5 div' => 'background-position-x: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat5 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
             ],
           ]
         );
@@ -451,7 +451,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'size' => 50,
             ],
             'selectors' => [
-              '{{WRAPPER}} .se-product-cat5 div' => 'background-position-y: {{SIZE}}{{UNIT}};',
+              '{{WRAPPER}} .se-product-cat5 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
             ],
             'separator' => 'after',
           ]
@@ -467,18 +467,16 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
-                'image_size_label', [
-            'label' => __('Image Size', 'storezz-elements'),
-            'type' => \Elementor\Controls_Manager::HEADING,
-                ]
-        );
-
-        $this->add_group_control(
-                \Elementor\Group_Control_Image_Size::get_type(), [
-            'name' => 'image_size',
-            'exclude' => ['custom'],
-            'include' => [],
-            'default' => 'large',
+            'button_position', [
+            'label' => __('Layout type', 'storezz-elements'),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'top-left',
+            'options' => [
+              'top-left'      =>esc_html__( 'Top left', 'storezz-elements' ),
+              'top-right'      =>esc_html__( 'Top right', 'storezz-elements' ),
+              'bottom-left'      =>esc_html__( 'Bottom left', 'storezz-elements' ),
+              'bottom-right'      =>esc_html__( 'Bottom right', 'storezz-elements' ),
+            ],
                 ]
         );
 
@@ -580,6 +578,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         $layout_type =  $settings['layout_type'];
         $animation_style =  $settings['animation_style'];
+        $button_position = $settings['button_position'];
         $category1 = $settings['product_category1'] ? get_term($settings['product_category1']) : 0;
         $category2 = $settings['product_category2'] ? get_term($settings['product_category2']) : 0;
         $category3 = $settings['product_category3'] ? get_term($settings['product_category3']) : 0;
@@ -591,30 +590,30 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         <div class="se-category-block se-category-<?php echo $layout_type?>" id="storezz-product-category-block2-<?php echo esc_attr($this->get_id()); ?>" >
             <?php if ($category1) : ?>
                 <div class="se-product-cat se-product-cat1 <?php echo $animation_style ?>">
-                    <?php $this->get_product_category_content($category1, $settings['image_size_1_size'] ); ?>
+                    <?php $this->get_product_category_content($category1, $settings['image_size_1_size'], $button_position ); ?>
                 </div>
             <?php endif; ?>
             <?php if ($category2) : ?>
                 <div class="se-product-cat se-product-cat2 <?php echo $animation_style ?>">
-                    <?php $this->get_product_category_content($category2, $settings['image_size_2_size']); ?>
+                    <?php $this->get_product_category_content($category2, $settings['image_size_2_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category3) : ?>
                 <div class="se-product-cat se-product-cat3 <?php echo $animation_style ?>">
-                    <?php $this->get_product_category_content($category3, $settings['image_size_3_size']); ?>
+                    <?php $this->get_product_category_content($category3, $settings['image_size_3_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category4) : ?>
                 <div class="se-product-cat se-product-cat4 <?php echo $animation_style ?>">
-                    <?php $this->get_product_category_content($category4, $settings['image_size_4_size']); ?>
+                    <?php $this->get_product_category_content($category4, $settings['image_size_4_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category5) : ?>
                 <div class="se-product-cat se-product-cat5 <?php echo $animation_style ?>">
-                    <?php $this->get_product_category_content($category5, $settings['image_size_5_size']); ?>
+                    <?php $this->get_product_category_content($category5, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
@@ -623,15 +622,16 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
     }
 
     /** Procut Category Content */
-    protected function get_product_category_content($category, $image_size) {
+    protected function get_product_category_content($category, $image_size, $button_position) {
         $settings = $this->get_settings_for_display();
         $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
         $image = wp_get_attachment_image_src($thumbnail_id, $image_size);
         ?>
-        <div class="se-cat-bg" style="background-image: url(<?php echo esc_url($image[0]); ?>); "></div>
-        <a href="<?php echo esc_url(get_term_link($category)); ?>" class="se-cat-link">
+        <a href="<?php echo esc_url(get_term_link($category)); ?>" class="se-cat-bg" style="background-image: url(<?php echo esc_url($image[0]); ?>); " >
+          <div class="se-cat-link <?php echo $button_position ?>">
             <span class="se-cat-name" ><?php echo esc_html($category->name); ?></span>
             <span class="se-cat-count">(<?php echo esc_html($category->count); ?>)</span>
+          </div>
         </a>
         <?php
     }

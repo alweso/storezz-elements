@@ -162,6 +162,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $center                      = $settings['center'];
     $nav                         = $settings['nav'];
     $nav_dot                     = $settings['nav_dot'];
+    $navArrows                   = ["<i class='nav-button owl-prev fas fa-angle-left'>‹</i>", "<i class='nav-button owl-next fas fa-angle-right'>›</i>"];
     $product_visibility_term_ids = wc_get_product_visibility_term_ids();
 
     $args = array(
@@ -207,7 +208,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $products = new WP_Query( $args );
     ?>
     <?php if( $products->have_posts() ) : ?>
-      <ul data-carousel-options='{"autoplay":"<?php echo $autoplay ?>", "center":"<?php echo $center ?>", "dots":"<?php echo $nav_dot ?>", "items":"<?php echo $number_of_products ?>","loop":"true","nav":"<?php echo $nav ?>"}' class="se-product-slider owl-carousel">
+      <ul data-carousel-options='{"autoplay":"<?php echo $autoplay ?>", "center":"<?php echo $center ?>", "dots":"<?php echo $nav_dot ?>", "items":"<?php echo $number_of_products ?>","loop":"true"}' class="se-product-slider owl-carousel">
         <?php
         $template_args = array(
           'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,

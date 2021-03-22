@@ -254,7 +254,7 @@
 
         public function add_elementor_styles_and_scripts() {
             /** Custom Widget Styles */
-            wp_enqueue_style( 'storezz-elements-style', MTSE_ASSETS_URI . 'css/mse-custom-styles.css', array(), MTSE_VERSION );
+            // wp_enqueue_style( 'storezz-elements-style', MTSE_ASSETS_URI . 'css/mse-custom-styles.css', array(), MTSE_VERSION );
             wp_enqueue_style( 'storezz-elements-style2', MTSE_ASSETS_URI . 'css/storezz-elements.css', array(), MTSE_VERSION );
             /** Vendor Scripts & Styles */
 
