@@ -96,7 +96,7 @@
       },
       TestimonialSlider: function ( $scope ) {
 
-        var tslider = $scope.find(".storezz-testimonial-slider");
+        var tslider = $scope.find(".se-testimonial-slider");
         if (tslider.length > 0) {
           tslider.each(function () {
             var tslider = $(this);

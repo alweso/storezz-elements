@@ -287,6 +287,10 @@ ul li {
   display: block;
   font-weight: bold;
 }
+.testimony .name-position .position {
+  display: block;
+  font-weight: bold;
+}
 .testimony .testimony-text {
   text-align: center;
   padding: 30px 0;

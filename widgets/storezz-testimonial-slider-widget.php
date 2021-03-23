@@ -159,7 +159,53 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
 
     $this->end_controls_section();
 
+    $this->start_controls_section(
+      'title_style',
+      [
+        'label' => __( 'Title', 'storezz-elements' ),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
 
+    $this->add_control(
+      'title_color',
+      [
+        'label' => __( 'Title color', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'scheme' => [
+          'type' => \Elementor\Scheme_Color::get_type(),
+          'value' => \Elementor\Scheme_Color::COLOR_1,
+        ],
+        'selectors' => [
+          '{{WRAPPER}} .se-testimonials-wrapper h2' => 'color: {{VALUE}}',
+        ],
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'name' => 'title_typography',
+        'label' => __( 'Typography', 'storezz-elements' ),
+        'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+        'selector' => '{{WRAPPER}} .se-testimonials-wrapper h2',
+      ]
+    );
+
+    $this->add_control(
+      'title_margin',
+      [
+        'label' => __( 'Title margin', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'allowed_dimensions' => 'vertical',
+        'size_units' => [ 'px', '%', 'em' ],
+        'selectors' => [
+          '{{WRAPPER}} .se-testimonials-wrapper h2' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+        ],
+      ]
+    );
+
+    $this->end_controls_section();
 
     $this->start_controls_section(
       'testimonial_testimony_style',
@@ -179,7 +225,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
           'value' => \Elementor\Scheme_Color::COLOR_1,
         ],
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider .testimonial .testimony-text' => 'color: {{VALUE}}',
+          '{{WRAPPER}} .se-testimonial-slider .testimonial .testimony-text' => 'color: {{VALUE}}',
         ],
       ]
     );
@@ -190,7 +236,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
         'name' => 'testimony_typography',
         'label' => __( 'Typography', 'storezz-elements' ),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-        'selector' => '{{WRAPPER}} .storezz-testimonial-slider .testimonial .testimony-text',
+        'selector' => '{{WRAPPER}} .se-testimonial-slider .testimonial .testimony-text',
       ]
     );
 
@@ -202,7 +248,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
         'allowed_dimensions' => 'vertical',
         'size_units' => [ 'px', '%', 'em' ],
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider .testimonial .testimony-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+          '{{WRAPPER}} .se-testimonial-slider .testimonial .testimony-text' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
         ],
       ]
     );
@@ -227,7 +273,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
           'value' => \Elementor\Scheme_Color::COLOR_1,
         ],
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider .name-position .name' => 'color: {{VALUE}}'
+          '{{WRAPPER}} .se-testimonial-slider .name-position .name' => 'color: {{VALUE}}'
         ],
       ]
     );
@@ -238,7 +284,20 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
         'name' => 'design_typography',
         'label' => __( 'Typography', 'storezz-elements' ),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-        'selector' => '{{WRAPPER}} .storezz-testimonial-slider .name-position .name',
+        'selector' => '{{WRAPPER}} .se-testimonial-slider .name-position .name',
+      ]
+    );
+
+    $this->add_control(
+      'name_margin',
+      [
+        'label' => __( 'Margin', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'allowed_dimensions' => 'vertical',
+        'size_units' => [ 'px', '%', 'em' ],
+        'selectors' => [
+          '{{WRAPPER}} .se-testimonial-slider .testimonial .name' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+        ],
       ]
     );
 
@@ -262,7 +321,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
           'value' => \Elementor\Scheme_Color::COLOR_1,
         ],
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider .name-position .position' => 'color: {{VALUE}}'
+          '{{WRAPPER}} .se-testimonial-slider .name-position .position' => 'color: {{VALUE}}'
         ],
       ]
     );
@@ -273,47 +332,19 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
         'name' => 'design_typography_job',
         'label' => __( 'Typography', 'storezz-elements' ),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-        'selector' => '{{WRAPPER}} .storezz-testimonial-slider .name-position .position',
-      ]
-    );
-
-    $this->end_controls_section();
-
-    $this->start_controls_section(
-      'testimonial_ratings_style',
-      [
-        'label' => __( 'Star Ratings', 'storezz-elements' ),
-        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+        'selector' => '{{WRAPPER}} .se-testimonial-slider .name-position .position',
       ]
     );
 
     $this->add_control(
-      'ratings_color',
+      'job_margin',
       [
-        'label' => __( 'Color', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::COLOR,
-        'scheme' => [
-          'type' => \Elementor\Scheme_Color::get_type(),
-          'value' => \Elementor\Scheme_Color::COLOR_1,
-        ],
-        'default' => '#ffffff',
+        'label' => __( 'Margin', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::DIMENSIONS,
+        'allowed_dimensions' => 'vertical',
+        'size_units' => [ 'px', '%', 'em' ],
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider .star-ratings' => 'color: {{VALUE}}'
-        ],
-      ]
-    );
-
-    $this->add_control(
-      'ratings_size',
-      [
-        'label' => __( 'Size', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::NUMBER,
-        'min' => 5,
-        'max' => 100,
-        'step' => 1,
-        'default' => 10,
-        'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider .star-ratings span' => 'font-size: {{VALUE}}px'
+          '{{WRAPPER}} .se-testimonial-slider .name-position .position' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
         ],
       ]
     );
@@ -321,9 +352,9 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->end_controls_section();
 
     $this->start_controls_section(
-      'testimonial_dots_style',
+      'testimonial_navigation_style',
       [
-        'label' => __( 'Dots', 'storezz-elements' ),
+        'label' => __( 'Navigation', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -331,7 +362,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'dots_color',
       [
-        'label' => __( 'Color', 'storezz-elements' ),
+        'label' => __( 'Dots color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -339,35 +370,39 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
         ],
         'default' => '#ffffff',
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider button.owl-dot' => 'background-color: {{VALUE}}'
+          '{{WRAPPER}} .se-testimonial-slider button.owl-dot' => 'background-color: {{VALUE}}'
         ],
       ]
     );
 
     $this->add_control(
-      'dots_height',
+      'arrow_bg_color',
       [
-        'label' => __( 'Thickness', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::NUMBER,
-        'min' => 1,
-        'max' => 10,
-        'step' => 1,
-        'default' => 2,
+        'label' => __( 'Arrows background color', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'scheme' => [
+          'type' => \Elementor\Scheme_Color::get_type(),
+          'value' => \Elementor\Scheme_Color::COLOR_1,
+        ],
+        'default' => '#ffffff',
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider button.owl-dot' => 'height: {{VALUE}}px'
+          '{{WRAPPER}} .se-testimonial-slider button.owl-prev, {{WRAPPER}} .se-testimonial-slider button.owl-next' => 'background-color: {{VALUE}} !important'
         ],
       ]
     );
 
     $this->add_control(
-      'dots_margin',
+      'arrow_color',
       [
-        'label' => __( 'Margin', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::DIMENSIONS,
-        'allowed_dimensions' => 'vertical',
-        'size_units' => [ 'px', '%', 'em' ],
+        'label' => __( 'Arrows color', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        'scheme' => [
+          'type' => \Elementor\Scheme_Color::get_type(),
+          'value' => \Elementor\Scheme_Color::COLOR_1,
+        ],
+        'default' => '#ffffff',
         'selectors' => [
-          '{{WRAPPER}} .storezz-testimonial-slider .owl-dots' => 'margin: {{TOP}}{{UNIT}} 0 {{BOTTOM}}{{UNIT}} 0;',
+          '{{WRAPPER}} .se-testimonial-slider button.owl-prev i, {{WRAPPER}} .se-testimonial-slider button.owl-next i' => 'color: {{VALUE}} !important'
         ],
       ]
     );
@@ -383,10 +418,9 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
 
     if( !empty( $testimonials ) ) :
       ?>
-      <div class="testimonials-wrapper">
-        <h2>Testimonials</h2>
-        <h3>What customers say...</h3>
-        <div data-carousel-options='{"autoplay":"false","items":"1","loop":"true","nav":"true","animateIn":"true"}' class="storezz-testimonial-slider owl-carousel" id="storezz-testimonial-slider-<?php echo esc_attr( $this->get_id() ); ?>">
+      <div class="se-testimonials-wrapper">
+        <h2>Testimonialssss</h2>
+        <div data-carousel-options='{"autoplay":"false","items":"1","loop":"true","nav":"true","animateIn":"true"}' class="se-testimonial-slider owl-carousel" id="se-testimonial-slider-<?php echo esc_attr( $this->get_id() ); ?>">
 
           <?php foreach( $testimonials as $testimonial ) : ?>
             <div class="testimonial">
@@ -401,13 +435,6 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
                     ) );
                     ?>
                   </div>
-                  <?php if( $testimonial['star_ratings'] ) : ?>
-                    <div class="star-ratings">
-                      <?php for( $i = 1; $i<= $testimonial['star_ratings']; $i++ ) : ?>
-                        <span class="icon_star"></span>
-                      <?php endfor; ?>
-                    </div>
-                  <?php endif; ?>
                   <div class="name-position">
                     <?php if( $testimonial['name'] ) : ?>
                       <span class="name"><?php echo esc_html( $testimonial['name'] ); ?></span>
