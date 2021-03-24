@@ -309,7 +309,6 @@
                 require_once( __DIR__ . '/widgets/storezz-product-tabs-grid-widget.php' ); // Product Tabs Grid
                 require_once( __DIR__ . '/widgets/storezz-product-list-widget.php' ); // Product List
                 require_once( __DIR__ . '/widgets/storezz-product-category-block-widget.php' ); // Product Category Block 2
-                require_once( __DIR__ . '/widgets/storezz-product-category-block2-widget.php' ); // Product Category Block 2
                 require_once( __DIR__ . '/widgets/storezz-product-slider-widget.php' ); // Product Slider
                 require_once( __DIR__ . '/widgets/storezz-product-grid-widget.php' ); // Category Grid
             }
@@ -326,7 +325,6 @@
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Tabs_Grid_Widget() ); // Product Tabs Grid
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_List_Widget() ); // Product List
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Category_Block_Widget() ); // Procut Category Block 2
-                \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Category_Block2_Widget() ); // Procut Category Block 2
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Slider_Widget() ); // Procut Category Block 2
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Grid_Widget() ); // Procut Category Block 2
             }

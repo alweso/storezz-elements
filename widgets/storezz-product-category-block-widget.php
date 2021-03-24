@@ -44,13 +44,16 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
               'block2'      =>esc_html__( 'Block 2', 'storezz-elements' ),
               'block3'      =>esc_html__( 'Block 3', 'storezz-elements' ),
               'block4'      =>esc_html__( 'Block 4', 'storezz-elements' ),
+              'block5'      =>esc_html__( 'Grid 2 columns', 'storezz-elements' ),
+              'block6'      =>esc_html__( 'Grid 3 columns', 'storezz-elements' ),
+              'block7'      =>esc_html__( 'Grid 4 columns', 'storezz-elements' ),
             ],
                 ]
         );
 
         $this->add_control(
             'animation_style', [
-            'label' => __('Layout type', 'storezz-elements'),
+            'label' => __('Animation style', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'animation2',
             'options' => [
@@ -388,7 +391,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
             'cat_5_section', [
             'label' => __('Category 5', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            'condition' => [ 'layout_type' => ['block1', 'block2'] ]
+            'condition' => [ 'layout_type' => ['block1', 'block2', 'block6', 'block7'] ]
                 ]
         );
 
@@ -460,6 +463,233 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
+            'cat_6_section', [
+            'label' => __('Category 6', 'storezz-elements'),
+            'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            'condition' => [ 'layout_type' => ['block6', 'block7'] ]
+                ]
+        );
+
+        $this->add_control(
+            'product_category6', [
+            'label' => __('Category 6', 'storezz-elements'),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 15,
+            'options' => Storezz_elements_get_woo_categories_list(),
+                ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_6',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
+        );
+
+        $this->add_control(
+          'img_x_position_cat6',
+          [
+            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%'],
+            'range' => [
+              '%' => [
+                'min' => 0,
+                'max' => 100,
+                'step' => 1,
+              ],
+            ],
+            'default' => [
+              'unit' => '%',
+              'size' => 50,
+            ],
+            'selectors' => [
+              '{{WRAPPER}} .se-product-cat6 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
+            ],
+          ]
+        );
+
+        $this->add_control(
+          'img_y_position_cat6',
+          [
+            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%'],
+            'range' => [
+              '%' => [
+                'min' => 0,
+                'max' => 100,
+                'step' => 1,
+              ],
+            ],
+            'default' => [
+              'unit' => '%',
+              'size' => 50,
+            ],
+            'selectors' => [
+              '{{WRAPPER}} .se-product-cat6 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
+            ],
+            'separator' => 'after',
+          ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'cat_7_section', [
+            'label' => __('Category 7', 'storezz-elements'),
+            'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            'condition' => [ 'layout_type' => [ 'block7'] ]
+                ]
+        );
+
+        $this->add_control(
+            'product_category7', [
+            'label' => __('Category 7', 'storezz-elements'),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 15,
+            'options' => Storezz_elements_get_woo_categories_list(),
+                ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_7',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
+        );
+
+        $this->add_control(
+          'img_x_position_cat7',
+          [
+            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%'],
+            'range' => [
+              '%' => [
+                'min' => 0,
+                'max' => 100,
+                'step' => 1,
+              ],
+            ],
+            'default' => [
+              'unit' => '%',
+              'size' => 50,
+            ],
+            'selectors' => [
+              '{{WRAPPER}} .se-product-cat7 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
+            ],
+          ]
+        );
+
+        $this->add_control(
+          'img_y_position_cat7',
+          [
+            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%'],
+            'range' => [
+              '%' => [
+                'min' => 0,
+                'max' => 100,
+                'step' => 1,
+              ],
+            ],
+            'default' => [
+              'unit' => '%',
+              'size' => 50,
+            ],
+            'selectors' => [
+              '{{WRAPPER}} .se-product-cat7 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
+            ],
+            'separator' => 'after',
+          ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'cat_8_section', [
+            'label' => __('Category 8', 'storezz-elements'),
+            'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            'condition' => [ 'layout_type' => ['block7'] ]
+                ]
+        );
+
+        $this->add_control(
+            'product_category8', [
+            'label' => __('Category 8', 'storezz-elements'),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 15,
+            'options' => Storezz_elements_get_woo_categories_list(),
+                ]
+        );
+
+        $this->add_group_control(
+          \Elementor\Group_Control_Image_Size::get_type(), [
+            'name' => 'image_size_8',
+            'exclude' => ['custom'],
+            'include' => [],
+            'default' => 'large',
+          ]
+        );
+
+        $this->add_control(
+          'img_x_position_cat8',
+          [
+            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%'],
+            'range' => [
+              '%' => [
+                'min' => 0,
+                'max' => 100,
+                'step' => 1,
+              ],
+            ],
+            'default' => [
+              'unit' => '%',
+              'size' => 50,
+            ],
+            'selectors' => [
+              '{{WRAPPER}} .se-product-cat8 .se-cat-bg' => 'background-position-x: {{SIZE}}{{UNIT}};',
+            ],
+          ]
+        );
+
+        $this->add_control(
+          'img_y_position_cat8',
+          [
+            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'type' => \Elementor\Controls_Manager::SLIDER,
+            'size_units' => [ '%'],
+            'range' => [
+              '%' => [
+                'min' => 0,
+                'max' => 100,
+                'step' => 1,
+              ],
+            ],
+            'default' => [
+              'unit' => '%',
+              'size' => 50,
+            ],
+            'selectors' => [
+              '{{WRAPPER}} .se-product-cat8 .se-cat-bg' => 'background-position-y: {{SIZE}}{{UNIT}};',
+            ],
+            'separator' => 'after',
+          ]
+        );
+
+        $this->end_controls_section();
+
+
+
+        $this->start_controls_section(
                 'additional_settings', [
             'label' => __('Additional Settings', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
@@ -468,7 +698,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
             'button_position', [
-            'label' => __('Layout type', 'storezz-elements'),
+            'label' => __('Button Position', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'top-left',
             'options' => [
@@ -584,6 +814,9 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $category3 = $settings['product_category3'] ? get_term($settings['product_category3']) : 0;
         $category4 = $settings['product_category4'] ? get_term($settings['product_category4']) : 0;
         $category5 = $settings['product_category5'] ? get_term($settings['product_category5']) : 0;
+        $category6 = $settings['product_category6'] ? get_term($settings['product_category6']) : 0;
+        $category7 = $settings['product_category7'] ? get_term($settings['product_category7']) : 0;
+        $category8 = $settings['product_category8'] ? get_term($settings['product_category8']) : 0;
         ?>
 
 
@@ -614,6 +847,24 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
             <?php if ($category5) : ?>
                 <div class="se-product-cat se-product-cat5 <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category5, $settings['image_size_5_size'], $button_position); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($category6) : ?>
+                <div class="se-product-cat se-product-cat6 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category6, $settings['image_size_5_size'], $button_position); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($category7) : ?>
+                <div class="se-product-cat se-product-cat7 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category7, $settings['image_size_5_size'], $button_position); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($category8) : ?>
+                <div class="se-product-cat se-product-cat5 <?php echo $animation_style ?>">
+                    <?php $this->get_product_category_content($category8, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 

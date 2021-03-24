@@ -294,6 +294,30 @@ ul {
       grid-area: 2 / 3 / 3 / 5;
     }
   }
+
+  &.se-category-block5 {
+    grid-template-columns: 1fr 1fr;
+    .se-product-cat {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  &.se-category-block6 {
+    grid-template-columns: 1fr 1fr 1fr;
+    .se-product-cat {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  &.se-category-block7 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    .se-product-cat {
+      position: relative;
+      overflow: hidden;
+    }
+  }
 }
 
 /* ------------------------------------------ TEstimonials -------------------------------------- */

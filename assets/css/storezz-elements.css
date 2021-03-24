@@ -265,6 +265,27 @@ ul li {
 .se-category-block.se-category-block4 .se-product-cat4 {
   grid-area: 2/3/3/5;
 }
+.se-category-block.se-category-block5 {
+  grid-template-columns: 1fr 1fr;
+}
+.se-category-block.se-category-block5 .se-product-cat {
+  position: relative;
+  overflow: hidden;
+}
+.se-category-block.se-category-block6 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.se-category-block.se-category-block6 .se-product-cat {
+  position: relative;
+  overflow: hidden;
+}
+.se-category-block.se-category-block7 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.se-category-block.se-category-block7 .se-product-cat {
+  position: relative;
+  overflow: hidden;
+}
 
 /* ------------------------------------------ TEstimonials -------------------------------------- */
 .testimonials-wrapper h2 {
