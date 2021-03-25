@@ -396,3 +396,16 @@ button.owl-prev {
 button.owl-next {
  right: 0;
 }
+
+/* ----------------------------- Call to action  --------------------------------------- */
+
+.se-call-to-action {
+  width: 100%;
+  display: table;
+  .content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    background-size: cover !important;
+  }
+}

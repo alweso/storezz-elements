@@ -96,6 +96,21 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                 ]
             );
 
+            $this->add_control(
+                'animation_style', [
+                'label' => __('Animation style', 'storezz-elements'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'animation2',
+                'options' => [
+                  ''      =>esc_html__( 'None', 'storezz-elements' ),
+                  'animation1'      =>esc_html__( 'Style 1', 'storezz-elements' ),
+                  'animation2'      =>esc_html__( 'Style 2', 'storezz-elements' ),
+                  'animation3'      =>esc_html__( 'Style 3', 'storezz-elements' ),
+                  'animation4'      =>esc_html__( 'Style 4', 'storezz-elements' ),
+                ],
+                    ]
+            );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -127,9 +142,9 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             );
 
             $this->add_control(
-                'image_height',
+                'box_height',
                 [
-                    'label' => __( 'Image Height', 'storezz-elements' ),
+                    'label' => __( 'Box Height', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px' ],
                     'range' => [
@@ -141,10 +156,10 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                     ],
                     'default' => [
                         'unit' => 'px',
-                        'size' => 250,
+                        'size' => 550,
                     ],
                     'selectors' => [
-                        '{{WRAPPER}} .storezz-cta' => 'height: {{SIZE}}{{UNIT}};',
+                        '{{WRAPPER}} .se-call-to-action .content' => 'height: {{SIZE}}{{UNIT}};',
                     ],
                 ]
             );
@@ -398,6 +413,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $image = $this->get_image_url();
+        $animation_style =  $settings['animation_style'];
         $content_postition = $settings['content_position'] ? $settings['content_position'] : 'center-center';
         $title_tag  = isset( $settings['title_tag'] ) ? $settings['title_tag'] : 'h3';
         $hover_effect  = isset( $settings['hover_effect'] ) ? $settings['hover_effect'] : 'hover1';
@@ -408,14 +424,14 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $target = $settings['button_link']['is_external'] ? ' target="_blank"' : '';
 		$nofollow = $settings['button_link']['nofollow'] ? ' rel="nofollow"' : '';
         ?>
-            <div class="storezz-cta <?php echo esc_attr( $content_postition ); ?> <?php echo esc_attr($hover_effect); ?>" id="storezz-cta-<?php echo esc_attr( $this->get_id() ); ?>">
-                <?php if( $image['url'] ) : ?>
+            <div class="se-call-to-action <?php echo esc_attr( $content_postition ); ?> <?php echo esc_attr($hover_effect); ?>" id="storezz-cta-<?php echo esc_attr( $this->get_id() ); ?>">
+                <!-- <?php if( $image['url'] ) : ?>
                     <div class="image">
                         <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>">
                     </div>
-                <?php endif; ?>
+                <?php endif; ?> -->
 
-                <div class="content">
+                <div class="content <?php echo $animation_style ?>" style="background:url('<?php if( $image['url'] ) : echo esc_url( $image['url'] ); endif; ?>')">
                     <?php
                         if( $settings['subtitle'] ) {
                             echo '<span class="subtitle">' . esc_html( $settings['subtitle'] ) . '</span>';
