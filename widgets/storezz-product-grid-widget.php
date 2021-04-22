@@ -91,8 +91,16 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       ]
     );
 
-
-
+    $this->add_control(
+      'hide_out_of_stock',
+      [
+        'label' => esc_html__('Hide out-of-stock items', 'menheer-plugin'),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Yes', 'menheer-plugin'),
+        'label_off' => esc_html__('No', 'menheer-plugin'),
+        'default' => 'yes',
+      ]
+    );
 
     $this->add_control(
       'number_of_products',
@@ -242,6 +250,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $order                       = $settings['order'];
     $categories                  = $settings['choose_categories'];
     $image_size                  = $settings['image_size_size'];
+    $hide_out_of_stock           = $settings['hide_out_of_stock'];
     $product_visibility_term_ids = wc_get_product_visibility_term_ids();
     $query_args = array(
       'posts_per_page' => $number_of_products,
@@ -254,6 +263,9 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       'tax_query'      => array(
         'relation' => 'AND',
       ),
+      'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
+      'show_rating' => true,
+      'image_size' => $image_size,
     );
 
     if (!empty($categories) ) {
@@ -267,7 +279,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       );
     };
 
-    if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
+    if ( 'yes' === $hide_out_of_stock ) {
       $query_args['tax_query'][] = array(
         array(
           'taxonomy' => 'product_visibility',
@@ -321,17 +333,17 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $products =  new WP_Query( $query_args);
     if ( $products && $products->have_posts() ) { ?>
-      <ul class="se-product-grid" style="display:grid;">
+      <ul class="se-product-grid">
         <?php
-        $template_args = array(
-          'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
-          'show_rating' => true,
-          'image_size' => $image_size,
-        );
+        // $template_args = array(
+        //   'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
+        //   'show_rating' => true,
+        //   'image_size' => $image_size,
+        // );
 
         while ( $products->have_posts() ) {
           $products->the_post();
-          wc_get_template( 'content-widget-product.php', $template_args );
+          wc_get_template( 'content-widget-product.php', $query_args );
         }?>
 
       </ul><?php

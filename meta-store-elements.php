@@ -98,6 +98,7 @@
             define("MTSE_VERSION", '1.0.1' );
 
             /** Plugin URI */
+            define("MTSE_PLUGIN_PATH", plugin_dir_path( __FILE__ ) );
             define("MTSE_PLUGIN_URI", plugin_dir_url( __FILE__ ) );
             define("MTSE_ASSETS_URI", MTSE_PLUGIN_URI . '/assets/' );
             define("MTSE_VENDOR_URI", MTSE_PLUGIN_URI . '/assets/vendor/' );
@@ -304,6 +305,11 @@
             require_once( __DIR__ . '/widgets/storezz-testimonial-slider-widget.php' ); // Testimonial Slider
             require_once( __DIR__ . '/widgets/storezz-cta-widget.php' ); // CTA
             require_once( __DIR__ . '/widgets/storezz-countdown-widget.php' ); // Countdown
+            require_once( __DIR__ . '/widgets/storezz-news-grid-widget.php' ); // Countdown
+            require_once( __DIR__ . '/widgets/storezz-news-block-widget.php' ); // Countdown
+            require_once( __DIR__ . '/widgets/storezz-news-list-widget.php' ); // Countdown
+            require_once( __DIR__ . '/widgets/storezz-link-list-widget.php' ); // Countdown
+
 
             if( class_exists( 'woocommerce' ) ) {
                 require_once( __DIR__ . '/widgets/storezz-product-tabs-grid-widget.php' ); // Product Tabs Grid
@@ -320,6 +326,10 @@
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Testimonial_Slider_Widget() ); // Testimonial Slider
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Cta_Widget() ); // Call To Action
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Countdown_Widget() ); // Countdown
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_News_Grid_Widget() ); // Countdown
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_News_Block_Widget() ); // Countdown
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_News_List_Widget() ); // Countdown
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Link_List_Widget() ); // Countdown
 
             if( class_exists( 'woocommerce' ) ) {
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Tabs_Grid_Widget() ); // Product Tabs Grid

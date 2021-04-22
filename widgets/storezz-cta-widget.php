@@ -26,7 +26,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'cta_content_section',
             [
-                'label' => __( 'CTA', 'storezz-elements' ),
+                'label' => __( 'Call to action', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -52,15 +52,6 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                 ]
             );
 
-            $this->add_control(
-                'title_tag',
-                [
-                    'label' => __( 'Title Tag', 'storezz-elements' ),
-                    'type' => \Elementor\Controls_Manager::SELECT,
-                    'default' => 'h3',
-                    'options' => Storezz_elements_tag_lists(),
-                ]
-            );
 
             $this->add_control(
                 'subtitle',
@@ -415,11 +406,8 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $image = $this->get_image_url();
         $animation_style =  $settings['animation_style'];
         $content_postition = $settings['content_position'] ? $settings['content_position'] : 'center-center';
-        $title_tag  = isset( $settings['title_tag'] ) ? $settings['title_tag'] : 'h3';
         $hover_effect  = isset( $settings['hover_effect'] ) ? $settings['hover_effect'] : 'hover1';
 
-        $before_title = '<' . esc_attr($title_tag) . ' class="title">';
-        $after_title = '</' . esc_attr($title_tag) . '>';
 
         $target = $settings['button_link']['is_external'] ? ' target="_blank"' : '';
 		$nofollow = $settings['button_link']['nofollow'] ? ' rel="nofollow"' : '';
@@ -438,12 +426,15 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                         }
 
                         if( $settings['title'] ) {
-                            echo $before_title . esc_html( $settings['title'] ) . $after_title;
+                            echo esc_html( $settings['title'] );
                         }
 
                         if( $settings['button_link']['url'] && $settings['button_text'] ) {
-                            echo '<a class="btn" href="' . esc_url( $settings['button_link']['url'] ) . '"' . $target . $nofollow . '>' . esc_html( $settings['button_text'] ) .'</a>';
+                            echo '<a class="btn victoria-one" href="' . esc_url( $settings['button_link']['url'] ) . '"' . $target . $nofollow . '>' . esc_html( $settings['button_text'] ) .'</a>';
                         }
+
+
+
                     ?>
                 </div>
             </div>

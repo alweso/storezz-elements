@@ -133,6 +133,17 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     );
 
     $this->add_control(
+      'hide_out_of_stock',
+      [
+        'label' => esc_html__('Hide out-of-stock items', 'menheer-plugin'),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Yes', 'menheer-plugin'),
+        'label_off' => esc_html__('No', 'menheer-plugin'),
+        'default' => 'yes',
+      ]
+    );
+
+    $this->add_control(
       'image_size_label', [
         'label' => __('Image Size', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::HEADING,
@@ -162,6 +173,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $center                      = $settings['center'];
     $nav                         = $settings['nav'];
     $nav_dot                     = $settings['nav_dot'];
+    $hide_out_of_stock           = $settings['hide_out_of_stock'];
     $navArrows                   = ["<i class='nav-button owl-prev fas fa-angle-left'>‹</i>", "<i class='nav-button owl-next fas fa-angle-right'>›</i>"];
     $product_visibility_term_ids = wc_get_product_visibility_term_ids();
 
@@ -188,6 +200,17 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         ),
       );
     };
+
+    if ( 'yes' === $hide_out_of_stock ) {
+      $args['tax_query'][] = array(
+        array(
+          'taxonomy' => 'product_visibility',
+          'field'    => 'term_taxonomy_id',
+          'terms'    => $product_visibility_term_ids['outofstock'],
+          'operator' => 'NOT IN',
+        ),
+      ); // WPCS: slow query ok.
+    }
 
     switch ( $show ) {
       case 'featured':
