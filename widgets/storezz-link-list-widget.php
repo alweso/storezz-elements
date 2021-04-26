@@ -64,12 +64,12 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
   * @return array Widget categories.
   */
   public function get_categories() {
-		return ['general', 'test-category'];
-	}
+    return ['general', 'test-category'];
+  }
 
   /**
-   * Enqueue styles.
-   */
+  * Enqueue styles.
+  */
   // public function get_style_depends() {
   //   return array( 'general', 'post-list' );
   // }
@@ -98,7 +98,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
         'type' => \Elementor\Controls_Manager::SWITCHER,
         'label_on' => esc_html__('Yes', 'storezz-elements'),
         'label_off' => esc_html__('No', 'storezz-elements'),
-        'default' => 'yes',
+        'default' => 'no',
       ]
     );
 
@@ -107,52 +107,83 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
       [
         'label' => __( 'Title', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => __( 'Post list', 'storezz-elements' ),
+        'default' => __( 'Link list', 'storezz-elements' ),
         'condition' => [ 'show_title' => ['yes'] ]
+      ]
+    );
+
+    $repeater = new \Elementor\Repeater();
+
+    $repeater->add_control(
+      'link_address', [
+        'label' => __( 'Add link address', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::TEXT,
+        // 'default'       => 'Add link',
+      ]
+    );
+
+    $repeater->add_control(
+      'link_name', [
+        'label' => __( 'Add link name', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::TEXT,
+        // 'default'       => 'Add link',
+      ]
+    );
+
+    $repeater->add_control(
+      'show_badge',
+      [
+        'label' => esc_html__('Show badge', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Yes', 'storezz-elements'),
+        'label_off' => esc_html__('No', 'storezz-elements'),
+      ]
+    );
+
+    $repeater->add_control(
+      'link_badge', [
+        'label'         => esc_html__( 'Link badge', 'storezz-elements' ),
+        'type'          => \Elementor\Controls_Manager::TEXT,
+        // 'default'       => 'New!',
+      ]
+    );
+
+    $repeater->add_control(
+      'badge_color', [
+        'label' => __( 'Badge color', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::COLOR,
+        // 'default' => "#393939",
+        'selectors' => [
+          '{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
+        ]
       ]
     );
 
     $this->add_control(
       'links',
       [
-        'label' => esc_html__('Links', 'digiqole'),
+        'label' => __( 'Repeater List', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::REPEATER,
+        'fields' => $repeater->get_controls(),
         'default' => [
           [
-            'tab_title' => esc_html__('Add Label', 'digiqole'),
-            'post_cats' => 1,
+            'link_address' => __( '', 'storezz-elements' ),
+            'link_name' => __( 'Example name 1', 'storezz-elements' ),
+            'link_badge' => __( 'New!', 'storezz-elements' ),
+            'badge_color' => __( '#0069E8', 'storezz-elements' ),
+            'show_badge' => __( 'yes', 'storezz-elements' ),
           ],
+          [
+            'link_address' => __( '', 'storezz-elements' ),
+            'link_name' => __( 'Example name 1', 'storezz-elements' ),
+            'link_badge' => __( 'Hot!', 'storezz-elements' ),
+            'badge_color' => __( '#FF7E00', 'storezz-elements' ),
+            'show_badge' => __( 'no', 'storezz-elements' ),
+          ],
+
         ],
-        'fields' => [
-          [
-            'name' => 'link_address',
-            'label' => __( 'Add link address', 'elementor-pro' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default'       => 'Add link',
-          ],
-          [
-            'name' => 'link_name',
-            'label' => __( 'Add link name', 'elementor-pro' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default'       => 'Add link',
-          ],
-          [
-          'name' => 'link_badge',
-          'label'         => esc_html__( 'Link badge', 'digiqole' ),
-          'type'          => \Elementor\Controls_Manager::TEXT,
-          'default'       => 'New!',
-        ],
-        [ 'name' => 'badge_color',
-          'label' => __( 'Badge color', '' ),
-          'type' => \Elementor\Controls_Manager::COLOR,
-          'default' => "#393939",
-          'selectors' => [
-            '{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
-          ],
-        ]
-      ],
-    ]
-  );
+      ]
+    );
 
     $this->end_controls_section();
 
@@ -168,7 +199,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
 
 
 
-        $this->end_controls_section();
+    $this->end_controls_section();
 
   }
 
@@ -189,27 +220,47 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
     $link_name         = $settings['link_name'];
     $link_badge  = $settings['link_badge'];
 
-
-
     $this->add_inline_editing_attributes( 'title', 'none' );
     ?>
 
     <div class="se-post-list">
       <?php if($show_title) { ?>
-          <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
-<ul>
-<?php
-foreach ( $links as $item )
-  echo '<li><a href="'. $item['link_address'] .'">'. $item['link_name'] .'</a><span class="se-link-badge elementor-repeater-item-' . $item['_id'].'">'. $item['link_badge'] .'</span></li>';
- ?>
-</ul>
+        <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+        <ul>
+          <?php
+          foreach ( $links as $item ) {
+          // ($item.['show_badge'] === "yes") ? $badge = $item['link_badge'] : '';
+          if ($item['show_badge'] === "yes") {
+            echo '<li><a href="'. $item['link_address'] .'">'. $item['link_name'] .'</a><span class="se-link-badge elementor-repeater-item-' . $item['_id'].'">'.  $item['link_badge'] .'</span></li>';
+          } else {
+            echo '<li><a href="'. $item['link_address'] .'">'. $item['link_name'] .'</a></li>';
+          }
+
+          }
+          ?>
+        </ul>
       <?php }  ?>
     </div>
-    <?php }
+  <?php }
 
-protected function _content_template() {
+  protected function _content_template() {
+    ?>
+    <h2 class="menheer-block-title">{{{ settings.title }}}</h2>
+    <# if ( settings.links.length ) { #>
+      <ul>
+        <# _.each( settings.links, function( item ) { #>
+          <li><a href="#">{{{ item.link_name }}}</a>
+            <span class="se-link-badge elementor-repeater-item-{{ item._id }}">
+              <# if ( item.show_badge ) { #>
+                {{{ item.link_badge }}}
+                <# }; #>
+              </span>
+            </li>
+            <# }); #>
+          </ul>
+          <# } #>
+          <?php
+        }
 
-}
 
-
-}
+      }
