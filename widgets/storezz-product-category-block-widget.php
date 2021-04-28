@@ -822,48 +822,48 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         <div class="se-category-block se-category-<?php echo $layout_type?>" id="storezz-product-category-block2-<?php echo esc_attr($this->get_id()); ?>" >
             <?php if ($category1) : ?>
-                <div class="se-product-cat se-product-cat1 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat1 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category1, $settings['image_size_1_size'], $button_position ); ?>
                 </div>
             <?php endif; ?>
             <?php if ($category2) : ?>
-                <div class="se-product-cat se-product-cat2 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat2 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category2, $settings['image_size_2_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category3) : ?>
-                <div class="se-product-cat se-product-cat3 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat3 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category3, $settings['image_size_3_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category4) : ?>
-                <div class="se-product-cat se-product-cat4 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat4 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category4, $settings['image_size_4_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category5) : ?>
-                <div class="se-product-cat se-product-cat5 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat5 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category5, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category6) : ?>
-                <div class="se-product-cat se-product-cat6 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat6 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category6, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category7) : ?>
-                <div class="se-product-cat se-product-cat7 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat7 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category7, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category8) : ?>
-                <div class="se-product-cat se-product-cat5 <?php echo $animation_style ?>">
+                <div class="se-product-cat se-product-cat5 animation <?php echo $animation_style ?>">
                     <?php $this->get_product_category_content($category8, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>

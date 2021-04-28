@@ -130,9 +130,6 @@
 
             /** Include Helper File */
             require_once( __DIR__ . '/inc/helper.php' );
-
-            add_image_size( 'storezz-blog-grid-2', 465, 380, true );
-            add_image_size( 'storezz-product-cat-large', 600, 600, true );
         }
 
         /**
@@ -269,9 +266,6 @@
             /** jQuery Countdown */
             wp_enqueue_script( 'jquery-countdown', MTSE_VENDOR_URI . 'jquery-countdown/jquery.countdown.min.js', array('jquery'), MTSE_VERSION );
 
-            /** jQuery InstagramFeed */
-            wp_enqueue_script( 'jquery-instagramfeed', MTSE_VENDOR_URI . 'jquery-instagramfeed/jquery.instagramFeed.min.js', array('jquery'), MTSE_VERSION );
-
             /** Custom Widget Scripts */
             wp_enqueue_script( 'storezz-elements-scripts', MTSE_ASSETS_URI . 'js/mse-custom-scripts.js', array('jquery'), MTSE_VERSION );
         }
@@ -301,7 +295,6 @@
             // Include Widget files
             require_once( __DIR__ . '/widgets/storezz-slider-widget.php' ); // Slider
             require_once( __DIR__ . '/widgets/storezz-blog-grid2-widget.php' ); // Blog Grid 2
-            require_once( __DIR__ . '/widgets/storezz-instagram-feed-widget.php' ); // Instagram Feeds
             require_once( __DIR__ . '/widgets/storezz-testimonial-slider-widget.php' ); // Testimonial Slider
             require_once( __DIR__ . '/widgets/storezz-cta-widget.php' ); // CTA
             require_once( __DIR__ . '/widgets/storezz-countdown-widget.php' ); // Countdown
@@ -309,6 +302,7 @@
             require_once( __DIR__ . '/widgets/storezz-news-block-widget.php' ); // Countdown
             require_once( __DIR__ . '/widgets/storezz-news-list-widget.php' ); // Countdown
             require_once( __DIR__ . '/widgets/storezz-link-list-widget.php' ); // Countdown
+            require_once( __DIR__ . '/widgets/storezz-image-widget.php' ); // Countdown
 
 
             if( class_exists( 'woocommerce' ) ) {
@@ -322,7 +316,6 @@
             // Register widget
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Slider_Widget() ); // Slider
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Blog_Grid2_Widget() ); // Blog Grid 2
-            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Instagram_Feeds_Widget() ); // Instagram Feeds
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Testimonial_Slider_Widget() ); // Testimonial Slider
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Cta_Widget() ); // Call To Action
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Countdown_Widget() ); // Countdown
@@ -330,6 +323,7 @@
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_News_Block_Widget() ); // Countdown
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_News_List_Widget() ); // Countdown
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Link_List_Widget() ); // Countdown
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Image_Widget() ); // Countdown
 
             if( class_exists( 'woocommerce' ) ) {
                 \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Tabs_Grid_Widget() ); // Product Tabs Grid

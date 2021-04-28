@@ -33,7 +33,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
   * @return string Widget title.
   */
   public function get_title() {
-    return __( 'Storezz News List Widget', 'elementor-post-list' );
+    return __( 'Storezz News List Widget', 'storezz-elements' );
   }
 
   /**
@@ -64,7 +64,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
   * @return array Widget categories.
   */
   public function get_categories() {
-		return ['general', 'test-category'];
+		return ['storezz-elements'];
 	}
 
   /**

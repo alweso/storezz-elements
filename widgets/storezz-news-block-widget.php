@@ -63,7 +63,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
   * @return array Widget categories.
   */
   public function get_categories() {
-    return ['general', 'test-category'];
+    return ['storezz-elements'];
   }
 
 

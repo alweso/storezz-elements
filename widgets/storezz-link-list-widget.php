@@ -33,7 +33,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
   * @return string Widget title.
   */
   public function get_title() {
-    return __( 'Storezz Link List Widget', 'elementor-post-list' );
+    return __( 'Storezz Link List Widget', 'storezz-elements' );
   }
 
   /**
@@ -64,7 +64,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
   * @return array Widget categories.
   */
   public function get_categories() {
-    return ['general', 'test-category'];
+    return ['storezz-elements'];
   }
 
   /**
@@ -152,7 +152,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
       'badge_color', [
         'label' => __( 'Badge color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
-        // 'default' => "#393939",
+        'default' => "#393939",
         'selectors' => [
           '{{WRAPPER}} {{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
         ]
@@ -178,7 +178,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
             'link_name' => __( 'Example name 1', 'storezz-elements' ),
             'link_badge' => __( 'Hot!', 'storezz-elements' ),
             'badge_color' => __( '#FF7E00', 'storezz-elements' ),
-            'show_badge' => __( 'no', 'storezz-elements' ),
+            'show_badge' => __( 'yes', 'storezz-elements' ),
           ],
 
         ],
@@ -216,9 +216,6 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
     $settings = $this->get_settings_for_display();
     $show_title        = $settings['show_title'];
     $links             = $settings['links'];
-    $link_address      = $settings['link_address'];
-    $link_name         = $settings['link_name'];
-    $link_badge  = $settings['link_badge'];
 
     $this->add_inline_editing_attributes( 'title', 'none' );
     ?>
@@ -226,10 +223,10 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
     <div class="se-post-list">
       <?php if($show_title) { ?>
         <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+      <?php }  ?>
         <ul>
           <?php
           foreach ( $links as $item ) {
-          // ($item.['show_badge'] === "yes") ? $badge = $item['link_badge'] : '';
           if ($item['show_badge'] === "yes") {
             echo '<li><a href="'. $item['link_address'] .'">'. $item['link_name'] .'</a><span class="se-link-badge elementor-repeater-item-' . $item['_id'].'">'.  $item['link_badge'] .'</span></li>';
           } else {
@@ -239,22 +236,23 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
           }
           ?>
         </ul>
-      <?php }  ?>
     </div>
   <?php }
 
   protected function _content_template() {
     ?>
+    <# if ( settings.show_title) { #>
     <h2 class="menheer-block-title">{{{ settings.title }}}</h2>
+      <# }; #>
     <# if ( settings.links.length ) { #>
       <ul>
         <# _.each( settings.links, function( item ) { #>
           <li><a href="#">{{{ item.link_name }}}</a>
-            <span class="se-link-badge elementor-repeater-item-{{ item._id }}">
               <# if ( item.show_badge ) { #>
+                            <span class="se-link-badge elementor-repeater-item-{{ item._id }}">
                 {{{ item.link_badge }}}
+                              </span>
                 <# }; #>
-              </span>
             </li>
             <# }); #>
           </ul>

@@ -6,6 +6,10 @@ ul li {
 }
 
 /* ------------------- Category Blocks ------------------------- */
+.animation::before {
+  z-index: 1;
+}
+
 .animation1:hover:before {
   transform: skewX(360deg);
 }
@@ -21,6 +25,7 @@ ul li {
   left: 15px;
   border: 2px solid white;
   transition: all 0.5s ease-in-out;
+  display: inline-block;
 }
 
 .animation2:hover:before {
@@ -800,6 +805,19 @@ button.owl-next {
   display: grid;
   grid-template-columns: 33fr 66fr;
   column-gap: 10px;
+}
+
+/* ======================================== Storezz Image ================================ */
+.storezz-image {
+  overflow: hidden;
+}
+.storezz-image::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 /*# sourceMappingURL=storezz-elements.css.map */
