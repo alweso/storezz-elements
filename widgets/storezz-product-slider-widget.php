@@ -132,6 +132,20 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       ]
     );
 
+    // $this->add_responsive_control(
+    //   'number_of_products',
+    //   [
+    //     'label' => __( 'Number of products', 'plugin-name' ),
+    //     'type' => \Elementor\Controls_Manager::NUMBER,
+    //     'devices' => [ 'desktop', 'tablet', 'mobile' ],
+    //     'min' => 1,
+    //     'step' => 1,
+    //     'desktop_default' => '4',
+    //     'tablet_default' => '3',
+    //     'mobile_default' => '2',
+    //   ]
+    // );
+
     $this->add_control(
       'hide_out_of_stock',
       [

@@ -113,12 +113,34 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       ]
     );
 
-    $this->add_control(
-      'number_of_columns',
-      [
-        'label' => __( 'Number of columns', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => '1fr 1fr 1fr 1fr',
+
+    // $this->add_control(
+    //   'number_of_columns',
+    //   [
+    //     'label' => __( 'Number of columns', 'storezz-elements' ),
+    //     'type' => \Elementor\Controls_Manager::SELECT,
+    //     'default' => '1fr 1fr 1fr 1fr',
+    //     'options'   => [
+    //       '1fr'      =>esc_html__( '1', 'storezz-elements' ),
+    //       '1fr 1fr'      =>esc_html__( '2', 'storezz-elements' ),
+    //       '1fr 1fr 1fr'      =>esc_html__( '3', 'storezz-elements' ),
+    //       '1fr 1fr 1fr 1fr'      =>esc_html__( '4', 'storezz-elements' ),
+    //       '1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '5', 'storezz-elements' ),
+    //       '1fr 1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '6', 'storezz-elements' ),
+    //     ],
+    //     'devices' => [ 'desktop', 'tablet', 'mobile' ],
+    //     'selectors' => [
+    //       '{{WRAPPER}} .se-product-grid' => 'grid-template-columns: {{VALUE}}',
+    //     ],
+    //   ]
+    // );
+
+    $this->add_responsive_control(
+			'number_of_columns',
+			[
+				'label' => __( 'Number of columns', 'plugin-name' ),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'options'   => [
           '1fr'      =>esc_html__( '1', 'storezz-elements' ),
           '1fr 1fr'      =>esc_html__( '2', 'storezz-elements' ),
@@ -127,12 +149,14 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
           '1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '5', 'storezz-elements' ),
           '1fr 1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '6', 'storezz-elements' ),
         ],
-        'devices' => [ 'desktop', 'tablet', 'mobile' ],
-        'selectors' => [
-          '{{WRAPPER}} .se-product-grid' => 'grid-template-columns: {{VALUE}}',
-        ],
-      ]
-    );
+				'desktop_default' => '1fr 1fr 1fr 1fr',
+        'tablet_default' => '1fr 1fr 1fr',
+        'mobile_default' => '1fr 1fr',
+				'selectors' => [
+					'{{WRAPPER}}  .se-product-grid' => 'grid-template-columns: {{VALUE}}',
+				],
+			]
+		);
 
 
     $this->add_control(
