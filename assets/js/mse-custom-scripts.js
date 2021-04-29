@@ -59,7 +59,8 @@
             var carouselOptions = productSlider.data('carousel-options');
 
             var allOptions = $.extend(true, {}, carouselOptions, extraoptions);
-            console.log(allOptions);
+            console.log(carouselOptions);
+            console.log(extraoptions);
             productSlider.owlCarousel(allOptions);
           });
         }

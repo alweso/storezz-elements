@@ -131,7 +131,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         'step' => 1,
       ]
     );
-
+    //
     // $this->add_responsive_control(
     //   'number_of_products',
     //   [
@@ -145,6 +145,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     //     'mobile_default' => '2',
     //   ]
     // );
+
 
     $this->add_control(
       'hide_out_of_stock',
@@ -192,7 +193,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $product_visibility_term_ids = wc_get_product_visibility_term_ids();
 
     $args = array(
-      'posts_per_page' => $number_of_products,
       'post_status'    => 'publish',
       'post_type'      => 'product',
       'no_found_rows'  => 1,
@@ -241,11 +241,22 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       break;
     }
 
+    $slide_controls  = [
+      "autoplay"  => $autoplay,
+      "center"  => $center,
+      "dots"  => $nav_dot,
+      "items"  => $number_of_products,
+      "loop"  => "true"
+    ];
+
+    $slide_controls = \json_encode($slide_controls);
+
 
     $products = new WP_Query( $args );
     ?>
     <?php if( $products->have_posts() ) : ?>
-      <ul data-carousel-options='{"autoplay":"<?php echo $autoplay ?>", "center":"<?php echo $center ?>", "dots":"<?php echo $nav_dot ?>", "items":"<?php echo $number_of_products ?>","loop":"true"}' class="se-product-slider owl-carousel">
+      <h1><?php echo $number_of_products ?></h1>
+      <ul data-carousel-options='<?php echo $slide_controls ?>' class="se-product-slider owl-carousel">
         <?php
         $template_args = array(
           'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
@@ -258,7 +269,8 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
           wc_get_template( 'content-widget-product.php', $template_args );
         }?>
       </ul>
-      <?php wp_reset_postdata(); endif; ?>
+      <?php wp_reset_postdata();
+    endif; ?>
       <?php
     }
   }
