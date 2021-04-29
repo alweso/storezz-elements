@@ -42,6 +42,7 @@
         if (productSliders.length > 0) {
           productSliders.each(function () {
             var productSlider = $(this);
+            // var mobileProduct = productSlider.data('');
             // var options = {
             //   loop: productSlider.data('slides'),
             //   autoplay: productSlider.data('autoplay'),
@@ -54,13 +55,11 @@
 
             var extraoptions = {
               navText: ["<i class='nav-button owl-prev fas fa-angle-left'></i>", "<i class='nav-button owl-next fas fa-angle-right'></i>"],
-              nav: "true",
             }
             var carouselOptions = productSlider.data('carousel-options');
 
             var allOptions = $.extend(true, {}, carouselOptions, extraoptions);
-            console.log(carouselOptions);
-            console.log(extraoptions);
+            console.log(allOptions);
             productSlider.owlCarousel(allOptions);
           });
         }
@@ -108,7 +107,6 @@
             var carouselOptions = tslider.data('carousel-options');
 
             var allOptions = $.extend(true, {}, carouselOptions, extraoptions);
-            console.log(allOptions);
             tslider.owlCarousel(allOptions);
           });
         }

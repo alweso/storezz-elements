@@ -80,8 +80,8 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         'type' => \Elementor\Controls_Manager::SWITCHER,
         'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
         'label_off' => esc_html__( 'No', 'storezz-elements' ),
-        'return_value' => 'yes',
-        'default' => 'yes'
+        'return_value' => 'true',
+        'default' => 'true'
       ]
     );
 
@@ -92,8 +92,8 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         'type' => \Elementor\Controls_Manager::SWITCHER,
         'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
         'label_off' => esc_html__( 'No', 'storezz-elements' ),
-        'return_value' => 'yes',
-        'default' => 'yes'
+        'return_value' => 'true',
+        'default' => 'true'
       ]
     );
 
@@ -104,8 +104,8 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         'type' => \Elementor\Controls_Manager::SWITCHER,
         'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
         'label_off' => esc_html__( 'No', 'storezz-elements' ),
-        'return_value' => 'yes',
-        'default' => 'yes'
+        'return_value' => 'true',
+        'default' => 'true'
       ]
     );
 
@@ -116,8 +116,8 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         'type' => \Elementor\Controls_Manager::SWITCHER,
         'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
         'label_off' => esc_html__( 'No', 'storezz-elements' ),
-        'return_value' => 'yes',
-        'default' => 'no'
+        'return_value' => 'true',
+        'default' => 'true'
       ]
     );
 
@@ -129,6 +129,45 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         'default' => __( 4, 'storezz-elements' ),
         'min' => 2,
         'step' => 1,
+      ]
+    );
+
+    $this->add_control(
+      'number_of_products_mobile', [
+        'label' => __('No. of products mobile ', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => '2',
+        'options' => [
+          '2' => __( '2', 'storezz-elements' ),
+          '3' => __( '3', 'storezz-elements' ),
+          '4' => __( '4', 'storezz-elements' ),
+        ],
+      ]
+    );
+
+    $this->add_control(
+      'number_of_products_tablet', [
+        'label' => __('No. of products tablet ', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => '3',
+        'options' => [
+          '2' => __( '2', 'storezz-elements' ),
+          '3' => __( '3', 'storezz-elements' ),
+          '4' => __( '4', 'storezz-elements' ),
+        ],
+      ]
+    );
+
+    $this->add_control(
+      'number_of_products_desktop', [
+        'label' => __('No. of products desktop ', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => '4',
+        'options' => [
+          '2' => __( '2', 'storezz-elements' ),
+          '3' => __( '3', 'storezz-elements' ),
+          '4' => __( '4', 'storezz-elements' ),
+        ],
       ]
     );
     //
@@ -184,6 +223,9 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $show                        = $settings['show'];
     $categories                  = $settings['choose_categories'];
     $number_of_products          = $settings['number_of_products'];
+    $number_of_products_mobile   = $settings['number_of_products_mobile'];
+    $number_of_products_tablet   = $settings['number_of_products_tablet'];
+    $number_of_products_desktop   = $settings['number_of_products_desktop'];
     $autoplay                    = $settings['autoplay'];
     $center                      = $settings['center'];
     $nav                         = $settings['nav'];
@@ -245,8 +287,20 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       "autoplay"  => $autoplay,
       "center"  => $center,
       "dots"  => $nav_dot,
-      "items"  => $number_of_products,
-      "loop"  => "true"
+      // "items"  => $number_of_products,
+      "nav" => $nav,
+      "loop"  => "true",
+      "responsive" => [
+        "0" => [
+            "items" => $number_of_products_mobile,
+        ],
+        "480" => [
+            "items" => $number_of_products_tablet,
+        ],
+        "768" => [
+            "items" => $number_of_products_desktop,
+        ],
+      ],
     ];
 
     $slide_controls = \json_encode($slide_controls);
