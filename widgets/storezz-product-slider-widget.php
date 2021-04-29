@@ -122,22 +122,12 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     );
 
     $this->add_control(
-      'number_of_products',
-      [
-        'label' => __( 'Number of products', 'storezz-elements' ),
-        'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 4, 'storezz-elements' ),
-        'min' => 2,
-        'step' => 1,
-      ]
-    );
-
-    $this->add_control(
       'number_of_products_mobile', [
         'label' => __('No. of products mobile ', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '2',
         'options' => [
+          '1' => __( '1', 'storezz-elements' ),
           '2' => __( '2', 'storezz-elements' ),
           '3' => __( '3', 'storezz-elements' ),
           '4' => __( '4', 'storezz-elements' ),
@@ -170,20 +160,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         ],
       ]
     );
-    //
-    // $this->add_responsive_control(
-    //   'number_of_products',
-    //   [
-    //     'label' => __( 'Number of products', 'plugin-name' ),
-    //     'type' => \Elementor\Controls_Manager::NUMBER,
-    //     'devices' => [ 'desktop', 'tablet', 'mobile' ],
-    //     'min' => 1,
-    //     'step' => 1,
-    //     'desktop_default' => '4',
-    //     'tablet_default' => '3',
-    //     'mobile_default' => '2',
-    //   ]
-    // );
 
 
     $this->add_control(
@@ -222,7 +198,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $image_size                  = $settings['image_size_size'];
     $show                        = $settings['show'];
     $categories                  = $settings['choose_categories'];
-    $number_of_products          = $settings['number_of_products'];
     $number_of_products_mobile   = $settings['number_of_products_mobile'];
     $number_of_products_tablet   = $settings['number_of_products_tablet'];
     $number_of_products_desktop   = $settings['number_of_products_desktop'];
@@ -297,7 +272,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
         "480" => [
             "items" => $number_of_products_tablet,
         ],
-        "768" => [
+        "769" => [
             "items" => $number_of_products_desktop,
         ],
       ],
@@ -309,7 +284,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $products = new WP_Query( $args );
     ?>
     <?php if( $products->have_posts() ) : ?>
-      <h1><?php echo $number_of_products ?></h1>
       <ul data-carousel-options='<?php echo $slide_controls ?>' class="se-product-slider owl-carousel">
         <?php
         $template_args = array(
@@ -327,4 +301,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     endif; ?>
       <?php
     }
+
+
   }

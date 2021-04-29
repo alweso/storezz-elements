@@ -294,7 +294,7 @@
         public function init_widgets() {
             // Include Widget files
             require_once( __DIR__ . '/widgets/storezz-slider-widget.php' ); // Slider
-            require_once( __DIR__ . '/widgets/storezz-blog-grid2-widget.php' ); // Blog Grid 2
+            require_once( __DIR__ . '/widgets/storezz-blog-grid-widget.php' ); // Blog Grid 2
             require_once( __DIR__ . '/widgets/storezz-testimonial-slider-widget.php' ); // Testimonial Slider
             require_once( __DIR__ . '/widgets/storezz-cta-widget.php' ); // CTA
             require_once( __DIR__ . '/widgets/storezz-countdown-widget.php' ); // Countdown
@@ -315,7 +315,7 @@
 
             // Register widget
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Slider_Widget() ); // Slider
-            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Blog_Grid2_Widget() ); // Blog Grid 2
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Blog_Grid_Widget() ); // Blog Grid 2
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Testimonial_Slider_Widget() ); // Testimonial Slider
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Cta_Widget() ); // Call To Action
             \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Countdown_Widget() ); // Countdown

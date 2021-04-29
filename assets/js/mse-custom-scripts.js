@@ -64,36 +64,7 @@
           });
         }
       },
-      InstaFeeds: function ( $scope ) {
-        var instas = $scope.find(".storezz-instagram-feed");
-
-        if (instas.length > 0) {
-            instas.each(function () {
-            var insta = $(this);
-            var insta_datas = insta.data('insta');
-
-            var insta_args = {
-                'container': insta_datas.container,
-                'display_profile': JSON.parse( insta_datas.display_profile ),
-                'display_biography': JSON.parse( insta_datas.display_biography ),
-                'display_gallery': JSON.parse( insta_datas.display_gallery ),
-                'callback': JSON.parse( insta_datas.callback ),
-                'styling': JSON.parse( insta_datas.styling ),
-                'items': JSON.parse( insta_datas.items ),
-                'image_size': insta_datas.image_size,
-            }
-
-            if( insta_datas.hasOwnProperty('username') ) {
-                insta_args.username = insta_datas.username;
-            } else if( insta_datas.hasOwnProperty('tag') ) {
-                insta_args.username = insta_datas.tag;
-            }
-
-            $.instagramFeed( insta_args );
-
-          });
-        }
-      },
+      
       TestimonialSlider: function ( $scope ) {
 
         var tslider = $scope.find(".se-testimonial-slider");
