@@ -1,0 +1,12 @@
+
+/* ------------------------ Product List-------------------------------------------- */
+
+.se-product-list {
+  display: block;
+  li {
+    clear: both;
+    a {
+      float: left;
+    }
+  }
+}

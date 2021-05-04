@@ -1,0 +1,12 @@
+/* ===================================== News List ================================== */
+.se-post-list .thumbnail {
+  border-radius: 0px !important;
+  overflow: visible !important;
+}
+.se-post-list .big-wrapper .wrapper--big {
+  display: grid;
+  grid-template-columns: 33fr 66fr;
+  column-gap: 10px;
+}
+
+/*# sourceMappingURL=se-news-list.css.map */

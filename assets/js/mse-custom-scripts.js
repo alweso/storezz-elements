@@ -3,15 +3,15 @@
 
 
 
-    var MTSE = {
+    var STOREZZ_ELEMENTS = {
       init: function () {
         var widgets = {
-          "storezz-slider-widget.default": MTSE.Slider,
-          "storezz-instagram-feeds.default": MTSE.InstaFeeds,
-          "storezz-testimonial-slider.default": MTSE.TestimonialSlider,
-          "storezz-product-slider.default": MTSE.ProductSlider,
-          "storezz-product-tabs-grid.default": MTSE.Tabs,
-          "storezz-countdown.default": MTSE.Countdown
+          "storezz-slider-widget.default": STOREZZ_ELEMENTS.Slider,
+          "storezz-instagram-feeds.default": STOREZZ_ELEMENTS.InstaFeeds,
+          "storezz-testimonial-slider.default": STOREZZ_ELEMENTS.TestimonialSlider,
+          "storezz-product-slider.default": STOREZZ_ELEMENTS.ProductSlider,
+          "storezz-product-tabs-grid.default": STOREZZ_ELEMENTS.Tabs,
+          "storezz-countdown.default": STOREZZ_ELEMENTS.Countdown
         };
 
         $.each(widgets, function (widget, callback) {
@@ -64,7 +64,7 @@
           });
         }
       },
-      
+
       TestimonialSlider: function ( $scope ) {
 
         var tslider = $scope.find(".se-testimonial-slider");
@@ -158,5 +158,5 @@
         }
       }
     };
-    $(window).on("elementor/frontend/init", MTSE.init);
+    $(window).on("elementor/frontend/init", STOREZZ_ELEMENTS.init);
   })(jQuery, window.elementorFrontend);

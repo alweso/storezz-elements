@@ -1,0 +1,14 @@
+/* ======================================== Storezz Image ================================ */
+.storezz-image {
+  overflow: hidden;
+}
+.storezz-image::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+/*# sourceMappingURL=se-image.css.map */

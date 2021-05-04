@@ -7,13 +7,13 @@
   if ( $i == 0 ) : ?>
   <div class="wrapper wrapper--big">
     <?php $category_display = $big_category_display ?>
-    <?php include (MTSE_PLUGIN_PATH . 'widgets/content/content-3.php'); ?>
+    <?php include (STOREZZ_ELEMENTS_PATH . 'widgets/content/content-3.php'); ?>
   </div>
 <?php endif;
 if ( $i > 0 ) : ?>
 <div class="wrapper wrapper--small">
   <?php $category_display = $small_category_display ?>
-  <?php include (MTSE_PLUGIN_PATH . 'widgets/content/content-2.php'); ?>
+  <?php include (STOREZZ_ELEMENTS_PATH . 'widgets/content/content-2.php'); ?>
 </div>
 <?php endif; ?>
 <?php $i++; ?>

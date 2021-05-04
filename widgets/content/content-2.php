@@ -8,4 +8,4 @@
   </div>
 <?php endif; ?>
 
-<?php include (MTSE_PLUGIN_PATH . 'widgets/content/description_small.php'); ?>
+<?php include (STOREZZ_ELEMENTS_PATH . 'widgets/content/description_small.php'); ?>

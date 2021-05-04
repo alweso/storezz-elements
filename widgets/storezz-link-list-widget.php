@@ -4,11 +4,11 @@
 */
 class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
 
-  // public function __construct( $data = array(), $args = null ) {
-  //   parent::__construct( $data, $args );
-  //   wp_register_style( 'general', plugins_url( '/assets/css/general.css', ELEMENTOR_AWESOMESAUCE ), array(), '1.0.0' );
-  //   wp_register_style( 'post-list', plugins_url( '/assets/css/post-list.css', ELEMENTOR_AWESOMESAUCE ), array(), '1.0.0' );
-  // }
+  public function __construct( $data = array(), $args = null ) {
+    parent::__construct( $data, $args );
+    wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION );
+    wp_register_style( 'se-link-list', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-link-list.css', array(), STOREZZ_ELEMENTS_VERSION );
+  }
 
   /**
   * Retrieve the widget name.
@@ -70,9 +70,9 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
   /**
   * Enqueue styles.
   */
-  // public function get_style_depends() {
-  //   return array( 'general', 'post-list' );
-  // }
+  public function get_style_depends() {
+    return array( 'storezz-elements', 'se-list-link' );
+  }
 
   /**
   * Register the widget controls.

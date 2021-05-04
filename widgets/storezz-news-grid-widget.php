@@ -5,6 +5,12 @@
 
 class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
 
+  public function __construct( $data = array(), $args = null ) {
+    parent::__construct( $data, $args );
+    wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION );
+    wp_register_style( 'se-news-grid', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-news-grid.css', array(), STOREZZ_ELEMENTS_VERSION );
+  }
+
 
   /**
   * Retrieve the widget name.
@@ -66,9 +72,9 @@ class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
   /**
    * Enqueue styles.
    */
-  // public function get_style_depends() {
-  //   return array( 'general', 'post-grid' );
-  // }
+  public function get_style_depends() {
+    return array( 'storezz-elements', 'se-news-grid' );
+  }
 
   /**
   * Register the widget controls.
@@ -164,7 +170,9 @@ class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
           '1fr 1fr 1fr'  => __( '3', 'storezz-elements' ),
           '1fr 1fr 1fr 1fr'  => __( '4', 'storezz-elements' ),
         ],
-        'default' => '1fr 1fr 1fr',
+        'desktop_default' => '1fr 1fr 1fr 1fr',
+        'tablet_default' => '1fr 1fr 1fr',
+        'mobile_default' => '1fr 1fr',
         'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'selectors' => [
           '{{WRAPPER}} .big-wrapper' => 'grid-template-columns: {{VALUE}};',

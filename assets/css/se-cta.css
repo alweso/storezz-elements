@@ -1,0 +1,13 @@
+/* ----------------------------- Call to action  --------------------------------------- */
+.se-call-to-action {
+  width: 100%;
+  display: table;
+}
+.se-call-to-action .content {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background-size: cover !important;
+}
+
+/*# sourceMappingURL=se-cta.css.map */

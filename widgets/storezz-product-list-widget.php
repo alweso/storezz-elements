@@ -5,6 +5,12 @@
 */
 class Storezz_Product_List_Widget extends \Elementor\Widget_Base {
 
+  public function __construct( $data = array(), $args = null ) {
+    parent::__construct( $data, $args );
+    wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION );
+    wp_register_style( 'se-product-list', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-product-list.css', array(), STOREZZ_ELEMENTS_VERSION );
+  }
+
   /** Widget Name */
   public function get_name() {
     return 'storezz-product-list-widget';
@@ -23,6 +29,10 @@ class Storezz_Product_List_Widget extends \Elementor\Widget_Base {
   /** Category */
   public function get_categories() {
     return ['storezz-elements'];
+  }
+
+  public function get_style_depends() {
+    return array( 'storezz-elements', 'se-product-list' );
   }
 
   /** Controls */

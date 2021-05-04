@@ -1,6 +1,13 @@
 <?php
 class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
 
+  public function __construct( $data = array(), $args = null ) {
+    parent::__construct( $data, $args );
+    wp_register_script( 'owl-carousel', STOREZZ_ELEMENTS_VENDOR_URI . 'owl-carousel/js/owl.carousel.min.js', array(), STOREZZ_ELEMENTS_VERSION );
+    wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION );
+    wp_register_style( 'se-testimonial-slider', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-testimonial-slider.css', array(), STOREZZ_ELEMENTS_VERSION );
+  }
+
   public function get_name() {
     return 'storezz-testimonial-slider';
   }
@@ -17,8 +24,13 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     return [ 'storezz-elements' ];
   }
 
+  /** Dependencies */
   public function get_script_depends() {
-    return [ 'owl-carousel' ];
+      return [ 'owl-carousel' ];
+  }
+
+  public function get_style_depends() {
+    return array(  'owl-carousel', 'storezz-elements', 'se-testimonial-slider' );
   }
 
   protected function _register_controls() {

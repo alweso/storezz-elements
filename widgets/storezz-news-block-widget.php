@@ -2,11 +2,11 @@
 
 class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
 
-  // public function __construct( $data = array(), $args = null ) {
-  //   parent::__construct( $data, $args );
-  //   wp_register_style( 'general', plugins_url( '/assets/css/general.css', ELEMENTOR_AWESOMESAUCE ), array(), '1.0.0' );
-  //   wp_register_style( 'post-block', plugins_url( '/assets/css/post-block.css', ELEMENTOR_AWESOMESAUCE ), array(), '1.0.0' );
-  // }
+  public function __construct( $data = array(), $args = null ) {
+    parent::__construct( $data, $args );
+    wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION );
+    wp_register_style( 'se-news-block', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-news-block.css', array(), STOREZZ_ELEMENTS_VERSION );
+  }
 
   /**
   * Retrieve the widget name.
@@ -71,7 +71,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
    * Enqueue styles.
    */
   public function get_style_depends() {
-    return array( 'general', 'post-block' );
+    return array( 'storezz-elements', 'se-news-block' );
   }
 
   /**

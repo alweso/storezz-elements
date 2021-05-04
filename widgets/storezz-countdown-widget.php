@@ -1,5 +1,14 @@
 <?php
+
 class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
+
+    public function __construct( $data = array(), $args = null ) {
+      parent::__construct( $data, $args );
+      wp_enqueue_script( 'jquery-countdown', STOREZZ_ELEMENTS_VENDOR_URI . 'jquery-countdown/jquery.countdown.min.js', array('jquery'), STOREZZ_ELEMENTS_VERSION );
+      wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION );
+      wp_register_style( 'se-countdown', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-countdown.css', array(), STOREZZ_ELEMENTS_VERSION );
+    }
+
     /** Widget Name **/
     public function get_name() {
         return 'storezz-countdown';
@@ -18,6 +27,19 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
     /** Categories **/
     public function get_categories() {
         return [ 'storezz-elements' ];
+    }
+
+    /**
+     * Enqueue styles.
+     */
+
+     /** Dependencies */
+     public function get_script_depends() {
+         return [ 'jquery-countdown' ];
+     }
+
+    public function get_style_depends() {
+      return array( 'storezz-elements', 'se-countdown' );
     }
 
     /** Widget Controls **/
@@ -249,7 +271,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
                 'second' => $year_text
             )
         ) );
-
+        // echo Storezz_Elements::STORREZ_ELEMENTS_VERSION;
         if( !$countdown_date ) {
             ?>
             <div class="storezz-error"><?php esc_html__( 'Set the valid countdown date', 'storezz-elements' ); ?></div>

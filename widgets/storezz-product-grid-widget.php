@@ -5,6 +5,12 @@
 */
 class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
+  public function __construct( $data = array(), $args = null ) {
+    parent::__construct( $data, $args );
+    wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION );
+    wp_register_style( 'se-product-grid', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-product-grid.css', array(), STOREZZ_ELEMENTS_VERSION );
+  }
+
   /** Widget Name */
   public function get_name() {
     return 'storezz-product-grid-widget';
@@ -23,6 +29,10 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
   /** Category */
   public function get_categories() {
     return ['storezz-elements'];
+  }
+
+  public function get_style_depends() {
+    return array( 'storezz-elements', 'se-product-grid' );
   }
 
   /** Controls */
@@ -113,32 +123,10 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       ]
     );
 
-
-    // $this->add_control(
-    //   'number_of_columns',
-    //   [
-    //     'label' => __( 'Number of columns', 'storezz-elements' ),
-    //     'type' => \Elementor\Controls_Manager::SELECT,
-    //     'default' => '1fr 1fr 1fr 1fr',
-    //     'options'   => [
-    //       '1fr'      =>esc_html__( '1', 'storezz-elements' ),
-    //       '1fr 1fr'      =>esc_html__( '2', 'storezz-elements' ),
-    //       '1fr 1fr 1fr'      =>esc_html__( '3', 'storezz-elements' ),
-    //       '1fr 1fr 1fr 1fr'      =>esc_html__( '4', 'storezz-elements' ),
-    //       '1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '5', 'storezz-elements' ),
-    //       '1fr 1fr 1fr 1fr 1fr 1fr'      =>esc_html__( '6', 'storezz-elements' ),
-    //     ],
-    //     'devices' => [ 'desktop', 'tablet', 'mobile' ],
-    //     'selectors' => [
-    //       '{{WRAPPER}} .se-product-grid' => 'grid-template-columns: {{VALUE}}',
-    //     ],
-    //   ]
-    // );
-
     $this->add_responsive_control(
 			'number_of_columns',
 			[
-				'label' => __( 'Number of columns', 'plugin-name' ),
+				'label' => __( 'Number of columns', 'storezz-elements' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'options'   => [

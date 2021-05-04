@@ -20,7 +20,8 @@
     <?php  } elseif (has_post_format('gallery')) { ?>
         <i class="fa fa-images"></i>
   <?php  } ?>
-      <?php echo esc_html(wp_trim_words(get_the_title(), $crop,'')); ?></h4>
+       <?php echo esc_html(wp_trim_words(get_the_title(), $crop,'')); ?> 
+    </h4>
     <?php if(isset($show_exerpt) && $show_exerpt == "yes") : ?>
       <p><?php echo esc_html( wp_trim_words(get_the_excerpt(),$post_content_crop,'...') );?></p>
     <?php endif ?>

@@ -4,6 +4,13 @@
      */
     class Storezz_Slider_Widget extends \Elementor\Widget_Base {
 
+        public function __construct( $data = array(), $args = null ) {
+          parent::__construct( $data, $args );
+          wp_register_script( 'owl-carousel', STOREZZ_ELEMENTS_VENDOR_URI . 'owl-carousel/js/owl.carousel.min.js', array(), STOREZZ_ELEMENTS_VERSION );
+          wp_register_style( 'storezz-elements', STOREZZ_ELEMENTS_ASSETS_URI . '/css/storezz-elements.css', array(), STOREZZ_ELEMENTS_VERSION);
+          wp_register_style( 'se-slider', STOREZZ_ELEMENTS_ASSETS_URI . '/css/se-slider.css', array(), STOREZZ_ELEMENTS_VERSION );
+        }
+
         /** Widget Name */
         public function get_name() {
             return 'storezz-slider-widget';
@@ -27,6 +34,10 @@
         /** Dependencies */
         public function get_script_depends() {
             return [ 'owl-carousel' ];
+        }
+
+        public function get_style_depends() {
+          return array(  'owl-carousel', 'storezz-elements', 'se-slider' );
         }
 
         /** Controls */

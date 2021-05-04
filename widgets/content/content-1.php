@@ -7,4 +7,4 @@
     </div>
   </div>
 <?php endif; ?>
-<?php include (MTSE_PLUGIN_PATH . 'widgets/content/description.php'); ?>
+<?php include (STOREZZ_ELEMENTS_PATH . 'widgets/content/description.php'); ?>
