@@ -293,6 +293,7 @@ final class Storezz_Elements {
     require_once( __DIR__ . '/widgets/storezz-news-list-widget.php' ); // Countdown
     require_once( __DIR__ . '/widgets/storezz-link-list-widget.php' ); // Countdown
     require_once( __DIR__ . '/widgets/storezz-image-widget.php' ); // Countdown
+    require_once( __DIR__ . '/widgets/storezz-navigation-menu-widget.php' ); // Countdown
 
 
     if( class_exists( 'woocommerce' ) ) {
@@ -313,6 +314,7 @@ final class Storezz_Elements {
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_News_List_Widget() ); // Countdown
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Link_List_Widget() ); // Countdown
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Image_Widget() ); // Countdown
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Navigation_Menu() ); // Countdown
 
     if( class_exists( 'woocommerce' ) ) {
       \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Tabs_Grid_Widget() ); // Product Tabs Grid
