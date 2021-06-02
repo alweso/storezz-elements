@@ -131,13 +131,12 @@ class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'order_by',
       [
-        'label' => __( 'Show', 'storezz-elements' ),
+        'label' => __( 'Order by', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => __( 'date', 'storezz-elements' ),
         'options' => [
           'date'  => __( 'Latest posts', 'storezz-elements' ),
           'comment_count'  => __( 'Most commented', 'storezz-elements' ),
-          'meta_value_num'  => __( 'Most read', 'storezz-elements' ),
         ],
       ]
     );
