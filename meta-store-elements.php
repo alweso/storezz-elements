@@ -267,7 +267,7 @@ final class Storezz_Elements {
   public function add_elementor_widget_categories( $elements_manager ) {
     $elements_manager->add_category(
       'storezz-elements', array(
-        'title' => __( 'Storezz Elements', 'storezz-elements' ),
+        'title' => esc_html( 'Storezz Elements', 'storezz-elements' ),
         'icon' => 'fa fa-plug',
       )
     );
@@ -296,7 +296,6 @@ final class Storezz_Elements {
 
 
     if( class_exists( 'woocommerce' ) ) {
-      require_once( __DIR__ . '/widgets/storezz-product-tabs-grid-widget.php' ); // Product Tabs Grid
       require_once( __DIR__ . '/widgets/storezz-product-list-widget.php' ); // Product List
       require_once( __DIR__ . '/widgets/storezz-product-category-block-widget.php' ); // Product Category Block 2
       require_once( __DIR__ . '/widgets/storezz-product-slider-widget.php' ); // Product Slider
@@ -315,7 +314,6 @@ final class Storezz_Elements {
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Image_Widget() ); // Countdown
 
     if( class_exists( 'woocommerce' ) ) {
-      \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Tabs_Grid_Widget() ); // Product Tabs Grid
       \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_List_Widget() ); // Product List
       \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Category_Block_Widget() ); // Procut Category Block 2
       \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Storezz_Product_Slider_Widget() ); // Procut Category Block 2
@@ -333,18 +331,6 @@ final class Storezz_Elements {
   * @access public
   */
   public function init_controls() {
-
-    // Include Control files
-    require_once( __DIR__ . '/inc/controls/groups/group-control-pquery.php' );
-    require_once( __DIR__ . '/inc/controls/groups/group-control-header.php' );
-    require_once( __DIR__ . '/inc/controls/groups/group-control-extra.php' );
-    require_once( __DIR__ . '/inc/controls/groups/group-control-header-style.php' );
-
-    // Register control
-    \Elementor\Plugin::instance()->controls_manager->add_group_control( 'storezz-header', new Group_Control_Header() );
-    \Elementor\Plugin::instance()->controls_manager->add_group_control( 'storezz-header-style', new Group_Control_Header_Style() );
-    \Elementor\Plugin::instance()->controls_manager->add_group_control( 'storezz-pquery', new Group_Control_Produt_Query() );
-    \Elementor\Plugin::instance()->controls_manager->add_group_control( 'storezz-extra', new Group_Control_Extra() );
 
   }
 

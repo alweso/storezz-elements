@@ -21,23 +21,18 @@
       <?php  } elseif (has_post_format('gallery')) { ?>
         <i class="fa fa-images"></i>
       <?php  } ?>
-      <?php echo esc_html(wp_trim_words(get_the_title(), $crop_small,'')); ?>
+      <?php esc_html_e(wp_trim_words(get_the_title(), $crop_small,'')); ?>
       </a>
     </h4>
     <span class="comments-views-date">
-      <!-- <?php if($show_comments_small) { ?>
+      <?php if($show_comments_small) { ?>
         <span class="comments">
-          <i class="fa fa-comment"></i><?php  echo get_comments_number(); ?>
+          <i class="fa fa-comment"></i><?php esc_html__( get_comments_number() ); ?>
         </span>
-      <?php }  ?> -->
-      <!-- <?php if($show_views_small) { ?>
-        <span class="views">
-          <i class="fa fa-eye"></i><?php  echo gt_get_post_view(); ?>
-        </span>
-      <?php }  ?> -->
+      <?php }  ?>
       <?php if($show_date_small) { ?>
         <span class="date">
-          <i class="fa fa-calendar"></i><?php echo get_the_date('Y-m-d'); ?>
+          <i class="fa fa-calendar"></i><?php esc_html__( get_the_date('Y-m-d') ); ?>
         </span>
       <?php }  ?>
     </span>

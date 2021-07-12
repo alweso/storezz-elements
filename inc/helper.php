@@ -9,9 +9,9 @@ if( !function_exists( 'storezz_elements_post_lists' ) ) {
     $posts = get_posts(array('posts_per_page' => 100));
 
     if( $multiple ) {
-      $post_list = array('all' => __('All', 'storezz-elements'));
+      $post_list = array('all' => esc_html('All', 'storezz-elements'));
     } else {
-      $post_list = array('none' => __('None', 'storezz-elements'));
+      $post_list = array('none' => esc_html('None', 'storezz-elements'));
     }
 
     if(!empty($posts)) {
@@ -28,14 +28,14 @@ if( !function_exists( 'storezz_elements_post_lists' ) ) {
 if( !function_exists( 'storezz_elements_tag_lists' ) ) {
   function storezz_elements_tag_lists() {
     return array(
-      'h1' => __('H1', 'storezz-elements'),
-      'h2' => __('H2', 'storezz-elements'),
-      'h3' => __('H3', 'storezz-elements'),
-      'h4' => __('H4', 'storezz-elements'),
-      'h5' => __('H5', 'storezz-elements'),
-      'h6' => __('H6', 'storezz-elements'),
-      'span' => __('Span', 'storezz-elements'),
-      'div' => __('Div', 'storezz-elements'),
+      'h1' => esc_html('H1', 'storezz-elements'),
+      'h2' => esc_html('H2', 'storezz-elements'),
+      'h3' => esc_html('H3', 'storezz-elements'),
+      'h4' => esc_html('H4', 'storezz-elements'),
+      'h5' => esc_html('H5', 'storezz-elements'),
+      'h6' => esc_html('H6', 'storezz-elements'),
+      'span' => esc_html('Span', 'storezz-elements'),
+      'div' => esc_html('Div', 'storezz-elements'),
     );
   }
 }
@@ -44,11 +44,11 @@ if( !function_exists( 'storezz_elements_tag_lists' ) ) {
 if( !function_exists( 'storezz_elements_orderby_list' ) ) {
   function storezz_elements_orderby_list() {
     return array(
-      'none' => __( 'None', 'storezz-elements' ),
-      'date' => __( 'Date', 'storezz-elements' ),
-      'title' => __( 'Title', 'storezz-elements' ),
-      'name' => __( 'Name', 'storezz-elements' ),
-      'ID' => __( 'ID', 'storezz-elements' ),
+      'none' => esc_html( 'None', 'storezz-elements' ),
+      'date' => esc_html( 'Date', 'storezz-elements' ),
+      'title' => esc_html( 'Title', 'storezz-elements' ),
+      'name' => esc_html( 'Name', 'storezz-elements' ),
+      'ID' => esc_html( 'ID', 'storezz-elements' ),
     );
   }
 }
@@ -57,8 +57,8 @@ if( !function_exists( 'storezz_elements_orderby_list' ) ) {
 if( !function_exists( 'storezz_elements_order_list' ) ) {
   function storezz_elements_order_list() {
     return array(
-      'ASC' => __( 'Ascending', 'storezz-elements' ),
-      'DESC' => __( 'Descending', 'storezz-elements' ),
+      'ASC' => esc_html( 'Ascending', 'storezz-elements' ),
+      'DESC' => esc_html( 'Descending', 'storezz-elements' ),
     );
   }
 }
@@ -148,7 +148,7 @@ if ( !function_exists( 'storezz_elements_get_posts' ) ) {
 /** Get Woocommerce Categories */
 if( !function_exists( 'storezz_elements_get_woo_categories_list' ) ) {
   function storezz_elements_get_woo_categories_list() {
-    $term_list = array('0' => __('Select Category', 'storezz-elements'));
+    $term_list = array('0' => esc_html('Select Category', 'storezz-elements'));
 
     $terms = get_terms( array(
       'taxonomy' => 'product_cat',
@@ -189,7 +189,7 @@ if( !function_exists( 'woocommerceCategorySlug' ) ) {
 /** Get Sales Product List */
 if( !function_exists( 'storezz_elements_get_sales_products' ) ) {
   function storezz_elements_get_sales_products() {
-    $product_list = array( '0' => __( 'Select Product', 'storezz-elements' ) );
+    $product_list = array( '0' => esc_html( 'Select Product', 'storezz-elements' ) );
 
     $args = array(
       'post_type' => 'product',

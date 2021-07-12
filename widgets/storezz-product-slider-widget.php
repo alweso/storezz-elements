@@ -48,13 +48,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       ]
     );
 
-    $this->add_group_control(
-      Group_Control_Header::get_type(), [
-        'name' => 'header',
-        'label' => esc_html__('Header', 'storezz-elements'),
-      ]
-    );
-
     $this->end_controls_section();
 
     $this->start_controls_section(

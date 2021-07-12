@@ -21,29 +21,24 @@
     <?php  } elseif (has_post_format('gallery')) { ?>
         <i class="fa fa-images"></i>
   <?php  } ?>
-       <?php echo esc_html(wp_trim_words(get_the_title(), $crop,'')); ?>
+       <?php esc_html_e(wp_trim_words(get_the_title(), $crop,'')); ?>
      </a>
     </h4>
     <?php if(isset($show_exerpt) && $show_exerpt == "yes") : ?>
-      <p><?php echo esc_html( wp_trim_words(get_the_excerpt(),$post_content_crop,'...') );?></p>
+      <p><?php esc_html_e( wp_trim_words(get_the_excerpt(),$post_content_crop,'...') );?></p>
     <?php endif ?>
     <?php if(isset($show_exerpt_2) && $show_exerpt_2 == "yes") : ?>
-      <p><?php echo esc_html( wp_trim_words(get_the_excerpt(),$post_content_crop_2,'...') );?></p>
+      <p><?php esc_html_e( wp_trim_words(get_the_excerpt(),$post_content_crop_2,'...') );?></p>
     <?php endif ?>
     <span class="comments-views-date">
       <?php if($show_comments) { ?>
         <span class="comments">
-          <i class="fa fa-comment"></i><?php  echo get_comments_number(); ?>
+          <i class="fa fa-comment"></i><?php esc_html_e( get_comments_number() ); ?>
         </span>
       <?php }  ?>
-      <!-- <?php if($show_views) { ?>
-        <span class="views">
-          <i class="fa fa-eye"></i><?php  echo gt_get_post_view(); ?>
-        </span>
-      <?php }  ?> -->
       <?php if($show_date) { ?>
         <span class="date">
-          <i class="fa fa-calendar"></i><?php echo get_the_date('Y-m-d'); ?>
+          <i class="fa fa-calendar"></i><?php esc_html_e( get_the_date('Y-m-d') ); ?>
         </span>
       <?php }  ?>
       <?php if($show_author == "yes") {?>
