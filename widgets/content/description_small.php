@@ -26,7 +26,7 @@
       <?php }  ?>
       <?php if($show_author_small == "yes") {?>
         <span class="author">
-          <i class="fa fa-user-edit"></i><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author(); ?></a>
+          <i class="fa fa-user-edit"></i><a href="<?php esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author(); ?></a>
         </span>
       <?php } ?>
       <?php if($show_date_small) { ?>

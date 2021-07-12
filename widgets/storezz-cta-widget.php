@@ -423,21 +423,24 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $target = $settings['button_link']['is_external'] ? ' target="_blank"' : '';
 		$nofollow = $settings['button_link']['nofollow'] ? ' rel="nofollow"' : '';
         ?>
-            <div class="se-call-to-action <?php echo esc_attr( $content_postition ); ?> <?php echo esc_attr($hover_effect); ?>" id="storezz-cta-<?php echo esc_attr( $this->get_id() ); ?>">
-                <!-- <?php if( $image['url'] ) : ?>
-                    <div class="image">
-                        <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>">
-                    </div>
-                <?php endif; ?> -->
+            <?php echo '<div id="storezz-cta-' . esc_attr( $this->get_id() ) . '" class="se-call-to-action ' .  esc_attr( $content_postition ) . ' '. esc_attr($hover_effect) . '">'; ?>
 
-                <div class="content <?php echo $animation_style ?>" style="background:url('<?php if( $image['url'] ) : echo esc_url( $image['url'] ); endif; ?>')">
+                <?php
+                if( $image['url'] ) :
+                  $image_url = $image['url'];
+                else :
+                  $image_url = '';
+                endif;
+                echo '<div class="content ' . esc_attr( $animation_style ) . '" style="background:url(' . esc_url( $image_url ) . ')">'
+
+                 ?>
                     <?php
                         if( $settings['subtitle'] ) {
                             echo '<span class="subtitle">' . esc_html( $settings['subtitle'] ) . '</span>';
                         }
 
                         if( $settings['title'] ) {
-                            echo esc_html( $settings['title'] );
+                            esc_html_e( $settings['title'] );
                         }
 
                         if( $settings['button_link']['url'] && $settings['button_text'] ) {

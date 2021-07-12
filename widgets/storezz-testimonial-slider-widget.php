@@ -432,8 +432,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
       ?>
       <div class="se-testimonials-wrapper">
         <h2>Testimonialssss</h2>
-        <div data-carousel-options='{"autoplay":"false","items":"1","loop":"true","nav":"true","animateIn":"true"}' class="se-testimonial-slider owl-carousel" id="se-testimonial-slider-<?php echo esc_attr( $this->get_id() ); ?>">
-
+        <?php echo '<div data-carousel-options='{"autoplay":"false","items":"1","loop":"true","nav":"true","animateIn":"true"}' class="se-testimonial-slider owl-carousel" id="se-testimonial-slider-' . esc_attr( $this->get_id() ) . '">'; ?>
           <?php foreach( $testimonials as $testimonial ) : ?>
             <div class="testimonial">
               <?php if( $testimonial['testimony'] ) : ?>
