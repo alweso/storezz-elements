@@ -15,12 +15,14 @@
       </div>
     <?php }  ?>
     <h4 class="news-title">
+        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
       <?php if (has_post_format('video')) { ?>
                 <i class="fa fa-video"></i>
     <?php  } elseif (has_post_format('gallery')) { ?>
         <i class="fa fa-images"></i>
   <?php  } ?>
-       <?php echo esc_html(wp_trim_words(get_the_title(), $crop,'')); ?> 
+       <?php echo esc_html(wp_trim_words(get_the_title(), $crop,'')); ?>
+     </a>
     </h4>
     <?php if(isset($show_exerpt) && $show_exerpt == "yes") : ?>
       <p><?php echo esc_html( wp_trim_words(get_the_excerpt(),$post_content_crop,'...') );?></p>

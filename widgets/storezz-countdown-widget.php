@@ -48,7 +48,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'countdown_content_section',
             [
-                'label' => __( 'Countdown', 'storezz-elements' ),
+                'label' => esc_html__( 'Countdown', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -56,14 +56,14 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'layout',
                 [
-                    'label' => __( 'Layout', 'storezz-elements' ),
+                    'label' => esc_html__( 'Layout', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::SELECT,
                     'default' => 'calender',
                     'options' => [
-                        'calender'  => __( 'Calender', 'storezz-elements' ),
-                        'boxer'  => __( 'Boxer', 'storezz-elements' ),
-                        'circle'  => __( 'Circular', 'storezz-elements' ),
-                        'simple' => __( 'Simple', 'storezz-elements' ),
+                        'calender'  => esc_html__( 'Calender', 'storezz-elements' ),
+                        'boxer'  => esc_html__( 'Boxer', 'storezz-elements' ),
+                        'circle'  => esc_html__( 'Circular', 'storezz-elements' ),
+                        'simple' => esc_html__( 'Simple', 'storezz-elements' ),
                     ],
                 ]
             );
@@ -71,7 +71,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'countdown_date',
                 [
-                    'label' => __( 'Countdown Date', 'storezz-elements' ),
+                    'label' => esc_html__( 'Countdown Date', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::DATE_TIME,
                     'placeholder' => '2020-11-21 12:00'
                 ]
@@ -80,9 +80,9 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'year_text',
                 [
-                    'label' => __( 'Year Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Year Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Years', 'storezz-elements' ),
+                    'default' => esc_html__( 'Years', 'storezz-elements' ),
                     'separator' => 'before'
                 ]
             );
@@ -90,54 +90,54 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'month_text',
                 [
-                    'label' => __( 'Month Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Month Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Months', 'storezz-elements' ),
+                    'default' => esc_html__( 'Months', 'storezz-elements' ),
                 ]
             );
 
             $this->add_control(
                 'week_text',
                 [
-                    'label' => __( 'Week Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Week Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Weeks', 'storezz-elements' ),
+                    'default' => esc_html__( 'Weeks', 'storezz-elements' ),
                 ]
             );
 
             $this->add_control(
                 'day_text',
                 [
-                    'label' => __( 'Day Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Day Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Days', 'storezz-elements' ),
+                    'default' => esc_html__( 'Days', 'storezz-elements' ),
                 ]
             );
 
             $this->add_control(
                 'hour_text',
                 [
-                    'label' => __( 'Hour Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Hour Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Hours', 'storezz-elements' ),
+                    'default' => esc_html__( 'Hours', 'storezz-elements' ),
                 ]
             );
 
             $this->add_control(
                 'minute_text',
                 [
-                    'label' => __( 'Minute Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Minute Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Minutes', 'storezz-elements' ),
+                    'default' => esc_html__( 'Minutes', 'storezz-elements' ),
                 ]
             );
 
             $this->add_control(
                 'second_text',
                 [
-                    'label' => __( 'Seconds Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Seconds Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Seconds', 'storezz-elements' ),
+                    'default' => esc_html__( 'Seconds', 'storezz-elements' ),
                 ]
             );
 
@@ -146,7 +146,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'label_style',
             [
-                'label' => __( 'Label', 'storezz-elements' ),
+                'label' => esc_html__( 'Label', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -154,7 +154,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'label_color',
                 [
-                    'label' => __( 'Color', 'storezz-elements' ),
+                    'label' => esc_html__( 'Color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'scheme' => [
                         'type' => \Elementor\Scheme_Color::get_type(),
@@ -169,7 +169,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'label_bgcolor',
                 [
-                    'label' => __( 'Background Color', 'storezz-elements' ),
+                    'label' => esc_html__( 'Background Color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'scheme' => [
                         'type' => \Elementor\Scheme_Color::get_type(),
@@ -185,7 +185,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'label_typography',
-                    'label' => __( 'Typography', 'storezz-elements' ),
+                    'label' => esc_html__( 'Typography', 'storezz-elements' ),
                     'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                     'selector' => '{{WRAPPER}} .storezz-countdown.calender ul li .label,{{WRAPPER}} .storezz-countdown.boxer ul li .label',
                 ]
@@ -196,7 +196,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'counter_style',
             [
-                'label' => __( 'Counter', 'storezz-elements' ),
+                'label' => esc_html__( 'Counter', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -204,7 +204,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'counter_color',
                 [
-                    'label' => __( 'Color', 'storezz-elements' ),
+                    'label' => esc_html__( 'Color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'scheme' => [
                         'type' => \Elementor\Scheme_Color::get_type(),
@@ -219,7 +219,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'counter_bgcolor',
                 [
-                    'label' => __( 'Background Color', 'storezz-elements' ),
+                    'label' => esc_html__( 'Background Color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'scheme' => [
                         'type' => \Elementor\Scheme_Color::get_type(),
@@ -235,7 +235,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'counter_typography',
-                    'label' => __( 'Typography', 'storezz-elements' ),
+                    'label' => esc_html__( 'Typography', 'storezz-elements' ),
                     'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                     'selector' => '{{WRAPPER}} .storezz-countdown.calender ul li .value,{{WRAPPER}} .storezz-countdown.boxer ul li .value',
                 ]

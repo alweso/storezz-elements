@@ -18,7 +18,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
   /** Widget Title */
   public function get_title() {
-    return __('Product Grid', 'storezz-elements');
+    return esc_html__('Product Grid', 'storezz-elements');
   }
 
   /** Icon */
@@ -39,14 +39,14 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
   protected function _register_controls() {
     $this->start_controls_section(
       'content_section', [
-        'label' => __('Content', 'storezz-elements'),
+        'label' => esc_html__('Content', 'storezz-elements'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
 
     $this->add_control(
       'choose_categories', [
-        'label' => __('Choose Categories', 'storezz-elements'),
+        'label' => esc_html__('Choose Categories', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT2,
         'default' => '',
         'label_block' => true,
@@ -60,7 +60,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'order_by', [
-        'label' => __('Order Products By', 'storezz-elements'),
+        'label' => esc_html__('Order Products By', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => 'title',
         'options'   => [
@@ -78,7 +78,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'order', [
-        'label' => __('Order (ASC/DESC)', 'storezz-elements'),
+        'label' => esc_html__('Order (ASC/DESC)', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => 'ASC',
         'options'   => [
@@ -90,13 +90,13 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'show', [
-        'label' => __('Show', 'storezz-elements'),
+        'label' => esc_html__('Show', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '',
         'options' => [
-          ''         => __( 'All products', 'woocommerce' ),
-          'featured' => __( 'Featured products', 'woocommerce' ),
-          'onsale'   => __( 'On-sale products', 'woocommerce' ),
+          ''         => esc_html__( 'All products', 'woocommerce' ),
+          'featured' => esc_html__( 'Featured products', 'woocommerce' ),
+          'onsale'   => esc_html__( 'On-sale products', 'woocommerce' ),
         ],
       ]
     );
@@ -115,9 +115,9 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'number_of_products',
       [
-        'label' => __( 'Number of products', 'storezz-elements' ),
+        'label' => esc_html__( 'Number of products', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 4, 'storezz-elements' ),
+        'default' => esc_html__( 4, 'storezz-elements' ),
         'min' => 1,
         'step' => 1,
       ]
@@ -126,7 +126,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
 			'number_of_columns',
 			[
-				'label' => __( 'Number of columns', 'storezz-elements' ),
+				'label' => esc_html__( 'Number of columns', 'storezz-elements' ),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'devices' => [ 'desktop', 'tablet', 'mobile' ],
         'options'   => [
@@ -150,9 +150,9 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'column_gap',
       [
-        'label' => __( 'Column Gap', 'storezz-elements' ),
+        'label' => esc_html__( 'Column Gap', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 15, 'storezz-elements' ),
+        'default' => esc_html__( 15, 'storezz-elements' ),
         'min' => 0,
         'max' => 40,
         'step' => 1,
@@ -167,14 +167,14 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $this->start_controls_section(
       'additional_settings', [
-        'label' => __('Additional Settings', 'storezz-elements'),
+        'label' => esc_html__('Additional Settings', 'storezz-elements'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
 
     $this->add_control(
       'image_size_label', [
-        'label' => __('Image Size', 'storezz-elements'),
+        'label' => esc_html__('Image Size', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::HEADING,
       ]
     );
@@ -190,7 +190,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'color_scheme', [
-        'label' => __('Color Scheme', 'storezz-elements'),
+        'label' => esc_html__('Color Scheme', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -206,14 +206,14 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $this->start_controls_section(
       'cat_btn_style', [
-        'label' => __('Category Button', 'storezz-elements'),
+        'label' => esc_html__('Category Button', 'storezz-elements'),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
 
     $this->add_control(
       'cat_btn_bgcolor', [
-        'label' => __('Background', 'storezz-elements'),
+        'label' => esc_html__('Background', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -227,7 +227,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'cat_btn_color', [
-        'label' => __('Text Color', 'storezz-elements'),
+        'label' => esc_html__('Text Color', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -242,7 +242,7 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(), [
         'name' => 'cat_btn_typography',
-        'label' => __('Typography', 'storezz-elements'),
+        'label' => esc_html__('Typography', 'storezz-elements'),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
         'selector' => '{{WRAPPER}} .storezz-product-category-block1 .cat-btn',
       ]

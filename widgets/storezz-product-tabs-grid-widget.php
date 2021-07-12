@@ -50,19 +50,19 @@
                 $this->add_control(
                     'align_tabs',
                     [
-                        'label' => __( 'Tabs Alignment', 'storezz-elements' ),
+                        'label' => esc_html__( 'Tabs Alignment', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::CHOOSE,
                         'options' => [
                             'left' => [
-                                'title' => __( 'Left', 'storezz-elements' ),
+                                'title' => esc_html__( 'Left', 'storezz-elements' ),
                                 'icon' => 'fa fa-align-left',
                             ],
                             'center' => [
-                                'title' => __( 'Center', 'storezz-elements' ),
+                                'title' => esc_html__( 'Center', 'storezz-elements' ),
                                 'icon' => 'fa fa-align-center',
                             ],
                             'right' => [
-                                'title' => __( 'Right', 'storezz-elements' ),
+                                'title' => esc_html__( 'Right', 'storezz-elements' ),
                                 'icon' => 'fa fa-align-right',
                             ],
                         ],
@@ -83,7 +83,7 @@
                 $this->add_control(
                     'tabs_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -99,7 +99,7 @@
                 $this->add_control(
                     'tabs_hover_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -116,7 +116,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'tab_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .storezz-product-tabs-grid .tabs li',
                     ]
@@ -134,7 +134,7 @@
                 $this->add_control(
                     'title_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -149,7 +149,7 @@
                 $this->add_control(
                     'title_hover_color',
                     [
-                        'label' => __( 'Hover Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Hover Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -165,7 +165,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'title_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .products li.product .woocommerce-loop-product__title a',
                     ]
@@ -174,7 +174,7 @@
                 $this->add_control(
                     'title_margin',
                     [
-                        'label' => __( 'Margin', 'storezz-elements' ),
+                        'label' => esc_html__( 'Margin', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', '%', 'em' ],
                         'allowed_dimensions' => 'vertical',
@@ -196,7 +196,7 @@
                 $this->add_control(
                     'price_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -212,7 +212,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'price_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} ul.products li.product .storezz-woocommerce-product-info .price',
                     ]
@@ -230,7 +230,7 @@
                 $this->add_control(
                     'onsale_bgcolor',
                     [
-                        'label' => __( 'Background Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Background Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -246,7 +246,7 @@
                 $this->add_control(
                     'onsale_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -262,7 +262,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'onsale_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .onsale',
                     ]
@@ -280,7 +280,7 @@
                 $this->add_control(
                     'cart_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -296,7 +296,7 @@
                 $this->add_control(
                     'cart_hover_color',
                     [
-                        'label' => __( 'Hover Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Hover Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -313,7 +313,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'cart_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} ul.products li.product .button',
                     ]

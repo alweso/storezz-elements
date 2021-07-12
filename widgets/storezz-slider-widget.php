@@ -18,7 +18,7 @@
 
         /** Widget Title */
         public function get_title() {
-            return __( 'Slider', 'storezz-elements' );
+            return esc_html__( 'Slider', 'storezz-elements' );
         }
 
         /** Icon */
@@ -45,7 +45,7 @@
             $this->start_controls_section(
                 'content',
                 [
-                    'label' => __( 'Slider', 'storezz-elements' ),
+                    'label' => esc_html__( 'Slider', 'storezz-elements' ),
                     'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 ]
             );
@@ -55,7 +55,7 @@
                 $repeater->add_control(
                     'image',
                     [
-                        'label' => __( 'Choose Image', 'storezz-elements' ),
+                        'label' => esc_html__( 'Choose Image', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::MEDIA,
                         'default' => [
                             'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -65,18 +65,18 @@
 
                 $repeater->add_control(
                     'subtitle', [
-                        'label' => __( 'Sub Title', 'storezz-elements' ),
+                        'label' => esc_html__( 'Sub Title', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( 'Slide Sub 1' , 'storezz-elements' ),
+                        'default' => esc_html__( 'Slide Sub 1' , 'storezz-elements' ),
                         'label_block' => true,
                     ]
                 );
 
                 $repeater->add_control(
                     'title', [
-                        'label' => __( 'Title', 'storezz-elements' ),
+                        'label' => esc_html__( 'Title', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( 'Slide 1' , 'storezz-elements' ),
+                        'default' => esc_html__( 'Slide 1' , 'storezz-elements' ),
                         'label_block' => true,
                     ]
                 );
@@ -84,21 +84,21 @@
                 $repeater->add_control(
                     'content',
                     [
-                        'label' => __( 'Description', 'storezz-elements' ),
+                        'label' => esc_html__( 'Description', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::TEXTAREA,
                         'rows' => 10,
-                        'default' => __( 'Default description', 'storezz-elements' ),
-                        'placeholder' => __( 'Type your description here', 'storezz-elements' ),
+                        'default' => esc_html__( 'Default description', 'storezz-elements' ),
+                        'placeholder' => esc_html__( 'Type your description here', 'storezz-elements' ),
                     ]
                 );
 
                 $repeater->add_control(
                     'btn_text',
                     [
-                        'label' => __( 'Button Text', 'storezz-elements' ),
+                        'label' => esc_html__( 'Button Text', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::TEXT,
-                        'default' => __( 'VIEW MORE', 'storezz-elements' ),
-                        'placeholder' => __( 'Set Button Label text.', 'storezz-elements' ),
+                        'default' => esc_html__( 'VIEW MORE', 'storezz-elements' ),
+                        'placeholder' => esc_html__( 'Set Button Label text.', 'storezz-elements' ),
                         'label_block' => true
                     ]
                 );
@@ -106,9 +106,9 @@
                 $repeater->add_control(
                     'btn_link',
                     [
-                        'label' => __( 'Link', 'storezz-elements' ),
+                        'label' => esc_html__( 'Link', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::URL,
-                        'placeholder' => __( 'https://your-link.com', 'storezz-elements' ),
+                        'placeholder' => esc_html__( 'https://your-link.com', 'storezz-elements' ),
                         'show_external' => true,
                         'default' => [
                             'url' => '',
@@ -121,17 +121,17 @@
                 $this->add_control(
                     'slides',
                     [
-                        'label' => __( 'Slides', 'storezz-elements' ),
+                        'label' => esc_html__( 'Slides', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::REPEATER,
                         'fields' => $repeater->get_controls(),
                         'default' => [
                             [
-                                'title' => __( 'Slide #1', 'storezz-elements' ),
-                                'content' => __( 'Slide Content.', 'storezz-elements' ),
+                                'title' => esc_html__( 'Slide #1', 'storezz-elements' ),
+                                'content' => esc_html__( 'Slide Content.', 'storezz-elements' ),
                             ],
                             [
-                                'title' => __( 'Slide #2', 'storezz-elements' ),
-                                'content' => __( 'Slide Content.', 'storezz-elements' ),
+                                'title' => esc_html__( 'Slide #2', 'storezz-elements' ),
+                                'content' => esc_html__( 'Slide Content.', 'storezz-elements' ),
                             ],
                         ],
                         'title_field' => '{{{ title }}}',
@@ -153,7 +153,7 @@
             $this->start_controls_section(
                 'slide_style',
                 [
-                    'label' => __( 'Slide', 'storezz-elements' ),
+                    'label' => esc_html__( 'Slide', 'storezz-elements' ),
                     'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -161,7 +161,7 @@
                 $this->add_control(
                     'slide_height',
                     [
-                        'label' => __( 'Height', 'storezz-elements' ),
+                        'label' => esc_html__( 'Height', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::SLIDER,
                         'size_units' => [ 'px' ],
                         'range' => [
@@ -184,7 +184,7 @@
                 $this->add_control(
                     'slide_padding_left',
                     [
-                        'label' => __( 'Content Left Spacing', 'storezz-elements' ),
+                        'label' => esc_html__( 'Content Left Spacing', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::SLIDER,
                         'size_units' => [ 'px' ],
                         'range' => [
@@ -209,7 +209,7 @@
             $this->start_controls_section(
                 'subtitle_style',
                 [
-                    'label' => __( 'Subtitle', 'storezz-elements' ),
+                    'label' => esc_html__( 'Subtitle', 'storezz-elements' ),
                     'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -217,7 +217,7 @@
                 $this->add_control(
                     'subtitle_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -233,7 +233,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'subtitle_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .storezz-slider .slide-content .slide-subtitle',
                     ]
@@ -244,7 +244,7 @@
             $this->start_controls_section(
                 'title_style',
                 [
-                    'label' => __( 'Slider Title', 'storezz-elements' ),
+                    'label' => esc_html__( 'Slider Title', 'storezz-elements' ),
                     'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -252,7 +252,7 @@
                 $this->add_control(
                     'title_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -268,7 +268,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'title_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .storezz-slider .slide-content .slide-title',
                     ]
@@ -277,7 +277,7 @@
                 $this->add_control(
                     'title_spacing',
                     [
-                        'label' => __( 'Spacing', 'storezz-elements' ),
+                        'label' => esc_html__( 'Spacing', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::SLIDER,
                         'size_units' => [ 'px' ],
                         'range' => [
@@ -302,7 +302,7 @@
             $this->start_controls_section(
                 'content_style',
                 [
-                    'label' => __( 'Slider Content', 'storezz-elements' ),
+                    'label' => esc_html__( 'Slider Content', 'storezz-elements' ),
                     'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -310,7 +310,7 @@
                 $this->add_control(
                     'content_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -326,7 +326,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'content_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .storezz-slider .slide-content .slide-description',
                     ]
@@ -335,7 +335,7 @@
                 $this->add_control(
                     'content_spacing',
                     [
-                        'label' => __( 'Spacing', 'storezz-elements' ),
+                        'label' => esc_html__( 'Spacing', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::SLIDER,
                         'size_units' => [ 'px' ],
                         'range' => [
@@ -360,7 +360,7 @@
             $this->start_controls_section(
                 'readmore_style',
                 [
-                    'label' => __( 'Readmore', 'storezz-elements' ),
+                    'label' => esc_html__( 'Readmore', 'storezz-elements' ),
                     'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -368,7 +368,7 @@
                 $this->add_control(
                     'readmore_bgcolor',
                     [
-                        'label' => __( 'Background Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Background Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -383,7 +383,7 @@
                 $this->add_control(
                     'readmore_color',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -399,7 +399,7 @@
                     \Elementor\Group_Control_Typography::get_type(),
                     [
                         'name' => 'readmore_typography',
-                        'label' => __( 'Typography', 'storezz-elements' ),
+                        'label' => esc_html__( 'Typography', 'storezz-elements' ),
                         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                         'selector' => '{{WRAPPER}} .storezz-slider .slide-content .slide-btn',
                     ]
@@ -409,7 +409,7 @@
                     \Elementor\Group_Control_Border::get_type(),
                     [
                         'name' => 'readmore_border',
-                        'label' => __( 'Border', 'storezz-elements' ),
+                        'label' => esc_html__( 'Border', 'storezz-elements' ),
                         'selector' => '{{WRAPPER}} .storezz-slider .slide-content .slide-btn',
                     ]
                 );
@@ -417,7 +417,7 @@
                 $this->add_control(
                     'readmore_border_radius',
                     [
-                        'label' => __( 'Border Radius', 'storezz-elements' ),
+                        'label' => esc_html__( 'Border Radius', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::DIMENSIONS,
                         'size_units' => [ 'px', '%', 'em' ],
                         'selectors' => [
@@ -429,7 +429,7 @@
                 $this->add_control(
                     'readmore_heading',
                     [
-                        'label' => __( 'Button Hover', 'storezz-elements' ),
+                        'label' => esc_html__( 'Button Hover', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::HEADING,
                         'separator' => 'before',
                     ]
@@ -438,7 +438,7 @@
                 $this->add_control(
                     'readmore_bgcolor_hover',
                     [
-                        'label' => __( 'Background Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Background Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),
@@ -453,7 +453,7 @@
                 $this->add_control(
                     'readmore_color_hover',
                     [
-                        'label' => __( 'Color', 'storezz-elements' ),
+                        'label' => esc_html__( 'Color', 'storezz-elements' ),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'scheme' => [
                             'type' => \Elementor\Scheme_Color::get_type(),

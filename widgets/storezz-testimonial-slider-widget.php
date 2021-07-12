@@ -38,7 +38,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'testimonial_section',
       [
-        'label' => __( 'Testimonial', 'storezz-elements' ),
+        'label' => esc_html__( 'Testimonial', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -47,27 +47,27 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
 
     $repeater->add_control(
       'testimony', [
-        'label' => __( 'Testimony', 'storezz-elements' ),
+        'label' => esc_html__( 'Testimony', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXTAREA,
-        'default' => __( 'John Doe has to say something about the co.' , 'storezz-elements' ),
+        'default' => esc_html__( 'John Doe has to say something about the co.' , 'storezz-elements' ),
         'show_label' => false,
       ]
     );
 
     $repeater->add_control(
       'name', [
-        'label' => __( 'Client Name', 'storezz-elements' ),
+        'label' => esc_html__( 'Client Name', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => __( 'John Doe' , 'storezz-elements' ),
+        'default' => esc_html__( 'John Doe' , 'storezz-elements' ),
         'label_block' => true,
       ]
     );
 
     $repeater->add_control(
       'position', [
-        'label' => __( 'Job Position', 'storezz-elements' ),
+        'label' => esc_html__( 'Job Position', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => __( 'Managing Director' , 'storezz-elements' ),
+        'default' => esc_html__( 'Managing Director' , 'storezz-elements' ),
         'label_block' => true,
       ]
     );
@@ -75,16 +75,16 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $repeater->add_control(
       'star_ratings',
       [
-        'label' => __( 'Ratings', 'storezz-elements' ),
+        'label' => esc_html__( 'Ratings', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '0',
         'options' => [
-          '0'  => __( '0 Star', 'storezz-elements' ),
-          '1' => __( '1 Star', 'storezz-elements' ),
-          '2' => __( '2 Star', 'storezz-elements' ),
-          '3' => __( '3 Star', 'storezz-elements' ),
-          '4' => __( '4 Star', 'storezz-elements' ),
-          '5' => __( '5 Star', 'storezz-elements' ),
+          '0'  => esc_html__( '0 Star', 'storezz-elements' ),
+          '1' => esc_html__( '1 Star', 'storezz-elements' ),
+          '2' => esc_html__( '2 Star', 'storezz-elements' ),
+          '3' => esc_html__( '3 Star', 'storezz-elements' ),
+          '4' => esc_html__( '4 Star', 'storezz-elements' ),
+          '5' => esc_html__( '5 Star', 'storezz-elements' ),
         ],
       ]
     );
@@ -92,19 +92,19 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'testimonials',
       [
-        'label' => __( 'Testimonials', 'storezz-elements' ),
+        'label' => esc_html__( 'Testimonials', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::REPEATER,
         'fields' => $repeater->get_controls(),
         'default' => [
           [
-            'name' => __( 'John Doe', 'storezz-elements' ),
-            'position' => __( 'Managing Director', 'storezz-elements' ),
-            'testimony' => __( 'John Doe has to say something about the business.', 'storezz-elements' ),
+            'name' => esc_html__( 'John Doe', 'storezz-elements' ),
+            'position' => esc_html__( 'Managing Director', 'storezz-elements' ),
+            'testimony' => esc_html__( 'John Doe has to say something about the business.', 'storezz-elements' ),
           ],
           [
-            'name' => __( 'Sarah Doe', 'storezz-elements' ),
-            'position' => __( 'Blogger', 'storezz-elements' ),
-            'testimony' => __( 'Sarah has to say something about the business.', 'storezz-elements' ),
+            'name' => esc_html__( 'Sarah Doe', 'storezz-elements' ),
+            'position' => esc_html__( 'Blogger', 'storezz-elements' ),
+            'testimony' => esc_html__( 'Sarah has to say something about the business.', 'storezz-elements' ),
           ],
         ],
         'title_field' => '{{{ name }}}',
@@ -116,7 +116,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'testimonial_carousel_section',
       [
-        'label' => __( 'Carousel', 'storezz-elements' ),
+        'label' => esc_html__( 'Carousel', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -124,10 +124,10 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'loop',
       [
-        'label' => __( 'Loop Slides', 'storezz-elements' ),
+        'label' => esc_html__( 'Loop Slides', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __( 'Yes', 'storezz-elements' ),
-        'label_off' => __( 'No', 'storezz-elements' ),
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
         'return_value' => 'yes',
         'default' => 'yes',
       ]
@@ -136,10 +136,10 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'autoplay',
       [
-        'label' => __( 'Autoplay', 'storezz-elements' ),
+        'label' => esc_html__( 'Autoplay', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __( 'Yes', 'storezz-elements' ),
-        'label_off' => __( 'No', 'storezz-elements' ),
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
         'return_value' => 'yes',
         'default' => 'yes',
       ]
@@ -148,10 +148,10 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'pause_on_hover',
       [
-        'label' => __( 'Pause On Hover', 'storezz-elements' ),
+        'label' => esc_html__( 'Pause On Hover', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __( 'Yes', 'storezz-elements' ),
-        'label_off' => __( 'No', 'storezz-elements' ),
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
         'return_value' => 'yes',
         'default' => 'yes',
       ]
@@ -160,10 +160,10 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'show_dots',
       [
-        'label' => __( 'Show Dots', 'storezz-elements' ),
+        'label' => esc_html__( 'Show Dots', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => __( 'Yes', 'storezz-elements' ),
-        'label_off' => __( 'No', 'storezz-elements' ),
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
         'return_value' => 'yes',
         'default' => 'yes',
       ]
@@ -174,7 +174,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'title_style',
       [
-        'label' => __( 'Title', 'storezz-elements' ),
+        'label' => esc_html__( 'Title', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -182,7 +182,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'title_color',
       [
-        'label' => __( 'Title color', 'storezz-elements' ),
+        'label' => esc_html__( 'Title color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -198,7 +198,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
       \Elementor\Group_Control_Typography::get_type(),
       [
         'name' => 'title_typography',
-        'label' => __( 'Typography', 'storezz-elements' ),
+        'label' => esc_html__( 'Typography', 'storezz-elements' ),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
         'selector' => '{{WRAPPER}} .se-testimonials-wrapper h2',
       ]
@@ -207,7 +207,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'title_margin',
       [
-        'label' => __( 'Title margin', 'storezz-elements' ),
+        'label' => esc_html__( 'Title margin', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'allowed_dimensions' => 'vertical',
         'size_units' => [ 'px', '%', 'em' ],
@@ -222,7 +222,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'testimonial_testimony_style',
       [
-        'label' => __( 'Testimony', 'storezz-elements' ),
+        'label' => esc_html__( 'Testimony', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -230,7 +230,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'testimony_color',
       [
-        'label' => __( 'Color', 'storezz-elements' ),
+        'label' => esc_html__( 'Color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -246,7 +246,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
       \Elementor\Group_Control_Typography::get_type(),
       [
         'name' => 'testimony_typography',
-        'label' => __( 'Typography', 'storezz-elements' ),
+        'label' => esc_html__( 'Typography', 'storezz-elements' ),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
         'selector' => '{{WRAPPER}} .se-testimonial-slider .testimonial .testimony-text',
       ]
@@ -255,7 +255,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'testimony_margin',
       [
-        'label' => __( 'Margin', 'storezz-elements' ),
+        'label' => esc_html__( 'Margin', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'allowed_dimensions' => 'vertical',
         'size_units' => [ 'px', '%', 'em' ],
@@ -270,7 +270,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'testimonial_name_style',
       [
-        'label' => __( 'Name', 'storezz-elements' ),
+        'label' => esc_html__( 'Name', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -278,7 +278,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'design_color',
       [
-        'label' => __( 'Color', 'storezz-elements' ),
+        'label' => esc_html__( 'Color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -294,7 +294,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
       \Elementor\Group_Control_Typography::get_type(),
       [
         'name' => 'design_typography',
-        'label' => __( 'Typography', 'storezz-elements' ),
+        'label' => esc_html__( 'Typography', 'storezz-elements' ),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
         'selector' => '{{WRAPPER}} .se-testimonial-slider .name-position .name',
       ]
@@ -303,7 +303,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'name_margin',
       [
-        'label' => __( 'Margin', 'storezz-elements' ),
+        'label' => esc_html__( 'Margin', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'allowed_dimensions' => 'vertical',
         'size_units' => [ 'px', '%', 'em' ],
@@ -318,7 +318,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'testimonial_position_style',
       [
-        'label' => __( 'Job Position', 'storezz-elements' ),
+        'label' => esc_html__( 'Job Position', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -326,7 +326,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'design_color_job',
       [
-        'label' => __( 'Color', 'storezz-elements' ),
+        'label' => esc_html__( 'Color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -342,7 +342,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
       \Elementor\Group_Control_Typography::get_type(),
       [
         'name' => 'design_typography_job',
-        'label' => __( 'Typography', 'storezz-elements' ),
+        'label' => esc_html__( 'Typography', 'storezz-elements' ),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
         'selector' => '{{WRAPPER}} .se-testimonial-slider .name-position .position',
       ]
@@ -351,7 +351,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'job_margin',
       [
-        'label' => __( 'Margin', 'storezz-elements' ),
+        'label' => esc_html__( 'Margin', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::DIMENSIONS,
         'allowed_dimensions' => 'vertical',
         'size_units' => [ 'px', '%', 'em' ],
@@ -366,7 +366,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'testimonial_navigation_style',
       [
-        'label' => __( 'Navigation', 'storezz-elements' ),
+        'label' => esc_html__( 'Navigation', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -374,7 +374,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'dots_color',
       [
-        'label' => __( 'Dots color', 'storezz-elements' ),
+        'label' => esc_html__( 'Dots color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -390,7 +390,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'arrow_bg_color',
       [
-        'label' => __( 'Arrows background color', 'storezz-elements' ),
+        'label' => esc_html__( 'Arrows background color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -406,7 +406,7 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'arrow_color',
       [
-        'label' => __( 'Arrows color', 'storezz-elements' ),
+        'label' => esc_html__( 'Arrows color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),

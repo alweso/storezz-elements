@@ -31,7 +31,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
   * @return string Widget title.
   */
   public function get_title() {
-    return __( 'Storezz News Block Widget', 'storezz-elements' );
+    return esc_html__( 'Storezz News Block Widget', 'storezz-elements' );
   }
 
   /**
@@ -87,21 +87,21 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'section_content',
       [
-        'label' => __( 'General settings', 'storezz-elements' ),
+        'label' => esc_html__( 'General settings', 'storezz-elements' ),
       ]
     );
 
     $this->add_control(
       'block_style',
       [
-        'label' => __( 'Choose block style', 'storezz-elements' ),
+        'label' => esc_html__( 'Choose block style', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => __( 'style-1', 'storezz-elements' ),
+        'default' => esc_html__( 'style-1', 'storezz-elements' ),
         'options' => [
-          'style-1'  => __( 'Style 1', 'storezz-elements' ),
-          'style-2' => __( 'Style 2', 'storezz-elements' ),
-          'style-3' => __( 'Style 3', 'storezz-elements' ),
-          'style-4' => __( 'Style 4', 'storezz-elements' ),
+          'style-1'  => esc_html__( 'Style 1', 'storezz-elements' ),
+          'style-2' => esc_html__( 'Style 2', 'storezz-elements' ),
+          'style-3' => esc_html__( 'Style 3', 'storezz-elements' ),
+          'style-4' => esc_html__( 'Style 4', 'storezz-elements' ),
         ],
       ]
     );
@@ -120,9 +120,9 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'title',
       [
-        'label' => __( 'Title', 'storezz-elements' ),
+        'label' => esc_html__( 'Title', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => __( 'Post block', 'storezz-elements' ),
+        'default' => esc_html__( 'Post block', 'storezz-elements' ),
         'condition' => [ 'show_title' => ['yes'] ]
       ]
     );
@@ -130,12 +130,12 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'order',
       [
-        'label' => __( 'Order ASC/DESC', 'storezz-elements' ),
+        'label' => esc_html__( 'Order ASC/DESC', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => __( 'DESC', 'storezz-elements' ),
+        'default' => esc_html__( 'DESC', 'storezz-elements' ),
         'options' => [
-          'DESC'  => __( 'Descending', 'storezz-elements' ),
-          'ASC' => __( 'Ascending', 'storezz-elements' ),
+          'DESC'  => esc_html__( 'Descending', 'storezz-elements' ),
+          'ASC' => esc_html__( 'Ascending', 'storezz-elements' ),
         ],
       ]
     );
@@ -143,13 +143,13 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     // $this->add_control(
     //   'order_by',
     //   [
-    //     'label' => __( 'Show', 'storezz-elements' ),
+    //     'label' => esc_html__( 'Show', 'storezz-elements' ),
     //     'type' => \Elementor\Controls_Manager::SELECT,
-    //     'default' => __( 'date', 'storezz-elements' ),
+    //     'default' => esc_html__( 'date', 'storezz-elements' ),
     //     'options' => [
-    //       'date'  => __( 'Latest posts', 'storezz-elements' ),
-    //       'comment_count'  => __( 'Most commented', 'storezz-elements' ),
-    //       'meta_value_num'  => __( 'Most read', 'storezz-elements' ),
+    //       'date'  => esc_html__( 'Latest posts', 'storezz-elements' ),
+    //       'comment_count'  => esc_html__( 'Most commented', 'storezz-elements' ),
+    //       'meta_value_num'  => esc_html__( 'Most read', 'storezz-elements' ),
     //     ],
     //   ]
     // );
@@ -174,7 +174,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'post_categories',
       [
-        'label' => __( 'Choose categories', 'storezz-elements' ),
+        'label' => esc_html__( 'Choose categories', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT2,
         'default' => '',
         'options' => $this->post_category(),
@@ -218,9 +218,9 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'post_count',
       [
-        'label' => __( 'Post count', 'storezz-elements' ),
+        'label' => esc_html__( 'Post count', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 5, 'storezz-elements' ),
+        'default' => esc_html__( 5, 'storezz-elements' ),
         'min' => 5,
         'max' => 13,
         'step' => 1,
@@ -231,9 +231,9 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'post_count_2',
       [
-        'label' => __( 'Post count', 'storezz-elements' ),
+        'label' => esc_html__( 'Post count', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 6, 'storezz-elements' ),
+        'default' => esc_html__( 6, 'storezz-elements' ),
         'condition' => [ 'block_style' => ['style-4'] ]
       ]
     );
@@ -241,9 +241,9 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'post_count_3',
       [
-        'label' => __( 'Post count', 'storezz-elements' ),
+        'label' => esc_html__( 'Post count', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::NUMBER,
-        'default' => __( 5, 'storezz-elements' ),
+        'default' => esc_html__( 5, 'storezz-elements' ),
         'min' => 2,
         'max' => 5,
         'step' => 1,
@@ -281,7 +281,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'big_item_features',
       [
-        'label' => __( 'Big item features', 'storezz-elements' ),
+        'label' => esc_html__( 'Big item features', 'storezz-elements' ),
       ]
     );
 
@@ -380,7 +380,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'small_item_features',
       [
-        'label' => __( 'Small item features', 'storezz-elements' ),
+        'label' => esc_html__( 'Small item features', 'storezz-elements' ),
       ]
     );
 
@@ -474,14 +474,14 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'general_style_settings',
       [
-        'label' => __( 'General settings', 'storezz-elements' ),
+        'label' => esc_html__( 'General settings', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Widget title typography', '' ),
+        'label' => esc_html__( 'Widget title typography', '' ),
         'name' => 'big_title_typography',
         'selector' => '{{WRAPPER}} .menheer-block-title',
       ]
@@ -490,7 +490,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'widget_title_color',
       [
-        'label' => __( 'Widget title color', '' ),
+        'label' => esc_html__( 'Widget title color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#393939',
         'selectors' => [
@@ -502,7 +502,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_thumbnail_border',
       [
-        'label' => __( 'Thumbnail border', 'storezz-elements' ),
+        'label' => esc_html__( 'Thumbnail border', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::HEADING,
       ]
     );
@@ -533,7 +533,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'item_border',
       [
-        'label' => __( 'Item border', 'storezz-elements' ),
+        'label' => esc_html__( 'Item border', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before'
       ]
@@ -564,7 +564,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'columns_rows',
       [
-        'label' => __( 'Columns and rows', 'storezz-elements' ),
+        'label' => esc_html__( 'Columns and rows', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before'
       ]
@@ -599,7 +599,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'column_width',
       [
-        'label' => __( 'Column width', 'storezz-elements' ),
+        'label' => esc_html__( 'Column width', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'size_units' => [ 'fr'],
         'range' => [
@@ -623,7 +623,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'background',
       [
-        'label' => __( 'Background', 'storezz-elements' ),
+        'label' => esc_html__( 'Background', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before'
       ]
@@ -632,7 +632,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'grid_item_color',
       [
-        'label' => __( 'Grid item background color', '' ),
+        'label' => esc_html__( 'Grid item background color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => 'rgba(255,255,255,0)',
         'selectors' => [
@@ -649,7 +649,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'big_items_section',
       [
-        'label' => __( 'Big item features', 'storezz-elements' ),
+        'label' => esc_html__( 'Big item features', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -658,7 +658,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_typo_section',
       [
-        'label' => __( 'Typography', 'plugin-name' ),
+        'label' => esc_html__( 'Typography', 'plugin-name' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
       ]
@@ -667,7 +667,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Headline typography', '' ),
+        'label' => esc_html__( 'Headline typography', '' ),
         'name' => 'big_title_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .news-title',
       ]
@@ -676,7 +676,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_title_color_1',
       [
-        'label' => __( 'Headline color', '' ),
+        'label' => esc_html__( 'Headline color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#ffffff',
         'selectors' => [
@@ -690,7 +690,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_title_color_2',
       [
-        'label' => __( 'Headline Color', '' ),
+        'label' => esc_html__( 'Headline Color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#3e3e3e',
         'selectors' => [
@@ -705,7 +705,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Description typography', '' ),
+        'label' => esc_html__( 'Description typography', '' ),
         'name' => 'big_desc_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description',
       ]
@@ -715,7 +715,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_description_color_1',
       [
-        'label' => __( 'Big Description color', '' ),
+        'label' => esc_html__( 'Big Description color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#ffffff',
         'selectors' => [
@@ -728,7 +728,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_description_color_2',
       [
-        'label' => __( 'Description color', '' ),
+        'label' => esc_html__( 'Description color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#3e3e3e',
         'selectors' => [
@@ -741,7 +741,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Big details typography', '' ),
+        'label' => esc_html__( 'Big details typography', '' ),
         'name' => 'big_details_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--big .description-inner .comments-views-date span',
       ]
@@ -750,7 +750,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_details_color_1',
       [
-        'label' => __( 'Big details color', '' ),
+        'label' => esc_html__( 'Big details color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#c9c9c9',
         'selectors' => [
@@ -763,7 +763,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_details_color_2',
       [
-        'label' => __( 'Details color', '' ),
+        'label' => esc_html__( 'Details color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#989898',
         'selectors' => [
@@ -776,12 +776,12 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_category_display',
       [
-        'label' => __( 'Category display', 'storezz-elements' ),
+        'label' => esc_html__( 'Category display', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => __( 'background_color', 'storezz-elements' ),
+        'default' => esc_html__( 'background_color', 'storezz-elements' ),
         'options' => [
-          'background_color'  => __( 'Color background', 'storezz-elements' ),
-          'color' => __( 'Color text', 'storezz-elements' ),
+          'background_color'  => esc_html__( 'Color background', 'storezz-elements' ),
+          'color' => esc_html__( 'Color text', 'storezz-elements' ),
         ],
       ]
     );
@@ -789,7 +789,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'thumbnail_centering',
       [
-        'label' => __( 'Thumbnail centering', 'storezz-elements' ),
+        'label' => esc_html__( 'Thumbnail centering', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -820,7 +820,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'paddings',
       [
-        'label' => __( 'Paddings', 'storezz-elements' ),
+        'label' => esc_html__( 'Paddings', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
       ]
@@ -896,7 +896,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'big_margins_section',
       [
-        'label' => __( 'Margins', 'plugin-name' ),
+        'label' => esc_html__( 'Margins', 'plugin-name' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
       ]
@@ -907,7 +907,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'big_thumbnail_margin_bottom',
       [
-        'label' => __( 'Thumbnail margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Thumbnail margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -940,7 +940,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'big_category_margin_bottom',
       [
-        'label' => __( 'Big category margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Big category margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -970,7 +970,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'big_title_margin_bottom',
       [
-        'label' => __( 'Big title margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Big title margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1000,7 +1000,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'big_excerpt_margin_bottom',
       [
-        'label' => __( 'Big excerpt margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Big excerpt margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1034,7 +1034,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'small_items_section',
       [
-        'label' => __( 'Small item features', 'storezz-elements' ),
+        'label' => esc_html__( 'Small item features', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -1043,7 +1043,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_typo_section',
       [
-        'label' => __( 'Small item typography', 'plugin-name' ),
+        'label' => esc_html__( 'Small item typography', 'plugin-name' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
       ]
@@ -1052,7 +1052,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Headline typography', '' ),
+        'label' => esc_html__( 'Headline typography', '' ),
         'name' => 'small_title_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--small .news-title',
       ]
@@ -1062,7 +1062,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_title_color',
       [
-        'label' => __( 'Headline Color', '' ),
+        'label' => esc_html__( 'Headline Color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#3e3e3e',
         'selectors' => [
@@ -1075,7 +1075,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Description typography', '' ),
+        'label' => esc_html__( 'Description typography', '' ),
         'name' => 'small_desc_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--small .description',
       ]
@@ -1084,7 +1084,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_description_color',
       [
-        'label' => __( 'Description color', '' ),
+        'label' => esc_html__( 'Description color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#3e3e3e',
         'selectors' => [
@@ -1096,7 +1096,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(),
       [
-        'label' => __( 'Details typography', '' ),
+        'label' => esc_html__( 'Details typography', '' ),
         'name' => 'small_details_typography',
         'selector' => '{{WRAPPER}} .awesomesauce-post-block .wrapper--small .description-inner .comments-views-date span',
       ]
@@ -1105,7 +1105,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_details_color',
       [
-        'label' => __( 'Details color', '' ),
+        'label' => esc_html__( 'Details color', '' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => '#989898',
         'selectors' => [
@@ -1117,7 +1117,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_paddings',
       [
-        'label' => __( 'Paddings', 'storezz-elements' ),
+        'label' => esc_html__( 'Paddings', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
       ]
@@ -1147,7 +1147,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_margins_section',
       [
-        'label' => __( 'Margins', 'plugin-name' ),
+        'label' => esc_html__( 'Margins', 'plugin-name' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
       ]
@@ -1156,7 +1156,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'thumbnail_margin_bottom',
       [
-        'label' => __( 'Thumbnail margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Thumbnail margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1188,7 +1188,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'small_category_margin_bottom',
       [
-        'label' => __( 'Category margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Category margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1218,7 +1218,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'small_title_margin_bottom',
       [
-        'label' => __( 'Title margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Title margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1248,7 +1248,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_responsive_control(
       'small_excerpt_margin_bottom',
       [
-        'label' => __( 'Excerpt margin bottom', 'storezz-elements' ),
+        'label' => esc_html__( 'Excerpt margin bottom', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'range' => [
           'px' => [
@@ -1278,7 +1278,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_thumbnail_width_section',
       [
-        'label' => __( 'Thumbnail width', 'plugin-name' ),
+        'label' => esc_html__( 'Thumbnail width', 'plugin-name' ),
         'type' => \Elementor\Controls_Manager::HEADING,
         'separator' => 'before',
         'condition' => [ 'block_style' => ['style-1'] ]
@@ -1289,7 +1289,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'thumbnail_width',
       [
-        'label' => __( 'Small thumbnail width', 'storezz-elements' ),
+        'label' => esc_html__( 'Small thumbnail width', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'size_units' => [ 'px'],
         'range' => [
@@ -1313,12 +1313,12 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'small_category_display',
       [
-        'label' => __( 'Category display', 'storezz-elements' ),
+        'label' => esc_html__( 'Category display', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SELECT,
-        'default' => __( 'color', 'storezz-elements' ),
+        'default' => esc_html__( 'color', 'storezz-elements' ),
         'options' => [
-          'background_color'  => __( 'Color background', 'storezz-elements' ),
-          'color' => __( 'Color text', 'storezz-elements' ),
+          'background_color'  => esc_html__( 'Color background', 'storezz-elements' ),
+          'color' => esc_html__( 'Color text', 'storezz-elements' ),
         ],
       ]
     );

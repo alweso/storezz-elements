@@ -18,7 +18,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
 
   /** Widget Title */
   public function get_title() {
-    return __('Image Widget', 'storezz-elements');
+    return esc_html__('Image Widget', 'storezz-elements');
   }
 
   /** Icon */
@@ -38,7 +38,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
   protected function _register_controls() {
     $this->start_controls_section(
       'content_section', [
-        'label' => __('Content', 'storezz-elements'),
+        'label' => esc_html__('Content', 'storezz-elements'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -49,7 +49,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
     $this->add_control(
 			'image',
 			[
-				'label' => __( 'Choose Image', 'plugin-domain' ),
+				'label' => esc_html__( 'Choose Image', 'plugin-domain' ),
 				'type' => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -70,19 +70,19 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
     $this->add_control(
 			'text_align',
 			[
-				'label' => __( 'Alignment', 'plugin-domain' ),
+				'label' => esc_html__( 'Alignment', 'plugin-domain' ),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => __( 'Left', 'plugin-domain' ),
+						'title' => esc_html__( 'Left', 'plugin-domain' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'center' => [
-						'title' => __( 'Center', 'plugin-domain' ),
+						'title' => esc_html__( 'Center', 'plugin-domain' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'right' => [
-						'title' => __( 'Right', 'plugin-domain' ),
+						'title' => esc_html__( 'Right', 'plugin-domain' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
@@ -94,7 +94,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
         'animation_style', [
-        'label' => __('Animation style', 'storezz-elements'),
+        'label' => esc_html__('Animation style', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => 'animation2',
         'options' => [
@@ -109,7 +109,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'overlay', [
-        'label' => __('Overlay', 'storezz-elements'),
+        'label' => esc_html__('Overlay', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -124,7 +124,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'image_width',
       [
-        'label' => __( 'Image width', 'storezz-elements' ),
+        'label' => esc_html__( 'Image width', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'size_units' => [ '%'],
         'range' => [
@@ -147,7 +147,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'image_max_width',
       [
-        'label' => __( 'Image max width', 'storezz-elements' ),
+        'label' => esc_html__( 'Image max width', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'size_units' => [ '%'],
         'range' => [
@@ -170,7 +170,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'image_height',
       [
-        'label' => __( 'Image height', 'storezz-elements' ),
+        'label' => esc_html__( 'Image height', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::SLIDER,
         'size_units' => [ 'px'],
         'range' => [
@@ -195,7 +195,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
 
     $this->start_controls_section(
       'additional_settings', [
-        'label' => __('Additional Settings', 'storezz-elements'),
+        'label' => esc_html__('Additional Settings', 'storezz-elements'),
         'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
       ]
     );
@@ -207,7 +207,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
 
     $this->start_controls_section(
       'cat_btn_style', [
-        'label' => __('Category Button', 'storezz-elements'),
+        'label' => esc_html__('Category Button', 'storezz-elements'),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );
@@ -216,7 +216,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'cat_btn_color', [
-        'label' => __('Text Color', 'storezz-elements'),
+        'label' => esc_html__('Text Color', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::COLOR,
         'scheme' => [
           'type' => \Elementor\Scheme_Color::get_type(),
@@ -231,7 +231,7 @@ class Storezz_Image_Widget extends \Elementor\Widget_Base {
     $this->add_group_control(
       \Elementor\Group_Control_Typography::get_type(), [
         'name' => 'cat_btn_typography',
-        'label' => __('Typography', 'storezz-elements'),
+        'label' => esc_html__('Typography', 'storezz-elements'),
         'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
         'selector' => '{{WRAPPER}} .storezz-product-category-block1 .cat-btn',
       ]

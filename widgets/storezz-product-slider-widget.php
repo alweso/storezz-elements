@@ -65,7 +65,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'choose_categories', [
-        'label' => __('Choose Categories', 'storezz-elements'),
+        'label' => esc_html__('Choose Categories', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT2,
         'default' => '',
         'label_block' => true,
@@ -76,13 +76,13 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'show', [
-        'label' => __('Show', 'storezz-elements'),
+        'label' => esc_html__('Show', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '',
         'options' => [
-          ''         => __( 'All products', 'storezz-elements' ),
-          'featured' => __( 'Featured products', 'storezz-elements' ),
-          'onsale'   => __( 'On-sale products', 'storezz-elements' ),
+          ''         => esc_html__( 'All products', 'storezz-elements' ),
+          'featured' => esc_html__( 'Featured products', 'storezz-elements' ),
+          'onsale'   => esc_html__( 'On-sale products', 'storezz-elements' ),
         ],
       ]
     );
@@ -137,40 +137,40 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'number_of_products_mobile', [
-        'label' => __('No. of products mobile ', 'storezz-elements'),
+        'label' => esc_html__('No. of products mobile ', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '2',
         'options' => [
-          '1' => __( '1', 'storezz-elements' ),
-          '2' => __( '2', 'storezz-elements' ),
-          '3' => __( '3', 'storezz-elements' ),
-          '4' => __( '4', 'storezz-elements' ),
+          '1' => esc_html__( '1', 'storezz-elements' ),
+          '2' => esc_html__( '2', 'storezz-elements' ),
+          '3' => esc_html__( '3', 'storezz-elements' ),
+          '4' => esc_html__( '4', 'storezz-elements' ),
         ],
       ]
     );
 
     $this->add_control(
       'number_of_products_tablet', [
-        'label' => __('No. of products tablet ', 'storezz-elements'),
+        'label' => esc_html__('No. of products tablet ', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '3',
         'options' => [
-          '2' => __( '2', 'storezz-elements' ),
-          '3' => __( '3', 'storezz-elements' ),
-          '4' => __( '4', 'storezz-elements' ),
+          '2' => esc_html__( '2', 'storezz-elements' ),
+          '3' => esc_html__( '3', 'storezz-elements' ),
+          '4' => esc_html__( '4', 'storezz-elements' ),
         ],
       ]
     );
 
     $this->add_control(
       'number_of_products_desktop', [
-        'label' => __('No. of products desktop ', 'storezz-elements'),
+        'label' => esc_html__('No. of products desktop ', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '4',
         'options' => [
-          '2' => __( '2', 'storezz-elements' ),
-          '3' => __( '3', 'storezz-elements' ),
-          '4' => __( '4', 'storezz-elements' ),
+          '2' => esc_html__( '2', 'storezz-elements' ),
+          '3' => esc_html__( '3', 'storezz-elements' ),
+          '4' => esc_html__( '4', 'storezz-elements' ),
         ],
       ]
     );
@@ -189,7 +189,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
 
     $this->add_control(
       'image_size_label', [
-        'label' => __('Image Size', 'storezz-elements'),
+        'label' => esc_html__('Image Size', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::HEADING,
       ]
     );

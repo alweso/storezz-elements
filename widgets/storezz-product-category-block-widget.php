@@ -18,7 +18,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
     /** Widget Title */
     public function get_title() {
-        return __('Product Category Block', 'storezz-elements');
+        return esc_html__('Product Category Block', 'storezz-elements');
     }
 
     /** Icon */
@@ -42,14 +42,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
     protected function _register_controls() {
         $this->start_controls_section(
             'content_section', [
-            'label' => __('Content', 'storezz-elements'),
+            'label' => esc_html__('Content', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 ]
         );
 
         $this->add_control(
             'layout_type', [
-            'label' => __('Layout type', 'storezz-elements'),
+            'label' => esc_html__('Layout type', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'block1',
             'options' => [
@@ -66,7 +66,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
             'animation_style', [
-            'label' => __('Animation style', 'storezz-elements'),
+            'label' => esc_html__('Animation style', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'animation2',
             'options' => [
@@ -82,7 +82,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'container_height',
           [
-            'label' => __( 'Container height', 'storezz-elements' ),
+            'label' => esc_html__( 'Container height', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ 'px'],
             'range' => [
@@ -106,14 +106,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_1_section', [
-            'label' => __('Category 1', 'storezz-elements'),
+            'label' => esc_html__('Category 1', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 ]
         );
 
         $this->add_control(
             'product_category1', [
-            'label' => __('Category 1', 'storezz-elements'),
+            'label' => esc_html__('Category 1', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' =>  15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -132,7 +132,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat1',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -155,7 +155,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat1',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -180,14 +180,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_2_section', [
-            'label' => __('Category 2', 'storezz-elements'),
+            'label' => esc_html__('Category 2', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 ]
         );
 
         $this->add_control(
             'product_category2', [
-            'label' => __('Category 2', 'storezz-elements'),
+            'label' => esc_html__('Category 2', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -206,7 +206,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat2',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -229,7 +229,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat2',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -254,14 +254,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_3_section', [
-            'label' => __('Category 3', 'storezz-elements'),
+            'label' => esc_html__('Category 3', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 ]
         );
 
         $this->add_control(
             'product_category3', [
-            'label' => __('Category 3', 'storezz-elements'),
+            'label' => esc_html__('Category 3', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -280,7 +280,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat3',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -303,7 +303,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat3',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -328,14 +328,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_4_section', [
-            'label' => __('Category 4', 'storezz-elements'),
+            'label' => esc_html__('Category 4', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 ]
         );
 
         $this->add_control(
             'product_category4', [
-            'label' => __('Category 4', 'storezz-elements'),
+            'label' => esc_html__('Category 4', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -354,7 +354,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat4',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -377,7 +377,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat4',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -402,7 +402,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_5_section', [
-            'label' => __('Category 5', 'storezz-elements'),
+            'label' => esc_html__('Category 5', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             'condition' => [ 'layout_type' => ['block1', 'block2', 'block6', 'block7'] ]
                 ]
@@ -410,7 +410,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
             'product_category5', [
-            'label' => __('Category 5', 'storezz-elements'),
+            'label' => esc_html__('Category 5', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -429,7 +429,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat5',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -452,7 +452,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat5',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -477,7 +477,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_6_section', [
-            'label' => __('Category 6', 'storezz-elements'),
+            'label' => esc_html__('Category 6', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             'condition' => [ 'layout_type' => ['block6', 'block7'] ]
                 ]
@@ -485,7 +485,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
             'product_category6', [
-            'label' => __('Category 6', 'storezz-elements'),
+            'label' => esc_html__('Category 6', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -504,7 +504,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat6',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -527,7 +527,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat6',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -552,7 +552,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_7_section', [
-            'label' => __('Category 7', 'storezz-elements'),
+            'label' => esc_html__('Category 7', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             'condition' => [ 'layout_type' => [ 'block7'] ]
                 ]
@@ -560,7 +560,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
             'product_category7', [
-            'label' => __('Category 7', 'storezz-elements'),
+            'label' => esc_html__('Category 7', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -579,7 +579,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat7',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -602,7 +602,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat7',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -627,7 +627,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
             'cat_8_section', [
-            'label' => __('Category 8', 'storezz-elements'),
+            'label' => esc_html__('Category 8', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             'condition' => [ 'layout_type' => ['block7'] ]
                 ]
@@ -635,7 +635,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
             'product_category8', [
-            'label' => __('Category 8', 'storezz-elements'),
+            'label' => esc_html__('Category 8', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 15,
             'options' => Storezz_elements_get_woo_categories_list(),
@@ -654,7 +654,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_x_position_cat8',
           [
-            'label' => __( 'Horizontal image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Horizontal image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -677,7 +677,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_control(
           'img_y_position_cat8',
           [
-            'label' => __( 'Vertical image position', 'storezz-elements' ),
+            'label' => esc_html__( 'Vertical image position', 'storezz-elements' ),
             'type' => \Elementor\Controls_Manager::SLIDER,
             'size_units' => [ '%'],
             'range' => [
@@ -704,14 +704,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
                 'additional_settings', [
-            'label' => __('Additional Settings', 'storezz-elements'),
+            'label' => esc_html__('Additional Settings', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
                 ]
         );
 
         $this->add_control(
             'button_position', [
-            'label' => __('Button Position', 'storezz-elements'),
+            'label' => esc_html__('Button Position', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::SELECT,
             'default' => 'top-left',
             'options' => [
@@ -725,7 +725,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
                 'color_scheme', [
-            'label' => __('Color Scheme', 'storezz-elements'),
+            'label' => esc_html__('Color Scheme', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::COLOR,
             'scheme' => [
                 'type' => \Elementor\Scheme_Color::get_type(),
@@ -741,14 +741,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
                 'cat_text_style', [
-            'label' => __('Category Text', 'storezz-elements'),
+            'label' => esc_html__('Category Text', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
                 'cat_text_color', [
-            'label' => __('Text Color', 'storezz-elements'),
+            'label' => esc_html__('Text Color', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::COLOR,
             'scheme' => [
                 'type' => \Elementor\Scheme_Color::get_type(),
@@ -763,7 +763,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_group_control(
                 \Elementor\Group_Control_Typography::get_type(), [
             'name' => 'cat_text_typography',
-            'label' => __('Typography', 'storezz-elements'),
+            'label' => esc_html__('Typography', 'storezz-elements'),
             'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .storezz-product-category-block2 .cat-btn .ct-name',
                 ]
@@ -773,14 +773,14 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->start_controls_section(
                 'product_count_style', [
-            'label' => __('Product Count', 'storezz-elements'),
+            'label' => esc_html__('Product Count', 'storezz-elements'),
             'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                 ]
         );
 
         $this->add_control(
             'product_count_color', [
-            'label' => __('Color', 'storezz-elements'),
+            'label' => esc_html__('Color', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::COLOR,
             'scheme' => [
                 'type' => \Elementor\Scheme_Color::get_type(),
@@ -795,7 +795,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $this->add_group_control(
                 \Elementor\Group_Control_Typography::get_type(), [
             'name' => 'product_count_typography',
-            'label' => __('Typography', 'storezz-elements'),
+            'label' => esc_html__('Typography', 'storezz-elements'),
             'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
             'selector' => '{{WRAPPER}} .storezz-product-category-block2 .cat-btn .ct-pcount',
                 ]
@@ -803,7 +803,7 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
 
         $this->add_control(
                 'product_count_margin', [
-            'label' => __('Margin', 'storezz-elements'),
+            'label' => esc_html__('Margin', 'storezz-elements'),
             'type' => \Elementor\Controls_Manager::DIMENSIONS,
             'size_units' => ['px', '%', 'em'],
             'allowed_dimensions' => 'vertical',

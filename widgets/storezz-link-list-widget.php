@@ -33,7 +33,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
   * @return string Widget title.
   */
   public function get_title() {
-    return __( 'Storezz Link List Widget', 'storezz-elements' );
+    return esc_html__( 'Storezz Link List Widget', 'storezz-elements' );
   }
 
   /**
@@ -87,7 +87,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'section_content',
       [
-        'label' => __( 'Content', 'storezz-elements' ),
+        'label' => esc_html__( 'Content', 'storezz-elements' ),
       ]
     );
 
@@ -105,9 +105,9 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'title',
       [
-        'label' => __( 'Title', 'storezz-elements' ),
+        'label' => esc_html__( 'Title', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => __( 'Link list', 'storezz-elements' ),
+        'default' => esc_html__( 'Link list', 'storezz-elements' ),
         'condition' => [ 'show_title' => ['yes'] ]
       ]
     );
@@ -116,7 +116,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
 
     $repeater->add_control(
       'link_address', [
-        'label' => __( 'Add link address', 'storezz-elements' ),
+        'label' => esc_html__( 'Add link address', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
         // 'default'       => 'Add link',
       ]
@@ -124,7 +124,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
 
     $repeater->add_control(
       'link_name', [
-        'label' => __( 'Add link name', 'storezz-elements' ),
+        'label' => esc_html__( 'Add link name', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
         // 'default'       => 'Add link',
       ]
@@ -150,7 +150,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
 
     $repeater->add_control(
       'badge_color', [
-        'label' => __( 'Badge color', 'storezz-elements' ),
+        'label' => esc_html__( 'Badge color', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::COLOR,
         'default' => "#393939",
         'selectors' => [
@@ -162,23 +162,23 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'links',
       [
-        'label' => __( 'Repeater List', 'storezz-elements' ),
+        'label' => esc_html__( 'Repeater List', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::REPEATER,
         'fields' => $repeater->get_controls(),
         'default' => [
           [
-            'link_address' => __( '', 'storezz-elements' ),
-            'link_name' => __( 'Example name 1', 'storezz-elements' ),
-            'link_badge' => __( 'New!', 'storezz-elements' ),
-            'badge_color' => __( '#0069E8', 'storezz-elements' ),
-            'show_badge' => __( 'yes', 'storezz-elements' ),
+            'link_address' => esc_html__( '', 'storezz-elements' ),
+            'link_name' => esc_html__( 'Example name 1', 'storezz-elements' ),
+            'link_badge' => esc_html__( 'New!', 'storezz-elements' ),
+            'badge_color' => esc_html__( '#0069E8', 'storezz-elements' ),
+            'show_badge' => esc_html__( 'yes', 'storezz-elements' ),
           ],
           [
-            'link_address' => __( '', 'storezz-elements' ),
-            'link_name' => __( 'Example name 1', 'storezz-elements' ),
-            'link_badge' => __( 'Hot!', 'storezz-elements' ),
-            'badge_color' => __( '#FF7E00', 'storezz-elements' ),
-            'show_badge' => __( 'yes', 'storezz-elements' ),
+            'link_address' => esc_html__( '', 'storezz-elements' ),
+            'link_name' => esc_html__( 'Example name 1', 'storezz-elements' ),
+            'link_badge' => esc_html__( 'Hot!', 'storezz-elements' ),
+            'badge_color' => esc_html__( '#FF7E00', 'storezz-elements' ),
+            'show_badge' => esc_html__( 'yes', 'storezz-elements' ),
           ],
 
         ],
@@ -190,7 +190,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
     $this->start_controls_section(
       'general_style_settings',
       [
-        'label' => __( 'General settings', 'storezz-elements' ),
+        'label' => esc_html__( 'General settings', 'storezz-elements' ),
         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
       ]
     );

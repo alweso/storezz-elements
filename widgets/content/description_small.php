@@ -2,26 +2,19 @@
   <div class="description-inner">
     <?php if($show_cat_small) { ?>
       <div class="category">
-        <?php
-        $categories2 = get_the_category();
 
-        // foreach ( $categories2 as $category2 ) {
-        //   if ($category_display == "background_color") {
-        //     echo '<span style="background-color:'.get_field('category_colors', $category2).'" class="category-background-color">'.$category2->name.'</span>';
-        //   } elseif ($category_display == "color") {
-        //     echo '<span style="color:'.get_field('category_colors', $category2).'" class="category-color">'.$category2->name.'</span>';
-        //   }
-        // }
-        ?>
       </div>
     <?php }  ?>
     <h4 class="news-title">
+      <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
       <?php if (has_post_format('video')) { ?>
                 <i class="fa fa-video"></i>
       <?php  } elseif (has_post_format('gallery')) { ?>
         <i class="fa fa-images"></i>
       <?php  } ?>
-      <?php echo esc_html(wp_trim_words(get_the_title(), $crop_small,'')); ?></h4>
+      <?php echo esc_html(wp_trim_words(get_the_title(), $crop_small,'')); ?>
+    </a>
+    </h4>
     <?php if(isset($show_exerpt_small) && $show_exerpt_small == "yes") {?>
       <p><?php echo esc_html( wp_trim_words(get_the_excerpt(),$post_content_crop_small,'...') );?></p>
     <?php } ?>

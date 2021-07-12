@@ -37,7 +37,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'cta_content_section',
             [
-                'label' => __( 'Call to action', 'storezz-elements' ),
+                'label' => esc_html__( 'Call to action', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -45,7 +45,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'image',
                 [
-                    'label' => __( 'Choose Image', 'plugin-domain' ),
+                    'label' => esc_html__( 'Choose Image', 'plugin-domain' ),
                     'type' => \Elementor\Controls_Manager::MEDIA,
                     'default' => [
                         'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -56,10 +56,10 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'title',
                 [
-                    'label' => __( 'Title', 'storezz-elements' ),
+                    'label' => esc_html__( 'Title', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
                     'separator' => 'before',
-                    'default' => __( 'Title', 'storezz-elements' ),
+                    'default' => esc_html__( 'Title', 'storezz-elements' ),
                 ]
             );
 
@@ -67,18 +67,18 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'subtitle',
                 [
-                    'label' => __( 'Sub Title', 'storezz-elements' ),
+                    'label' => esc_html__( 'Sub Title', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Sub Title', 'storezz-elements' ),
+                    'default' => esc_html__( 'Sub Title', 'storezz-elements' ),
                 ]
             );
 
             $this->add_control(
                 'button_text',
                 [
-                    'label' => __( 'Button Text', 'storezz-elements' ),
+                    'label' => esc_html__( 'Button Text', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::TEXT,
-                    'default' => __( 'Discover Now', 'storezz-elements' ),
+                    'default' => esc_html__( 'Discover Now', 'storezz-elements' ),
                     'separator' => 'before',
                 ]
             );
@@ -86,9 +86,9 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'button_link',
                 [
-                    'label' => __( 'Button Link', 'storezz-elements' ),
+                    'label' => esc_html__( 'Button Link', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::URL,
-                    'placeholder' => __( '#', 'storezz-elements' ),
+                    'placeholder' => esc_html__( '#', 'storezz-elements' ),
                     'show_external' => true,
                     'default' => [
                         'url' => '',
@@ -100,7 +100,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
 
             $this->add_control(
                 'animation_style', [
-                'label' => __('Animation style', 'storezz-elements'),
+                'label' => esc_html__('Animation style', 'storezz-elements'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'animation2',
                 'options' => [
@@ -118,7 +118,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'cta_additional_section',
             [
-                'label' => __( 'Additional Settings', 'storezz-elements' ),
+                'label' => esc_html__( 'Additional Settings', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -126,19 +126,19 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'content_position',
                 [
-                    'label' => __( 'Content Position', 'storezz-elements' ),
+                    'label' => esc_html__( 'Content Position', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::SELECT,
                     'default' => 'center-center',
                     'options' => array(
-                        'top-left' => __( 'Top Left', 'storezz-elements' ),
-                        'top-center' => __( 'Top Center', 'storezz-elements' ),
-                        'top-right' => __( 'Top Right', 'storezz-elements' ),
-                        'center-left' => __( 'Center Left', 'storezz-elements' ),
-                        'center-center' => __( 'Center Center', 'storezz-elements' ),
-                        'center-right' => __( 'Center Right', 'storezz-elements' ),
-                        'bottom-left' => __( 'Bottom Left', 'storezz-elements' ),
-                        'bottom-center' => __( 'Bottom Center', 'storezz-elements' ),
-                        'bottom-right' => __( 'Bottom Right', 'storezz-elements' ),
+                        'top-left' => esc_html__( 'Top Left', 'storezz-elements' ),
+                        'top-center' => esc_html__( 'Top Center', 'storezz-elements' ),
+                        'top-right' => esc_html__( 'Top Right', 'storezz-elements' ),
+                        'center-left' => esc_html__( 'Center Left', 'storezz-elements' ),
+                        'center-center' => esc_html__( 'Center Center', 'storezz-elements' ),
+                        'center-right' => esc_html__( 'Center Right', 'storezz-elements' ),
+                        'bottom-left' => esc_html__( 'Bottom Left', 'storezz-elements' ),
+                        'bottom-center' => esc_html__( 'Bottom Center', 'storezz-elements' ),
+                        'bottom-right' => esc_html__( 'Bottom Right', 'storezz-elements' ),
                     ),
                 ]
             );
@@ -146,7 +146,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'box_height',
                 [
-                    'label' => __( 'Box Height', 'storezz-elements' ),
+                    'label' => esc_html__( 'Box Height', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::SLIDER,
                     'size_units' => [ 'px' ],
                     'range' => [
@@ -179,12 +179,12 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'hover_effect',
                 [
-                    'label' => __( 'Hover Effect', 'storezz-elements' ),
+                    'label' => esc_html__( 'Hover Effect', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::SELECT,
                     'default' => 'hover1',
                     'options' => array(
-                        'hover1' => __( 'Expansion', 'storezz-elements' ),
-                        'hover2' => __( 'Slice', 'storezz-elements' ),
+                        'hover1' => esc_html__( 'Expansion', 'storezz-elements' ),
+                        'hover2' => esc_html__( 'Slice', 'storezz-elements' ),
                     ),
                 ]
             );
@@ -194,7 +194,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'title_style',
             [
-                'label' => __( 'Title', 'storezz-elements' ),
+                'label' => esc_html__( 'Title', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -202,7 +202,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'title_color',
                 [
-                    'label' => __( 'Color', 'storezz-elements' ),
+                    'label' => esc_html__( 'Color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'scheme' => [
                         'type' => \Elementor\Scheme_Color::get_type(),
@@ -218,7 +218,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'title_typography',
-                    'label' => __( 'Typography', 'storezz-elements' ),
+                    'label' => esc_html__( 'Typography', 'storezz-elements' ),
                     'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                     'selector' => '{{WRAPPER}} .storezz-cta .content .title',
                 ]
@@ -227,7 +227,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'title_spacing',
                 [
-                    'label' => __( 'Spacing', 'plugin-domain' ),
+                    'label' => esc_html__( 'Spacing', 'plugin-domain' ),
                     'type' => \Elementor\Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px' ],
                     'allowed_dimensions' => 'vertical',
@@ -242,7 +242,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'subtitle_style',
             [
-                'label' => __( 'Sub-Title', 'storezz-elements' ),
+                'label' => esc_html__( 'Sub-Title', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -250,7 +250,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'subtitle_color',
                 [
-                    'label' => __( 'Color', 'storezz-elements' ),
+                    'label' => esc_html__( 'Color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'scheme' => [
                         'type' => \Elementor\Scheme_Color::get_type(),
@@ -266,7 +266,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'subtitle_typography',
-                    'label' => __( 'Typography', 'storezz-elements' ),
+                    'label' => esc_html__( 'Typography', 'storezz-elements' ),
                     'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                     'selector' => '{{WRAPPER}} .storezz-cta .content .subtitle',
                 ]
@@ -277,7 +277,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'button_style',
             [
-                'label' => __( 'Button', 'storezz-elements' ),
+                'label' => esc_html__( 'Button', 'storezz-elements' ),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -285,7 +285,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'button_padding',
                 [
-                    'label' => __( 'Padding', 'storezz-elements' ),
+                    'label' => esc_html__( 'Padding', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px' ],
                     'selectors' => [
@@ -298,7 +298,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                 \Elementor\Group_Control_Typography::get_type(),
                 [
                     'name' => 'button_typography',
-                    'label' => __( 'Typography', 'storezz-elements' ),
+                    'label' => esc_html__( 'Typography', 'storezz-elements' ),
                     'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
                     'selector' => '{{WRAPPER}} .storezz-cta .content .btn',
                 ]
@@ -311,7 +311,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                 $this->start_controls_tab(
                     'buttons_normal_tab',
                     [
-                        'label' => __( 'Normal', 'storezz-elements' ),
+                        'label' => esc_html__( 'Normal', 'storezz-elements' ),
                     ]
                 );
 
@@ -319,7 +319,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                     $this->add_control(
                         'button_color_normal',
                         [
-                            'label' => __( 'Color', 'storezz-elements' ),
+                            'label' => esc_html__( 'Color', 'storezz-elements' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'scheme' => [
                                 'type' => \Elementor\Scheme_Color::get_type(),
@@ -334,7 +334,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                     $this->add_control(
                         'button_bgcolor_normal',
                         [
-                            'label' => __( 'Background Color', 'storezz-elements' ),
+                            'label' => esc_html__( 'Background Color', 'storezz-elements' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'scheme' => [
                                 'type' => \Elementor\Scheme_Color::get_type(),
@@ -350,7 +350,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                         \Elementor\Group_Control_Border::get_type(),
                         [
                             'name' => 'normal_border',
-                            'label' => __( 'Border', 'storezz-elements' ),
+                            'label' => esc_html__( 'Border', 'storezz-elements' ),
                             'selector' => '{{WRAPPER}} .storezz-cta .content .btn',
                         ]
                     );
@@ -360,7 +360,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                 $this->start_controls_tab(
                     'buttons_hover_tab',
                     [
-                        'label' => __( 'Hover', 'storezz-elements' ),
+                        'label' => esc_html__( 'Hover', 'storezz-elements' ),
                     ]
                 );
 
@@ -368,7 +368,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                     $this->add_control(
                         'button_color_hover',
                         [
-                            'label' => __( 'Color', 'storezz-elements' ),
+                            'label' => esc_html__( 'Color', 'storezz-elements' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'scheme' => [
                                 'type' => \Elementor\Scheme_Color::get_type(),
@@ -383,7 +383,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                     $this->add_control(
                         'button_bgcolor_hover',
                         [
-                            'label' => __( 'Background Color', 'storezz-elements' ),
+                            'label' => esc_html__( 'Background Color', 'storezz-elements' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'scheme' => [
                                 'type' => \Elementor\Scheme_Color::get_type(),
@@ -399,7 +399,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                         \Elementor\Group_Control_Border::get_type(),
                         [
                             'name' => 'hover_border',
-                            'label' => __( 'Border', 'storezz-elements' ),
+                            'label' => esc_html__( 'Border', 'storezz-elements' ),
                             'selector' => '{{WRAPPER}} .storezz-cta .content .btn:hover',
                         ]
                     );
