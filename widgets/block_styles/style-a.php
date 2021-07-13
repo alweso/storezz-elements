@@ -1,7 +1,7 @@
 <?php if($show_title) { ?>
-  <h2 class="menheer-block-title" <?php esc_html__( $this->get_render_attribute_string( 'title' )); ?>><?php esc_html__( $settings['title'] ); ?></h2>
+  <?php echo '<h2 class="menheer-block-title"' . esc_attr( $this->get_render_attribute_string( 'title' ) ) . '>' . esc_html( $settings['title'] ) . '</h2>'; ?>
 <?php }  ?>
-<div class="big-wrapper <?php echo $cssClass; ?>">
+<?php echo '<div class="big-wrapper' . $cssClass . '">'; ?>
   <?php $i = 0; ?>
   <?php while ($queryd->have_posts()) : $queryd->the_post();
   if ( $i == 0 ) : ?>

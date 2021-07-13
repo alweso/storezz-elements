@@ -278,7 +278,7 @@ class Storezz_Countdown_Widget extends \Elementor\Widget_Base {
             <?php
         }
         ?>
-            <div class="storezz-countdown <?php echo esc_attr( $layout ); ?>" id="storezz-countdown-<?php echo esc_attr( $this->get_id() ); ?>" data-countdown="<?php echo esc_attr( $countdown_data ); ?>">Countdown</div>
+        <?php echo '<div class="storezz-countdown' . esc_attr( $layout ) . '" id="storezz-countdown-' . esc_attr( $this->get_id() ) . '" data-countdown="' . esc_attr( $countdown_data ) . '">Countdown</div>'; ?>
         <?php
     }
 }

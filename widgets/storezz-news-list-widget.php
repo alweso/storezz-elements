@@ -287,7 +287,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_control(
                   'typo_section',
                   [
-                    'label' => esc_html__( 'Typography', 'plugin-name' ),
+                    'label' => esc_html__( 'Typography', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::HEADING,
                     'separator' => 'before',
                   ]
@@ -296,7 +296,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_group_control(
                   \Elementor\Group_Control_Typography::get_type(),
                   [
-                    'label' => esc_html__( 'Widget title typography', '' ),
+                    'label' => esc_html__( 'Widget title typography', 'storezz-elements' ),
                     'name' => 'big_title_typography',
                     'selector' => '{{WRAPPER}} .menheer-block-title',
                   ]
@@ -305,7 +305,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_control(
                   'widget_title_color',
                   [
-                    'label' => esc_html__( 'Widget title color', '' ),
+                    'label' => esc_html__( 'Widget title color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#393939',
                     'selectors' => [
@@ -317,7 +317,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_group_control(
                   \Elementor\Group_Control_Typography::get_type(),
                   [
-                    'label' => esc_html__( 'Headline typography', '' ),
+                    'label' => esc_html__( 'Headline typography', 'storezz-elements' ),
                     'name' => 'title_typography',
                     'selector' => '{{WRAPPER}} .se-post-list .wrapper--big .news-title',
                   ]
@@ -326,7 +326,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_control(
                   'title_color_1',
                   [
-                    'label' => esc_html__( 'Headline color', '' ),
+                    'label' => esc_html__( 'Headline color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#3e3e3e',
                     'selectors' => [
@@ -338,7 +338,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_group_control(
                   \Elementor\Group_Control_Typography::get_type(),
                   [
-                    'label' => esc_html__( 'Description typography', '' ),
+                    'label' => esc_html__( 'Description typography', 'storezz-elements' ),
                     'name' => 'desc_typography',
                     'selector' => '{{WRAPPER}} .se-post-list .wrapper--big .description',
                   ]
@@ -348,7 +348,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_control(
                   'description_color_2',
                   [
-                    'label' => esc_html__( 'Description color', '' ),
+                    'label' => esc_html__( 'Description color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#212529',
                     'selectors' => [
@@ -360,7 +360,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_group_control(
                   \Elementor\Group_Control_Typography::get_type(),
                   [
-                    'label' => esc_html__( 'Details typography', '' ),
+                    'label' => esc_html__( 'Details typography', 'storezz-elements' ),
                     'name' => 'details_typography',
                     'selector' => '{{WRAPPER}} .se-post-list .wrapper--big .description-inner .comments-views-date span',
                   ]
@@ -369,7 +369,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                 $this->add_control(
                   'details_color_2',
                   [
-                    'label' => esc_html__( 'Details color', '' ),
+                    'label' => esc_html__( 'Details color', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::COLOR,
                     'default' => '#989898',
                     'selectors' => [
@@ -498,7 +498,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
                         $this->add_control(
                           'grid_item_color',
                           [
-                            'label' => esc_html__( 'Grid item background color', '' ),
+                            'label' => esc_html__( 'Grid item background color', 'storezz-elements' ),
                             'type' => \Elementor\Controls_Manager::COLOR,
                             'default' => 'rgba(255,255,255,0)',
                             'selectors' => [
@@ -566,7 +566,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
             $this->add_control(
               'margins_section',
               [
-                'label' => esc_html__( 'Margins', 'plugin-name' ),
+                'label' => esc_html__( 'Margins', 'storezz-elements' ),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
               ]
@@ -770,7 +770,7 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
     if ( $queryd->have_posts() ) : ?>
     <div class="se-post-list">
       <?php if($show_title) { ?>
-          <h2 class="storezz-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+        <?php echo '<h2 class="storezz-block-title"' . esc_attr( $this->get_render_attribute_string( 'title' ) ) . '>' . esc_html( $settings['title'] ) . '</h2>'; ?>
       <?php }  ?>
         <?php  require 'block_styles/post-list.php'; ?>
       <?php wp_reset_postdata(); ?>

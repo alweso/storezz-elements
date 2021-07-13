@@ -45,7 +45,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'image',
                 [
-                    'label' => esc_html__( 'Choose Image', 'plugin-domain' ),
+                    'label' => esc_html__( 'Choose Image', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::MEDIA,
                     'default' => [
                         'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -227,7 +227,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
             $this->add_control(
                 'title_spacing',
                 [
-                    'label' => esc_html__( 'Spacing', 'plugin-domain' ),
+                    'label' => esc_html__( 'Spacing', 'storezz-elements' ),
                     'type' => \Elementor\Controls_Manager::DIMENSIONS,
                     'size_units' => [ 'px' ],
                     'allowed_dimensions' => 'vertical',
@@ -440,7 +440,7 @@ class Storezz_Cta_Widget extends \Elementor\Widget_Base {
                         }
 
                         if( $settings['title'] ) {
-                            esc_html_e( $settings['title'] );
+                            esc_html_e( $settings['title'], 'storezz-elements' );
                         }
 
                         if( $settings['button_link']['url'] && $settings['button_text'] ) {

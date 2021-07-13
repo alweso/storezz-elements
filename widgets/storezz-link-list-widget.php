@@ -222,7 +222,7 @@ class Storezz_Link_List_Widget extends \Elementor\Widget_Base {
 
     <div class="se-post-list">
       <?php if($show_title) { ?>
-        <h2 class="menheer-block-title" <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
+        <?php echo '<h2 class="menheer-block-title"' . esc_attr( $this->get_render_attribute_string( 'title' ) ) . '>' . esc_html( $settings['title'] ) . '</h2>'; ?>
       <?php }  ?>
         <ul>
           <?php

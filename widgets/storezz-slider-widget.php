@@ -475,39 +475,31 @@
             $image_size = isset( $settings['image_size_size'] ) ? $settings['image_size_size'] : 'large';
 
             if( !empty( $slides ) ) :
-            ?>
-                <div class="storezz-slider owl-carousel" id="storezz-slider-<?php echo esc_attr( $this->get_id() ) ?>">
-                    <?php foreach( $slides as $slide ) : ?>
-                        <?php if( isset( $slide['image']['url'] ) ) : ?>
-                            <?php
+            echo '<div class="storezz-slider owl-carousel" id="storezz-slider-' . esc_attr( $this->get_id() ) . '">';
+            foreach( $slides as $slide ) :
+                        if( isset( $slide['image']['url'] ) ) :
                                 $image_url = $slide['image']['url'];
                                 if( $slide['image']['id'] ) {
                                     $image = wp_get_attachment_image_src( $slide['image']['id'], $image_size );
                                     $image_url = $image[0];
                                 }
-                                $image_style = "style='background-image: url( ". esc_url( $image_url ) ." );'";
+                                echo '<div class="slide" style="background-image: url(' . esc_url( $image_url ) . ')">';
                             ?>
-                            <div class="slide" <?php echo $image_style; ?> >
                                 <div class="slide-content storezz-container">
-
                                     <?php if( $slide['subtitle'] ) : ?>
-                                        <span class="slide-subtitle"><?php echo esc_html( $slide['subtitle'] ); ?></span>
+                                        <span class="slide-subtitle"><?php esc_html_e( $slide['subtitle'], 'storezz-elements' ); ?></span>
                                     <?php endif; ?>
 
                                     <?php if( $slide['title'] ) : ?>
-                                        <span class="slide-title">
-                                            <?php
-                                                echo wp_kses( $slide['title'], array(
-                                                    'strong' => array(),
-                                                    'br' => array()
-                                                ) );
-                                            ?>
-                                        </span>
-                                    <?php endif; ?>
+                                      <?php echo '<span class="slide-title">' . wp_kses( $slide['title'], array(
+                                          'strong' => array(),
+                                          'br' => array()
+                                      ) ) . '</span>'; ?>
 
-                                    <p class="slide-description"><?php echo wp_kses( $slide['content'], array( 'br' => array() ) ); ?></p>
+                                    <?php endif; ?>
+                                    <?php echo '<p class="slide-description">' . wp_kses( $slide['content'], array( 'br' => array() ) ) . '</p>'; ?>
                                     <?php if( isset( $slide['btn_text'] ) && isset( $slide['btn_link']['url'] ) ) : ?>
-                                        <a class="slide-btn" href="<?php echo esc_url( $slide['btn_link']['url'] ); ?>"><?php echo esc_html( $slide['btn_text'] ); ?></a>
+                                    <?php echo '<a class="slide-btn" href="' . esc_url( $slide['btn_link']['url'] ) . '">' . esc_html_e( $slide['btn_text'], 'storezz-elements' ) . '</a>';  ?>
                                     <?php endif; ?>
                                 </div>
                             </div>

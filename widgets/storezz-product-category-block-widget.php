@@ -832,51 +832,50 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $category8 = $settings['product_category8'] ? get_term($settings['product_category8']) : 0;
         ?>
 
-
-        <div class="se-category-block se-category-<?php echo $layout_type?>" id="storezz-product-category-block2-<?php echo esc_attr($this->get_id()); ?>" >
+        <?php echo '<div class="se-category-block se-category-' . esc_attr( $layout_type ) .'" id="storezz-product-category-block2-' .esc_attr($this->get_id()) . '" >'; ?>
             <?php if ($category1) : ?>
-                <div class="se-product-cat se-product-cat1 animation <?php echo $animation_style ?>">
+                <?php echo '<div class="se-product-cat se-product-cat1 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category1, $settings['image_size_1_size'], $button_position ); ?>
                 </div>
             <?php endif; ?>
             <?php if ($category2) : ?>
-                <div class="se-product-cat se-product-cat2 animation <?php echo $animation_style ?>">
+              <?php echo '<div class="se-product-cat se-product-cat2 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category2, $settings['image_size_2_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category3) : ?>
-                <div class="se-product-cat se-product-cat3 animation <?php echo $animation_style ?>">
+              <?php echo '<div class="se-product-cat se-product-cat3 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category3, $settings['image_size_3_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category4) : ?>
-                <div class="se-product-cat se-product-cat4 animation <?php echo $animation_style ?>">
+              <?php echo '<div class="se-product-cat se-product-cat4 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category4, $settings['image_size_4_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category5) : ?>
-                <div class="se-product-cat se-product-cat5 animation <?php echo $animation_style ?>">
+              <?php echo '<div class="se-product-cat se-product-cat5 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category5, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category6) : ?>
-                <div class="se-product-cat se-product-cat6 animation <?php echo $animation_style ?>">
+              <?php echo '<div class="se-product-cat se-product-cat6 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category6, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category7) : ?>
-                <div class="se-product-cat se-product-cat7 animation <?php echo $animation_style ?>">
+              <?php echo '<div class="se-product-cat se-product-cat7 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category7, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($category8) : ?>
-                <div class="se-product-cat se-product-cat5 animation <?php echo $animation_style ?>">
+              <?php echo '<div class="se-product-cat se-product-cat8 animation ' . esc_attr( $animation_style ) . '">'; ?>
                     <?php $this->get_product_category_content($category8, $settings['image_size_5_size'], $button_position); ?>
                 </div>
             <?php endif; ?>
@@ -891,10 +890,10 @@ class Storezz_Product_Category_Block_Widget extends \Elementor\Widget_Base {
         $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
         $image = wp_get_attachment_image_src($thumbnail_id, $image_size);
         ?>
-        <a href="<?php echo esc_url(get_term_link($category)); ?>" class="se-cat-bg" style="background-image: url(<?php echo esc_url($image[0]); ?>); " >
-          <div class="se-cat-link <?php echo $button_position ?>">
-            <span class="se-cat-name" ><?php echo esc_html($category->name); ?></span>
-            <span class="se-cat-count">(<?php echo esc_html($category->count); ?>)</span>
+        <?php echo '<a href="' . esc_url(get_term_link($category)) . '" class="se-cat-bg" style="background-image: url(' . esc_url($image[0]) . ')" >'; ?>
+        <?php echo '<div class="se-cat-link ' . esc_attr( $button_position ) . '">'; ?>
+        <?php echo '<span class="se-cat-name">' . esc_html($category->name) . '</span>'; ?>
+        <?php echo '<span class="se-cat-count">' . esc_html($category->count) . '</span>'; ?>
           </div>
         </a>
         <?php

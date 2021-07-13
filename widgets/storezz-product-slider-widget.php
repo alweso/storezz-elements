@@ -172,10 +172,10 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'hide_out_of_stock',
       [
-        'label' => esc_html__('Hide out-of-stock items', 'menheer-plugin'),
+        'label' => esc_html__('Hide out-of-stock items', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => esc_html__('Yes', 'menheer-plugin'),
-        'label_off' => esc_html__('No', 'menheer-plugin'),
+        'label_on' => esc_html__('Yes', 'storezz-elements'),
+        'label_off' => esc_html__('No', 'storezz-elements'),
         'default' => 'yes',
       ]
     );
@@ -291,7 +291,7 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     $products = new WP_Query( $args );
     ?>
     <?php if( $products->have_posts() ) : ?>
-      <ul data-carousel-options='<?php echo $slide_controls ?>' class="se-product-slider owl-carousel">
+      <?php echo '<ul data-carousel-options="' . esc_attr( $slide_controls ) . '" class="se-product-slider owl-carousel">'; ?>
         <?php
         $template_args = array(
           'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,

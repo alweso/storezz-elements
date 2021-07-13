@@ -432,7 +432,8 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
       ?>
       <div class="se-testimonials-wrapper">
         <h2>Testimonialssss</h2>
-        <?php echo '<div data-carousel-options='{"autoplay":"false","items":"1","loop":"true","nav":"true","animateIn":"true"}' class="se-testimonial-slider owl-carousel" id="se-testimonial-slider-' . esc_attr( $this->get_id() ) . '">'; ?>
+        <div data-carousel-options='{"autoplay":"false","items":"1","loop":"true","nav":"true","animateIn":"true"}' class="se-testimonial-slider owl-carousel" id="se-testimonial-slider-<?php echo esc_attr( $this->get_id() ); ?>">
+
           <?php foreach( $testimonials as $testimonial ) : ?>
             <div class="testimonial">
               <?php if( $testimonial['testimony'] ) : ?>
@@ -448,10 +449,10 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
                   </div>
                   <div class="name-position">
                     <?php if( $testimonial['name'] ) : ?>
-                      <span class="name"><?php echo esc_html( $testimonial['name'] ); ?></span>
+                      <span class="name"><?php esc_html_e( $testimonial['name'], 'storezz-elements' ); ?></span>
                     <?php endif; ?>
                     <?php if( $testimonial['position'] ) : ?>
-                      <span class="position"><?php echo esc_html( $testimonial['position'] ); ?></span>
+                      <span class="position"><?php esc_html_e( $testimonial['position'], 'storezz-elements' ); ?></span>
                     <?php endif; ?>
                   </div>
                 </div>

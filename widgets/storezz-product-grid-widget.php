@@ -94,9 +94,9 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
         'type' => \Elementor\Controls_Manager::SELECT,
         'default' => '',
         'options' => [
-          ''         => esc_html__( 'All products', 'woocommerce' ),
-          'featured' => esc_html__( 'Featured products', 'woocommerce' ),
-          'onsale'   => esc_html__( 'On-sale products', 'woocommerce' ),
+          ''         => esc_html__( 'All products', 'storezz-elements' ),
+          'featured' => esc_html__( 'Featured products', 'storezz-elements' ),
+          'onsale'   => esc_html__( 'On-sale products', 'storezz-elements' ),
         ],
       ]
     );
@@ -104,10 +104,10 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
     $this->add_control(
       'hide_out_of_stock',
       [
-        'label' => esc_html__('Hide out-of-stock items', 'menheer-plugin'),
+        'label' => esc_html__('Hide out-of-stock items', 'storezz-elements'),
         'type' => \Elementor\Controls_Manager::SWITCHER,
-        'label_on' => esc_html__('Yes', 'menheer-plugin'),
-        'label_off' => esc_html__('No', 'menheer-plugin'),
+        'label_on' => esc_html__('Yes', 'storezz-elements'),
+        'label_off' => esc_html__('No', 'storezz-elements'),
         'default' => 'yes',
       ]
     );
