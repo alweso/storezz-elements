@@ -21,18 +21,18 @@
       <?php  } elseif (has_post_format('gallery')) { ?>
         <i class="fa fa-images"></i>
       <?php  } ?>
-      <?php esc_html_e(wp_trim_words(get_the_title(), $crop_small,'')); ?>
+      <?php esc_html_e(wp_trim_words(get_the_title(), $crop_small,''), 'storezz-elements'); ?>
       </a>
     </h4>
     <span class="comments-views-date">
       <?php if($show_comments_small) { ?>
         <span class="comments">
-          <i class="fa fa-comment"></i><?php esc_html__( get_comments_number() ); ?>
+          <i class="fa fa-comment"></i><?php esc_html__( get_comments_number(), 'storezz-elements' ); ?>
         </span>
       <?php }  ?>
       <?php if($show_date_small) { ?>
         <span class="date">
-          <i class="fa fa-calendar"></i><?php esc_html__( get_the_date('Y-m-d') ); ?>
+          <i class="fa fa-calendar"></i><?php esc_html__( get_the_date('Y-m-d'), 'storezz-elements' ); ?>
         </span>
       <?php }  ?>
     </span>

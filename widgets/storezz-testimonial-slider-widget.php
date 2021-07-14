@@ -428,25 +428,29 @@ class Storezz_Testimonial_Slider_Widget extends \Elementor\Widget_Base {
 
     $testimonials = $settings['testimonials'];
 
+    $slide_controls  = [
+      "autoplay"  => 'true',
+      // "dots"  => $nav_dot,
+      "nav" => 'true',
+      "loop"  => "true",
+      "items" => "1",
+      "animateIn" => "true"
+    ];
+
+    $slide_controls = \json_encode($slide_controls);
+
     if( !empty( $testimonials ) ) :
       ?>
       <div class="se-testimonials-wrapper">
         <h2>Testimonialssss</h2>
-        <div data-carousel-options='{"autoplay":"false","items":"1","loop":"true","nav":"true","animateIn":"true"}' class="se-testimonial-slider owl-carousel" id="se-testimonial-slider-<?php echo esc_attr( $this->get_id() ); ?>">
-
+        <?php echo '<div data-carousel-options=' . esc_attr( $slide_controls ) .' class="se-testimonial-slider owl-carousel" id="se-testimonial-slider-' . esc_attr( $this->get_id() ) . '">'; ?>
           <?php foreach( $testimonials as $testimonial ) : ?>
             <div class="testimonial">
               <?php if( $testimonial['testimony'] ) : ?>
                 <div class="testimony">
                   <?php if( $testimonial['name'] ) : ?>
                   <?php endif; ?>
-                  <div class="testimony-text">
-                    <?php
-                    echo wp_kses( $testimonial['testimony'], array(
-                      'br' => array()
-                    ) );
-                    ?>
-                  </div>
+                  <?php echo '<div class="testimony-text">'. wp_kses( $testimonial['testimony'], array('br' => array()) ) .'</div>'; ?>
                   <div class="name-position">
                     <?php if( $testimonial['name'] ) : ?>
                       <span class="name"><?php esc_html_e( $testimonial['name'], 'storezz-elements' ); ?></span>

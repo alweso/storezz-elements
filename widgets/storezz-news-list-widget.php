@@ -272,6 +272,17 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
       ]
     );
 
+    $this->add_control(
+      'show_comments',
+      [
+        'label' => esc_html__('Show comments', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Yes', 'storezz-elements'),
+        'label_off' => esc_html__('No', 'storezz-elements'),
+        'default' => 'yes',
+      ]
+    );
+
     $this->end_controls_section();
 
     $this->start_controls_section(
@@ -717,7 +728,6 @@ class Storezz_News_List_Widget extends \Elementor\Widget_Base {
     $show_cat_small           = $settings['show_cat'];
     $show_date_small          = $settings['show_date'];
     $show_author_small         = $settings['show_author'];
-    $show_views_small         = $settings['show_views'];
     $show_comments_small         = $settings['show_comments'];
     $post_count_small      = $settings['post_count'];
     $show_exerpt_small = $settings['show_exerpt'];

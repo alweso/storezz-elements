@@ -110,7 +110,7 @@ class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
       [
         'label' => esc_html__( 'Title', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => esc_html__( 'Post grid', 'storezz-elements' ),
+        'default' => esc_html__( 'News grid', 'storezz-elements' ),
         'condition' => [ 'show_title' => ['yes'] ]
       ]
     );
@@ -328,16 +328,7 @@ class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
         'default' => 'no',
       ]
     );
-    // $this->add_control(
-    //   'show_views',
-    //   [
-    //     'label' => esc_html__('Show views', 'storezz-elements'),
-    //     'type' => \Elementor\Controls_Manager::SWITCHER,
-    //     'label_on' => esc_html__('Yes', 'storezz-elements'),
-    //     'label_off' => esc_html__('No', 'storezz-elements'),
-    //     'default' => 'yes',
-    //   ]
-    // );
+
     $this->add_control(
       'show_comments',
       [
@@ -375,7 +366,7 @@ class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
       \Elementor\Group_Control_Typography::get_type(),
       [
         'label' => esc_html__( 'Widget title typography', 'storezz-elements' ),
-        'name' => 'big_title_typography',
+        'name' => 'main_title_typography',
         'selector' => '{{WRAPPER}} .se-block-title',
       ]
     );
@@ -821,9 +812,7 @@ class Storezz_News_Grid_Widget extends \Elementor\Widget_Base {
     $show_cat           = $settings['show_cat'];
     $show_date          = $settings['show_date'];
     $show_author         = $settings['show_author'];
-    $show_views         = $settings['show_views'];
     $show_comments         = $settings['show_comments'];
-    $show_tags        = $settings['show_tags'];
     $post_count      = $settings['post_count'];
     $show_exerpt = $settings['show_exerpt'];
     $crop	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;

@@ -508,25 +508,5 @@
                 </div>
             <?php
             endif;
-
-            // $this->render_script();
-        }
-
-        /** Render Script */
-        protected function render_script() {
-            $settings = $this->get_settings_for_display();
-
-            $id = '#storezz-slider-' . $this->get_id();
-            ?>
-                <script type="text/javascript">
-                    jQuery(document).ready(function($){
-                        $('<?php echo esc_attr( $id ); ?>').owlCarousel({
-                            items: 1,
-                            autoplay: false,
-                            loop: true
-                        });
-                    });
-                </script>
-            <?php
         }
     }

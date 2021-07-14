@@ -93,6 +93,18 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
     );
 
     $this->add_control(
+      'nav_dot',
+      [
+        'label' => esc_html__( 'Show Dot Navigation', 'storezz-elements' ),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__( 'Yes', 'storezz-elements' ),
+        'label_off' => esc_html__( 'No', 'storezz-elements' ),
+        'return_value' => 'true',
+        'default' => 'true'
+      ]
+    );
+
+    $this->add_control(
       'dot_nav_show',
       [
         'label' => esc_html__( 'Show Dot Navigation', 'storezz-elements' ),
@@ -220,8 +232,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       'post_status'    => 'publish',
       'post_type'      => 'product',
       'no_found_rows'  => 1,
-      'orderby'        => $orderby,
-      'order'          => $order,
       'meta_query'     => array(),
       'tax_query'      => array(
         'relation' => 'AND',
@@ -269,7 +279,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       "autoplay"  => $autoplay,
       "center"  => $center,
       "dots"  => $nav_dot,
-      // "items"  => $number_of_products,
       "nav" => $nav,
       "loop"  => "true",
       "responsive" => [
@@ -294,7 +303,6 @@ class Storezz_Product_Slider_Widget extends \Elementor\Widget_Base {
       <?php echo '<ul data-carousel-options="' . esc_attr( $slide_controls ) . '" class="se-product-slider owl-carousel">'; ?>
         <?php
         $template_args = array(
-          'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
           'show_rating' => true,
           'image_size'  => $image_size,
         );

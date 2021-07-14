@@ -228,7 +228,7 @@ if( !function_exists( 'storezz_elements_menulist' ) ) {
   function storezz_elements_menulist() {
     $menus = wp_get_nav_menus();
 
-    $menu_list['none'] = esc_html__(' -- Select Menu -- ', 'storezz');
+    $menu_list['none'] = esc_html__(' -- Select Menu -- ', 'storezz-elements');
     foreach ($menus as $menu) {
       $menu_list[$menu->slug] = $menu->name;
     }

@@ -122,7 +122,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
       [
         'label' => esc_html__( 'Title', 'storezz-elements' ),
         'type' => \Elementor\Controls_Manager::TEXT,
-        'default' => esc_html__( 'Post block', 'storezz-elements' ),
+        'default' => esc_html__( 'News block', 'storezz-elements' ),
         'condition' => [ 'show_title' => ['yes'] ]
       ]
     );
@@ -354,26 +354,17 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
         'default' => 'no',
       ]
     );
-    // $this->add_control(
-    //   'show_views',
-    //   [
-    //     'label' => esc_html__('Show views', 'storezz-elements'),
-    //     'type' => \Elementor\Controls_Manager::SWITCHER,
-    //     'label_on' => esc_html__('Yes', 'storezz-elements'),
-    //     'label_off' => esc_html__('No', 'storezz-elements'),
-    //     'default' => 'yes',
-    //   ]
-    // );
-    // $this->add_control(
-    //   'show_comments',
-    //   [
-    //     'label' => esc_html__('Show comments', 'storezz-elements'),
-    //     'type' => \Elementor\Controls_Manager::SWITCHER,
-    //     'label_on' => esc_html__('Yes', 'storezz-elements'),
-    //     'label_off' => esc_html__('No', 'storezz-elements'),
-    //     'default' => 'yes',
-    //   ]
-    // );
+
+    $this->add_control(
+      'show_comments',
+      [
+        'label' => esc_html__('Show comments', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Yes', 'storezz-elements'),
+        'label_off' => esc_html__('No', 'storezz-elements'),
+        'default' => 'yes',
+      ]
+    );
 
     $this->end_controls_section();
 
@@ -457,16 +448,16 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     //     'default' => 'yes',
     //   ]
     // );
-    // $this->add_control(
-    //   'show_comments_small',
-    //   [
-    //     'label' => esc_html__('Show comments', 'storezz-elements'),
-    //     'type' => \Elementor\Controls_Manager::SWITCHER,
-    //     'label_on' => esc_html__('Yes', 'storezz-elements'),
-    //     'label_off' => esc_html__('No', 'storezz-elements'),
-    //     'default' => 'yes',
-    //   ]
-    // );
+    $this->add_control(
+      'show_comments_small',
+      [
+        'label' => esc_html__('Show comments', 'storezz-elements'),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Yes', 'storezz-elements'),
+        'label_off' => esc_html__('No', 'storezz-elements'),
+        'default' => 'yes',
+      ]
+    );
 
     $this->end_controls_section();
 
@@ -482,7 +473,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
       \Elementor\Group_Control_Typography::get_type(),
       [
         'label' => esc_html__( 'Widget title typography', 'storezz-elements' ),
-        'name' => 'big_title_typography',
+        'name' => 'main_title_typography',
         'selector' => '{{WRAPPER}} .menheer-block-title',
       ]
     );
@@ -1347,13 +1338,11 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $show_cat           = $settings['show_cat'];
     $show_date          = $settings['show_date'];
     $show_author         = $settings['show_author'];
-    // $show_views         = $settings['show_views'];
-    // $show_comments         = $settings['show_comments'];
+    $show_comments         = $settings['show_comments'];
     $post_count      = $settings['post_count'];
     $post_count_2      = $settings['post_count_2'];
     $post_count_3      = $settings['post_count_3'];
     $show_exerpt = $settings['show_exerpt'];
-    $show_exerpt_2 = $settings['show_exerpt_2'];
     $crop	= (isset($settings['post_title_crop'])) ? $settings['post_title_crop'] : 20;
     $post_content_crop	= (isset($settings['post_content_crop'])) ? $settings['post_content_crop'] : 20;
     $post_content_crop_2	= (isset($settings['post_content_crop_2'])) ? $settings['post_content_crop_2'] : 50;
@@ -1363,7 +1352,7 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
     $show_date_small          = $settings['show_date_small'];
     $show_author_small         = $settings['show_author_small'];
     // $show_views_small         = $settings['show_views_small'];
-    // $show_comments_small         = $settings['show_comments_small'];
+    $show_comments_small         = $settings['show_comments_small'];
     $show_exerpt_small = $settings['show_exerpt_small'];
     $crop_small	= (isset($settings['post_title_crop_small'])) ? $settings['post_title_crop_small'] : 20;
     $post_content_crop_small	= (isset($settings['post_content_crop_small'])) ? $settings['post_content_crop_small'] : 50;
@@ -1387,10 +1376,6 @@ class Storezz_News_Block_Widget extends \Elementor\Widget_Base {
       $arg['ignore_sticky_posts'] = 1;
     } else {
       $arg['ignore_sticky_posts'] = 1;
-    }
-
-    if($settings['order_by']== 'meta_value_num'){
-      $arg['meta_key'] ='post_views_count';
     }
 
     if($settings['block_style']=='style-4') {

@@ -275,7 +275,6 @@ class Storezz_Product_Grid_Widget extends \Elementor\Widget_Base {
       'tax_query'      => array(
         'relation' => 'AND',
       ),
-      'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
       'show_rating' => true,
       'image_size' => $image_size,
     );

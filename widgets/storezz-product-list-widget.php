@@ -318,7 +318,6 @@ class Storezz_Product_List_Widget extends \Elementor\Widget_Base {
       <ul class="se-product-list">
         <?php
         $template_args = array(
-          'widget_id'   => isset( $args['widget_id'] ) ? $args['widget_id'] : $this->widget_id,
           'show_rating' => true,
           'image_size' => $image_size,
         );
